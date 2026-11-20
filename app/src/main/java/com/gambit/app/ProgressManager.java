@@ -7,7 +7,10 @@ public class ProgressManager {
 
     private static final String PREF_NAME = "gambit_progress";
     private static final String KEY_STREAK = "daily_streak";
+    private static final String KEY_BEST_STREAK = "best_daily_streak";
+    private static final String KEY_TOTAL_DAYS = "total_days_active";
     private static final String KEY_LAST_DAY = "last_active_day";
+    private static final String KEY_FIRST_ACTIVE_TIMESTAMP = "first_active_timestamp";
     private static final String KEY_TOTAL_MOVES_TRAINED = "total_moves_trained";
     private static final String KEY_TOTAL_CHAPTERS_MASTERED = "total_chapters_mastered";
 
@@ -23,29 +26,54 @@ public class ProgressManager {
         long currentDay = now / (1000 * 60 * 60 * 24);
         long lastDay = prefs.getLong(KEY_LAST_DAY, 0);
 
+        if (prefs.getLong(KEY_FIRST_ACTIVE_TIMESTAMP, 0) == 0) {
+            prefs.edit().putLong(KEY_FIRST_ACTIVE_TIMESTAMP, now).apply();
+        }
+
         if (lastDay == 0) {
             prefs.edit()
                  .putLong(KEY_LAST_DAY, currentDay)
                  .putInt(KEY_STREAK, 1)
+                 .putInt(KEY_BEST_STREAK, 1)
+                 .putInt(KEY_TOTAL_DAYS, 1)
                  .apply();
         } else if (currentDay == lastDay + 1) {
             // Next consecutive day
-            int currentStreak = prefs.getInt(KEY_STREAK, 0);
+            int currentStreak = prefs.getInt(KEY_STREAK, 0) + 1;
+            int bestStreak = Math.max(currentStreak, prefs.getInt(KEY_BEST_STREAK, 1));
+            int totalDays = prefs.getInt(KEY_TOTAL_DAYS, 1) + 1;
             prefs.edit()
                  .putLong(KEY_LAST_DAY, currentDay)
-                 .putInt(KEY_STREAK, currentStreak + 1)
+                 .putInt(KEY_STREAK, currentStreak)
+                 .putInt(KEY_BEST_STREAK, bestStreak)
+                 .putInt(KEY_TOTAL_DAYS, totalDays)
                  .apply();
         } else if (currentDay > lastDay + 1) {
             // Broken streak
+            int totalDays = prefs.getInt(KEY_TOTAL_DAYS, 1) + 1;
             prefs.edit()
                  .putLong(KEY_LAST_DAY, currentDay)
                  .putInt(KEY_STREAK, 1)
+                 .putInt(KEY_TOTAL_DAYS, totalDays)
                  .apply();
+        } else if (currentDay == lastDay) {
+            // Same day, ensure best streak is at least current streak
+            int currentStreak = prefs.getInt(KEY_STREAK, 1);
+            int bestStreak = Math.max(currentStreak, prefs.getInt(KEY_BEST_STREAK, 1));
+            prefs.edit().putInt(KEY_BEST_STREAK, bestStreak).apply();
         }
     }
 
     public int getStreak() {
-        return prefs.getInt(KEY_STREAK, 1);
+        return Math.max(1, prefs.getInt(KEY_STREAK, 1));
+    }
+
+    public int getBestStreak() {
+        return Math.max(getStreak(), prefs.getInt(KEY_BEST_STREAK, 1));
+    }
+
+    public int getTotalDaysActive() {
+        return Math.max(getStreak(), prefs.getInt(KEY_TOTAL_DAYS, 1));
     }
 
     public void incrementMovesTrained() {

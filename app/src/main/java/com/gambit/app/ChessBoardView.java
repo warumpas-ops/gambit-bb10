@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -80,13 +81,16 @@ public class ChessBoardView extends View {
         lastMovePaint.setColor(lastMoveColor);
         highlightPaint.setColor(highlightColor);
 
+        Typeface font = FontHelper.getFont(context);
         lightCoordPaint.setColor(darkSquareColor);
         lightCoordPaint.setTextSize(14f);
         lightCoordPaint.setFakeBoldText(true);
+        lightCoordPaint.setTypeface(font);
 
         darkCoordPaint.setColor(lightSquareColor);
         darkCoordPaint.setTextSize(14f);
         darkCoordPaint.setFakeBoldText(true);
+        darkCoordPaint.setTypeface(font);
 
         greenArrowPaint.setColor(Color.parseColor("#7FA650"));
         greenArrowPaint.setStrokeWidth(10f);

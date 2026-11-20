@@ -57,8 +57,19 @@ public class HubActivity extends Activity {
             }
         });
 
+        // Clickable Streak Badge -> opens Grind Stats Modal!
+        tvHubStreak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StreakDialog.show(HubActivity.this, progressManager);
+            }
+        });
+
         updateTabs();
         renderCourses();
+
+        // Apply Space Grotesk font across the entire Hub UI
+        FontHelper.apply(this);
     }
 
     private void updateTabs() {
@@ -80,6 +91,7 @@ public class HubActivity extends Activity {
         super.onResume();
         tvHubStreak.setText("\uD83D\uDD25 " + progressManager.getStreak() + "d");
         renderCourses();
+        FontHelper.apply(this);
     }
 
     private void renderCourses() {
@@ -190,5 +202,8 @@ public class HubActivity extends Activity {
 
             container.addView(courseCard);
         }
+
+        // Apply Space Grotesk font to dynamically created course views
+        FontHelper.apply(container, this);
     }
 }

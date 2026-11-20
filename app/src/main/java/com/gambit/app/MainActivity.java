@@ -148,7 +148,18 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
             }
         });
 
+        // Clickable Streak Badge in Top Bar
+        tvTopStreak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StreakDialog.show(MainActivity.this, progressManager);
+            }
+        });
+
         startChapter(initCourseIdx, initChapterIdx);
+
+        // Apply Space Grotesk font across MainActivity
+        FontHelper.apply(this);
     }
 
     private void toggleMode() {
