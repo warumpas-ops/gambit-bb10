@@ -7,8 +7,8 @@
   "chapters": [
     {
       "id": "italian_fried_liver",
-      "title": "Two Knights & The Fried Liver",
-      "subtitle": "Punishing 3... Nf6 with Ng5",
+      "title": "Two Knights & The Fried Liver Attack",
+      "subtitle": "Punishing 3... Nf6 with 4. Ng5! d5 5. exd5",
       "orientation": "white",
       "steps": [
         {
@@ -16,7 +16,7 @@
           "uci": "e2e4",
           "isUserMove": true,
           "title": "Claim the Center",
-          "explanation": "We stake an immediate claim on the critical d5 square, free our Light-squared Bishop, and open the diagonal for our Queen.",
+          "explanation": "We stake an immediate claim on d5, free our Light-squared Bishop, and open the diagonal for our Queen.",
           "warning": "Never start with passive pawn moves like a3 or h3 — always claim the center first!",
           "arrows": [
             { "from": "e2", "to": "e4", "color": "green" },
@@ -29,18 +29,15 @@
           "uci": "e7e5",
           "isUserMove": false,
           "title": "Black Equalizes the Center",
-          "explanation": "Black mirrors our move, staking their own claim on d4 and preventing us from freely pushing our d-pawn.",
-          "arrows": [
-            { "from": "e7", "to": "e5", "color": "blue" }
-          ]
+          "explanation": "Black mirrors our move, staking their claim on d4.",
+          "arrows": [{ "from": "e7", "to": "e5", "color": "blue" }]
         },
         {
           "moveSan": "2. Nf3",
           "uci": "g1f3",
           "isUserMove": true,
           "title": "Develop With a Threat",
-          "explanation": "We develop our Knight toward the center while immediately attacking Black's unprotected e5 pawn. This forces Black to react.",
-          "warning": "Avoid 2. f4 (King's Gambit) until you are comfortable defending sharp king diagonals.",
+          "explanation": "We develop our Knight toward the center while immediately attacking Black's unprotected e5 pawn.",
           "arrows": [
             { "from": "g1", "to": "f3", "color": "green" },
             { "from": "f3", "to": "e5", "color": "red" }
@@ -52,19 +49,15 @@
           "uci": "b8c6",
           "isUserMove": false,
           "title": "Black Defends e5",
-          "explanation": "Black naturally develops their Knight to protect the e5 pawn and contest the center.",
-          "arrows": [
-            { "from": "b8", "to": "c6", "color": "blue" },
-            { "from": "c6", "to": "e5", "color": "blue" }
-          ]
+          "explanation": "Black develops their Knight to protect the e5 pawn.",
+          "arrows": [{ "from": "b8", "to": "c6", "color": "blue" }]
         },
         {
           "moveSan": "3. Bc4",
           "uci": "f1c4",
           "isUserMove": true,
           "title": "The Italian Bishop",
-          "explanation": "The signature move of the Italian Game! Our Bishop locks eyes on f7 — the absolute weakest square in Black's camp, guarded only by their King.",
-          "warning": "Don't play 3. Bb5 (Ruy Lopez) unless you're ready for deep, quiet pawn structures.",
+          "explanation": "The signature move! Our Bishop locks eyes on f7 — the weakest square in Black's camp, guarded only by their King.",
           "arrows": [
             { "from": "f1", "to": "c4", "color": "green" },
             { "from": "c4", "to": "f7", "color": "red" }
@@ -76,11 +69,8 @@
           "uci": "g8f6",
           "isUserMove": false,
           "title": "Two Knights Defense",
-          "explanation": "Black counter-attacks our e4 pawn instead of playing the solid 3... Bc5. This invites White to unleash chaos!",
-          "arrows": [
-            { "from": "g8", "to": "f6", "color": "blue" },
-            { "from": "f6", "to": "e4", "color": "red" }
-          ]
+          "explanation": "Black counter-attacks our e4 pawn instead of playing 3... Bc5.",
+          "arrows": [{ "from": "g8", "to": "f6", "color": "blue" }]
         },
         {
           "moveSan": "4. Ng5",
@@ -101,29 +91,45 @@
           "uci": "d7d5",
           "isUserMove": false,
           "title": "Black Blocks the Bishop",
-          "explanation": "Black correctly blocks the bishop's sightline to f7 with their center pawn.",
-          "arrows": [
-            { "from": "d7", "to": "d5", "color": "blue" }
-          ]
+          "explanation": "Black blocks the bishop's sightline to f7 with their center pawn.",
+          "arrows": [{ "from": "d7", "to": "d5", "color": "blue" }]
         },
         {
           "moveSan": "5. exd5",
           "uci": "e4d5",
           "isUserMove": true,
           "title": "Open the Center",
-          "explanation": "We capture on d5 with our pawn, continuing the relentless assault on Black's position.",
-          "warning": "If Black plays 5... Nxd5?, we can play 6. Nxf7! sacrificing the Knight to drag the Black King into the center (The Fried Liver Attack)!",
-          "arrows": [
-            { "from": "e4", "to": "d5", "color": "green" }
-          ],
+          "explanation": "We capture on d5 with our pawn, continuing the relentless assault.",
+          "warning": "If Black plays 5... Nxd5?, we play 6. Nxf7! Kxf7 7. Qf3+ Ke6 8. Nc3 (The true Fried Liver Sacrifice) dragging their King into mate!",
+          "arrows": [{ "from": "e4", "to": "d5", "color": "green" }],
           "highlightSquares": ["d5"]
+        },
+        {
+          "moveSan": "5... Na5",
+          "uci": "c6a5",
+          "isUserMove": false,
+          "title": "The Main Line Counter",
+          "explanation": "Black avoids the Fried Liver trap and attacks our bishop.",
+          "arrows": [{ "from": "c6", "to": "a5", "color": "blue" }]
+        },
+        {
+          "moveSan": "6. Bb5+",
+          "uci": "c4b5",
+          "isUserMove": true,
+          "title": "Check with Tempo!",
+          "explanation": "We don't retreat our bishop passively — we deliver a check on b5, forcing Black to block with 6... c6.",
+          "arrows": [
+            { "from": "c4", "to": "b5", "color": "green" },
+            { "from": "b5", "to": "e8", "color": "red" }
+          ],
+          "highlightSquares": ["e8"]
         }
       ]
     },
     {
       "id": "italian_giuoco_piano",
       "title": "Giuoco Piano (The Quiet Game)",
-      "subtitle": "Handling 3... Bc5 with solid center dominance",
+      "subtitle": "Handling 3... Bc5 with 4. c3 & 5. d4 center dominance",
       "orientation": "white",
       "steps": [
         {
@@ -180,12 +186,130 @@
           "isUserMove": true,
           "title": "Prepare d4",
           "explanation": "The master plan! We play c3 to support a massive pawn push to d4 next move, taking full control of the board.",
-          "warning": "Don't rush with 4. d4 immediately — 4. c3 ensures you maintain pawns on both d4 and e4.",
           "arrows": [
             { "from": "c2", "to": "c3", "color": "green" },
             { "from": "c3", "to": "d4", "color": "blue" }
           ],
           "highlightSquares": ["d4"]
+        },
+        {
+          "moveSan": "4... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Black Attacks e4",
+          "explanation": "Black targets our e4 pawn.",
+          "arrows": [{ "from": "g8", "to": "f6", "color": "blue" }]
+        },
+        {
+          "moveSan": "5. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Strike in the Center!",
+          "explanation": "We push d4! Our pawns dominate the center, attack Black's bishop on c5, and seize total control.",
+          "arrows": [
+            { "from": "d2", "to": "d4", "color": "green" },
+            { "from": "d4", "to": "c5", "color": "red" }
+          ],
+          "highlightSquares": ["d4", "c5"]
+        }
+      ]
+    },
+    {
+      "id": "italian_as_black_twoknights",
+      "title": "Defending as Black (Two Knights Counter)",
+      "subtitle": "How Black refutes 4. Ng5 with 4... d5 & 5... Na5!",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Opens",
+          "explanation": "White claims the center with 1. e4.",
+          "arrows": [{ "from": "e2", "to": "e4", "color": "blue" }]
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": true,
+          "title": "Mirror the Center",
+          "explanation": "We stake our equal claim on d4 and free our pieces.",
+          "arrows": [{ "from": "e7", "to": "e5", "color": "green" }]
+        },
+        {
+          "moveSan": "2. Nf3",
+          "uci": "g1f3",
+          "isUserMove": false,
+          "title": "White Attacks e5",
+          "explanation": "White attacks our pawn.",
+          "arrows": [{ "from": "g1", "to": "f3", "color": "blue" }]
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": true,
+          "title": "Defend with Knight",
+          "explanation": "We guard our e5 pawn and develop toward the center.",
+          "arrows": [{ "from": "b8", "to": "c6", "color": "green" }]
+        },
+        {
+          "moveSan": "3. Bc4",
+          "uci": "f1c4",
+          "isUserMove": false,
+          "title": "The Italian Bishop",
+          "explanation": "White points at our f7 square.",
+          "arrows": [{ "from": "f1", "to": "c4", "color": "blue" }]
+        },
+        {
+          "moveSan": "3... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Two Knights Counterattack!",
+          "explanation": "We counter-attack White's e4 pawn! We dare White to attack f7.",
+          "arrows": [
+            { "from": "g8", "to": "f6", "color": "green" },
+            { "from": "f6", "to": "e4", "color": "red" }
+          ],
+          "highlightSquares": ["e4"]
+        },
+        {
+          "moveSan": "4. Ng5",
+          "uci": "f3g5",
+          "isUserMove": false,
+          "title": "White Tries to Attack f7",
+          "explanation": "White piles up on our f7 pawn.",
+          "arrows": [{ "from": "f3", "to": "g5", "color": "blue" }]
+        },
+        {
+          "moveSan": "4... d5",
+          "uci": "d7d5",
+          "isUserMove": true,
+          "title": "Block the Bishop!",
+          "explanation": "The ONLY correct move. We sacrifice a pawn to shut down White's bishop diagonal.",
+          "warning": "Never play 4... h6? or 4... Bc5? here — White wins immediately on f7!",
+          "arrows": [{ "from": "d7", "to": "d5", "color": "green" }],
+          "highlightSquares": ["d5"]
+        },
+        {
+          "moveSan": "5. exd5",
+          "uci": "e4d5",
+          "isUserMove": false,
+          "title": "White Takes on d5",
+          "explanation": "White takes our pawn.",
+          "arrows": [{ "from": "e4", "to": "d5", "color": "blue" }]
+        },
+        {
+          "moveSan": "5... Na5",
+          "uci": "c6a5",
+          "isUserMove": true,
+          "title": "Counterattack White's Bishop!",
+          "explanation": "The Grandmaster move! We DO NOT recapture with 5... Nxd5? (which walks into the Fried Liver). Instead, we attack White's bishop on c4, winning initiative!",
+          "warning": "DO NOT play 5... Nxd5? — 6. Nxf7! crushes Black!",
+          "arrows": [
+            { "from": "c6", "to": "a5", "color": "green" },
+            { "from": "a5", "to": "c4", "color": "red" }
+          ],
+          "highlightSquares": ["c4"]
         }
       ]
     }

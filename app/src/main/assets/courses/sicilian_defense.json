@@ -25,7 +25,6 @@
           "isUserMove": true,
           "title": "The Sicilian Strike",
           "explanation": "Boom! The Sicilian Defense. We contest the d4 center square using a flank c-pawn, creating an asymmetrical fight from move 1.",
-          "warning": "Never play 1... c6 or 1... e5 if you intend to play Sicilian lines — 1... c5 defines the board!",
           "arrows": [
             { "from": "c7", "to": "c5", "color": "green" },
             { "from": "c5", "to": "d4", "color": "blue" }
@@ -89,6 +88,61 @@
             { "from": "f6", "to": "e4", "color": "red" }
           ],
           "highlightSquares": ["e4"]
+        }
+      ]
+    },
+    {
+      "id": "sicilian_white_bowdler_grand_prix",
+      "title": "Crushing as White (Grand Prix Attack: 2. f4)",
+      "subtitle": "How White storms Black's king with an aggressive Kingside attack",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "Open with e4",
+          "explanation": "We stake the center.",
+          "arrows": [{ "from": "e2", "to": "e4", "color": "green" }]
+        },
+        {
+          "moveSan": "1... c5",
+          "uci": "c7c5",
+          "isUserMove": false,
+          "title": "Black plays Sicilian",
+          "explanation": "Black challenges d4.",
+          "arrows": [{ "from": "c7", "to": "c5", "color": "blue" }]
+        },
+        {
+          "moveSan": "2. Nc3",
+          "uci": "b1c3",
+          "isUserMove": true,
+          "title": "The Closed / Grand Prix Knight",
+          "explanation": "We develop our knight to c3 to prevent Black from pushing ...d5, while preparing to push f4 next move!",
+          "arrows": [
+            { "from": "b1", "to": "c3", "color": "green" },
+            { "from": "c3", "to": "d5", "color": "blue" }
+          ],
+          "highlightSquares": ["d5"]
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": false,
+          "title": "Black develops",
+          "explanation": "Black controls the center.",
+          "arrows": [{ "from": "b8", "to": "c6", "color": "blue" }]
+        },
+        {
+          "moveSan": "3. f4",
+          "uci": "f2f4",
+          "isUserMove": true,
+          "title": "The Grand Prix Attack!",
+          "explanation": "BOOM! The Grand Prix Attack. Instead of playing into deep Open Sicilian theory, White launches the f-pawn forward to build a direct mating attack on Black's King with Bc4, Nf3, and f5!",
+          "arrows": [
+            { "from": "f2", "to": "f4", "color": "green" },
+            { "from": "f4", "to": "f5", "color": "blue" }
+          ]
         }
       ]
     }
