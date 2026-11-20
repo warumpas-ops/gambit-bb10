@@ -1,58 +1,62 @@
 [
     {
-        "merged": "com.gambit.app-merged_res-4:/drawable-nodpi_piece_bn.png.flat",
-        "source": "com.gambit.app-main-6:/drawable-nodpi/piece_bn.png"
+        "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_wr.png.flat",
+        "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_wr.png"
     },
     {
-        "merged": "com.gambit.app-merged_res-4:/drawable-nodpi_piece_wb.png.flat",
-        "source": "com.gambit.app-main-6:/drawable-nodpi/piece_wb.png"
+        "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_bk.png.flat",
+        "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_bk.png"
+    },
+    {
+        "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_wq.png.flat",
+        "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_wq.png"
+    },
+    {
+        "merged": "com.gambit.app-merged_res-4:/layout_activity_main.xml.flat",
+        "source": "com.gambit.app-main-6:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_wk.png.flat",
+        "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_wk.png"
     },
     {
         "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.gambit.app-merged_res-4:/drawable-nodpi_piece_bb.png.flat",
-        "source": "com.gambit.app-main-6:/drawable-nodpi/piece_bb.png"
+        "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_wp.png.flat",
+        "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_wp.png"
     },
     {
-        "merged": "com.gambit.app-merged_res-4:/drawable-nodpi_piece_wn.png.flat",
-        "source": "com.gambit.app-main-6:/drawable-nodpi/piece_wn.png"
+        "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_bp.png.flat",
+        "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_bp.png"
     },
     {
-        "merged": "com.gambit.app-merged_res-4:/drawable-nodpi_piece_wp.png.flat",
-        "source": "com.gambit.app-main-6:/drawable-nodpi/piece_wp.png"
+        "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_wn.png.flat",
+        "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_wn.png"
     },
     {
-        "merged": "com.gambit.app-merged_res-4:/drawable-nodpi_piece_br.png.flat",
-        "source": "com.gambit.app-main-6:/drawable-nodpi/piece_br.png"
+        "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_bn.png.flat",
+        "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_bn.png"
     },
     {
         "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\layout_activity_hub.xml.flat",
         "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\layout\\activity_hub.xml"
     },
     {
-        "merged": "com.gambit.app-merged_res-4:/drawable-nodpi_piece_wr.png.flat",
-        "source": "com.gambit.app-main-6:/drawable-nodpi/piece_wr.png"
+        "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_bq.png.flat",
+        "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_bq.png"
     },
     {
-        "merged": "com.gambit.app-merged_res-4:/drawable-nodpi_piece_bp.png.flat",
-        "source": "com.gambit.app-main-6:/drawable-nodpi/piece_bp.png"
+        "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_br.png.flat",
+        "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_br.png"
     },
     {
-        "merged": "com.gambit.app-merged_res-4:/drawable-nodpi_piece_wq.png.flat",
-        "source": "com.gambit.app-main-6:/drawable-nodpi/piece_wq.png"
+        "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_bb.png.flat",
+        "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_bb.png"
     },
     {
-        "merged": "com.gambit.app-merged_res-4:/drawable-nodpi_piece_bq.png.flat",
-        "source": "com.gambit.app-main-6:/drawable-nodpi/piece_bq.png"
-    },
-    {
-        "merged": "com.gambit.app-merged_res-4:/drawable-nodpi_piece_bk.png.flat",
-        "source": "com.gambit.app-main-6:/drawable-nodpi/piece_bk.png"
-    },
-    {
-        "merged": "com.gambit.app-merged_res-4:/drawable-nodpi_piece_wk.png.flat",
-        "source": "com.gambit.app-main-6:/drawable-nodpi/piece_wk.png"
+        "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_wb.png.flat",
+        "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_wb.png"
     }
 ]
