@@ -157,10 +157,30 @@ public class ProgressManager {
         return (int) ((successes * 100.0f) / attempts);
     }
 
-    public boolean isChapterCompleted(String chapterId) {
+    public void markChapterStudied(String chapterId) {
+        if (chapterId == null) return;
+        prefs.edit().putBoolean("ch_" + chapterId + "_studied", true).apply();
+    }
+
+    public boolean isChapterStudied(String chapterId) {
         if (chapterId == null) return false;
-        return prefs.getInt("ch_" + chapterId + "_attempts", 0) > 0 ||
+        return prefs.getBoolean("ch_" + chapterId + "_studied", false) || isChapterDrillPassed(chapterId);
+    }
+
+    public void markChapterDrillPassed(String chapterId) {
+        if (chapterId == null) return;
+        prefs.edit().putBoolean("ch_" + chapterId + "_drill_passed", true).apply();
+    }
+
+    public boolean isChapterDrillPassed(String chapterId) {
+        if (chapterId == null) return false;
+        return prefs.getBoolean("ch_" + chapterId + "_drill_passed", false) ||
+               prefs.getInt("ch_" + chapterId + "_attempts", 0) > 0 ||
                prefs.getInt("ch_" + chapterId + "_mastery_level", 0) > 0;
+    }
+
+    public boolean isChapterCompleted(String chapterId) {
+        return isChapterDrillPassed(chapterId);
     }
 
     public boolean isChapterUnlocked(OpeningModel.Course course, int chapterIndex) {

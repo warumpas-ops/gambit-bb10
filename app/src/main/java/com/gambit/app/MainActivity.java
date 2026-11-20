@@ -54,7 +54,9 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
     private int currentChapterIdx = 0;
     private int currentStepIdx = 0;
 
-    private boolean isDrillMode = false;
+    // Phase 1 = Guided Study (arrows + explanations)
+    // Phase 2 = Memory Drill (no arrows, play from memory)
+    private boolean isStudyPhase = true;
     private boolean hadMistakeInChapter = false;
 
     @Override
@@ -113,7 +115,15 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         btnModeQuick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toggleMode();
+                // Allow user to manually jump straight to drill or back to study
+                if (isStudyPhase) {
+                    // Skip to drill early
+                    transitionToDrillPhase(true);
+                } else {
+                    // Jump back to study phase
+                    isStudyPhase = true;
+                    resetCurrentChapterInPhase();
+                }
             }
         });
 
@@ -162,51 +172,96 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         FontHelper.apply(this);
     }
 
-    private void toggleMode() {
-        isDrillMode = !isDrillMode;
-        if (isDrillMode) {
-            btnModeQuick.setText("[DRILL]");
-            btnModeQuick.setTextColor(Color.parseColor("#F59E0B"));
-            Toast.makeText(this, "Drill Mode: Recall moves from memory!", Toast.LENGTH_SHORT).show();
-        } else {
-            btnModeQuick.setText("[STUDY]");
-            btnModeQuick.setTextColor(Color.parseColor("#10B981"));
-            Toast.makeText(this, "Study Mode: Guided arrows enabled", Toast.LENGTH_SHORT).show();
-        }
-        resetCurrentChapter();
-    }
-
     private void startChapter(int courseIdx, int chapterIdx) {
         if (courses.isEmpty()) return;
         currentCourseIdx = courseIdx % courses.size();
         OpeningModel.Course c = courses.get(currentCourseIdx);
         if (c.chapters.isEmpty()) return;
         currentChapterIdx = chapterIdx % c.chapters.size();
-        currentStepIdx = 0;
 
         OpeningModel.Chapter ch = c.chapters.get(currentChapterIdx);
         boolean playAsBlack = "black".equalsIgnoreCase(c.color) || "black".equalsIgnoreCase(ch.orientation);
         boardView.setFlipped(playAsBlack);
 
-        resetCurrentChapter();
+        // Always begin a chapter in Study phase
+        isStudyPhase = true;
+        hadMistakeInChapter = false;
+        resetCurrentChapterInPhase();
     }
 
-    private void resetCurrentChapter() {
+    // Reset board state and restart whichever phase is currently active
+    private void resetCurrentChapterInPhase() {
         engine.resetToStartingPosition();
         currentStepIdx = 0;
         hadMistakeInChapter = false;
         boardView.setLastMove(-1, -1);
         boardView.clearSelection();
 
-        // While training: HIDE TOP BAR, MAXIMIZE BOARD, HIDE COMPLETION CARD
         llTopBar.setVisibility(View.GONE);
         llCompletionCard.setVisibility(View.GONE);
         llCoachPill.setVisibility(View.VISIBLE);
         flExplainOverlay.setVisibility(View.GONE);
 
+        updateModeButton();
         renderCurrentStep();
         checkAndPlayOpponentReply();
     }
+
+    // Legacy alias: a plain chapter reset always restarts from Study phase
+    private void resetCurrentChapter() {
+        isStudyPhase = true;
+        resetCurrentChapterInPhase();
+    }
+
+    private void updateModeButton() {
+        if (isStudyPhase) {
+            btnModeQuick.setText("[STUDY]");
+            btnModeQuick.setTextColor(Color.parseColor("#10B981"));
+        } else {
+            btnModeQuick.setText("[DRILL]");
+            btnModeQuick.setTextColor(Color.parseColor("#F59E0B"));
+        }
+    }
+
+    // Called when study phase finishes (all moves played once with arrows).
+    // earlySkip = true when user pressed the mode button to skip ahead.
+    private void transitionToDrillPhase(boolean earlySkip) {
+        if (courses.isEmpty()) return;
+        OpeningModel.Chapter ch = courses.get(currentCourseIdx).chapters.get(currentChapterIdx);
+        progressManager.markChapterStudied(ch.id);
+
+        isStudyPhase = false;
+        hadMistakeInChapter = false;
+
+        engine.resetToStartingPosition();
+        currentStepIdx = 0;
+        boardView.setLastMove(-1, -1);
+        boardView.clearSelection();
+
+        llTopBar.setVisibility(View.GONE);
+        llCompletionCard.setVisibility(View.GONE);
+        llCoachPill.setVisibility(View.VISIBLE);
+        flExplainOverlay.setVisibility(View.GONE);
+
+        updateModeButton();
+
+        // Punchy banner
+        tvCoachBadge.setText("DRILL");
+        tvCoachBadge.setTextColor(Color.parseColor("#F59E0B"));
+        tvCoachPrompt.setText("Now prove it — play the line from memory! No hints.");
+        boardView.setArrows(null);
+        boardView.setHighlightSquares(null);
+        boardView.invalidate();
+
+        // Brief pause so user reads the banner before engine auto-plays first opponent move
+        boardView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                checkAndPlayOpponentReply();
+            }
+        }, 1200);
+    }
+
 
     private void renderCurrentStep() {
         if (courses.isEmpty()) return;
@@ -214,45 +269,28 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         OpeningModel.Chapter ch = c.chapters.get(currentChapterIdx);
 
         if (currentStepIdx >= ch.steps.size()) {
-            // CHAPTER COMPLETED: Show Top Bar, Show Completion Card!
-            progressManager.recordChapterAttempt(ch.id, !hadMistakeInChapter);
-
-            llTopBar.setVisibility(View.VISIBLE);
-            tvTopTitle.setText(c.name + " (" + ch.title + ")");
-            tvTopStreak.setText("\uD83D\uDD25 " + progressManager.getStreak() + "d");
-
-            llCoachPill.setVisibility(View.GONE);
-            llCompletionCard.setVisibility(View.VISIBLE);
-
-            int lvl = progressManager.getChapterMasteryLevel(ch.id);
-            StringBuilder stars = new StringBuilder();
-            for (int s = 0; s < 5; s++) stars.append(s < lvl ? "\u2605" : "\u2606");
-
-            int rate = progressManager.getChapterSuccessRate(ch.id);
-            tvCompletionTitle.setText("\u2605 " + ch.title.toUpperCase() + " COMPLETE!");
-            tvCompletionStats.setText("Mastery: " + stars.toString() + " \u2022 Accuracy: " + rate + "% \u2022 Total Moves: " + progressManager.getTotalMovesTrained());
-
-            if (currentChapterIdx + 1 < c.chapters.size()) {
-                btnNextLine.setText("NEXT VARIATION \u2794");
+            if (isStudyPhase) {
+                // ── Study phase done → switch to Drill ──────────────────
+                transitionToDrillPhase(false);
             } else {
-                btnNextLine.setText("NEXT OPENING \u2794");
+                // ── Drill phase done → full completion ───────────────────
+                onDrillComplete();
             }
-
-            boardView.setArrows(null);
-            boardView.setHighlightSquares(null);
             return;
         }
 
         OpeningModel.MoveStep step = ch.steps.get(currentStepIdx);
 
-        if (isDrillMode) {
-            tvCoachBadge.setText("? ? ?");
+        if (!isStudyPhase) {
+            // DRILL phase: no arrows, no move names, no hints
+            tvCoachBadge.setText("DRILL");
             tvCoachBadge.setTextColor(Color.parseColor("#F59E0B"));
-            tvCoachPrompt.setText("Your Turn \u2014 Play from memory");
+            tvCoachPrompt.setText("From memory — no hints!");
             btnWhyExplain.setText("\uD83D\uDCA1 HINT");
             boardView.setArrows(null);
             boardView.setHighlightSquares(null);
         } else {
+            // STUDY phase: show arrows and explanations
             tvCoachBadge.setText(step.moveSan);
             tvCoachBadge.setTextColor(Color.parseColor("#10B981"));
             tvCoachPrompt.setText(step.title);
@@ -272,16 +310,17 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
 
         OpeningModel.MoveStep step = ch.steps.get(currentStepIdx);
 
-        if (isDrillMode) {
-            // In Drill Mode, button gives hint arrows
+        if (!isStudyPhase) {
+            // In Drill phase: show arrow as hint but mark mistake
+            hadMistakeInChapter = true;
             boardView.setArrows(step.arrows);
             boardView.setHighlightSquares(step.highlightSquares);
             boardView.invalidate();
-            Toast.makeText(this, "Hint: Arrow shown on board!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Hint used — arrow shown!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // In Study Mode, popup modal shows the "Why" and Warnings
+        // In Study phase, popup modal shows the "Why" and Warnings
         tvOverlayBadge.setText(step.moveSan);
         tvOverlayTitle.setText(step.title);
         tvOverlayBody.setText(step.explanation);
@@ -319,9 +358,51 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
             currentStepIdx++;
             checkAndPlayOpponentReply();
         } else {
+            // Wrong move — always retry, never advance
             hadMistakeInChapter = true;
-            Toast.makeText(this, "Incorrect move! Try again.", Toast.LENGTH_SHORT).show();
+            if (!isStudyPhase) {
+                Toast.makeText(this, "\u274C Wrong! Try again.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Incorrect move! Try again.", Toast.LENGTH_SHORT).show();
+            }
         }
+    }
+
+    // Called when the Drill phase finishes: records progress, shows completion card
+    private void onDrillComplete() {
+        OpeningModel.Course c = courses.get(currentCourseIdx);
+        OpeningModel.Chapter ch = c.chapters.get(currentChapterIdx);
+
+        boolean perfectDrill = !hadMistakeInChapter;
+        progressManager.markChapterDrillPassed(ch.id);
+        progressManager.recordChapterAttempt(ch.id, perfectDrill);
+
+        llTopBar.setVisibility(View.VISIBLE);
+        tvTopTitle.setText(c.name + " \u2014 " + ch.title);
+        tvTopStreak.setText("\uD83D\uDD25 " + progressManager.getStreak() + "d");
+
+        llCoachPill.setVisibility(View.GONE);
+        llCompletionCard.setVisibility(View.VISIBLE);
+
+        int lvl = progressManager.getChapterMasteryLevel(ch.id);
+        StringBuilder stars = new StringBuilder();
+        for (int s = 0; s < 5; s++) stars.append(s < lvl ? "\u2605" : "\u2606");
+
+        int rate = progressManager.getChapterSuccessRate(ch.id);
+        String drillResult = perfectDrill ? "\u2b50 PERFECT DRILL!" : "\u2705 DRILL PASSED";
+        tvCompletionTitle.setText(drillResult + " \u2014 " + ch.title.toUpperCase());
+        tvCompletionStats.setText("Mastery: " + stars.toString() + " \u2022 Accuracy: " + rate + "% \u2022 Moves Trained: " + progressManager.getTotalMovesTrained());
+
+        // Label next-line button appropriately
+        if (currentChapterIdx + 1 < c.chapters.size()) {
+            btnNextLine.setText("START NEXT VARIATION \u2794");
+        } else {
+            btnNextLine.setText("NEXT OPENING \u2794");
+        }
+
+        boardView.setArrows(null);
+        boardView.setHighlightSquares(null);
+        boardView.invalidate();
     }
 
     private void checkAndPlayOpponentReply() {
@@ -374,9 +455,6 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
             return true;
         } else if (keyCode == KeyEvent.KEYCODE_H || keyCode == KeyEvent.KEYCODE_W) {
             showWhyDialog();
-            return true;
-        } else if (keyCode == KeyEvent.KEYCODE_M) {
-            toggleMode();
             return true;
         } else if (keyCode == KeyEvent.KEYCODE_C) {
             finish();
