@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,7 +17,10 @@ public class HubActivity extends Activity {
     private List<OpeningModel.Course> courses;
     private LinearLayout container;
     private TextView tvHubStreak;
-    private TextView tvHubStats;
+    private Button btnTabWhite;
+    private Button btnTabBlack;
+
+    private boolean showWhite = true; // true = White, false = Black
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,17 +30,55 @@ public class HubActivity extends Activity {
         progressManager = new ProgressManager(this);
         container = (LinearLayout) findViewById(R.id.llCoursesContainer);
         tvHubStreak = (TextView) findViewById(R.id.tvHubStreak);
-        tvHubStats = (TextView) findViewById(R.id.tvHubStats);
+        btnTabWhite = (Button) findViewById(R.id.btnTabWhite);
+        btnTabBlack = (Button) findViewById(R.id.btnTabBlack);
 
         courses = CourseRepository.loadAllCourses(this);
+
+        btnTabWhite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!showWhite) {
+                    showWhite = true;
+                    updateTabs();
+                    renderCourses();
+                }
+            }
+        });
+
+        btnTabBlack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (showWhite) {
+                    showWhite = false;
+                    updateTabs();
+                    renderCourses();
+                }
+            }
+        });
+
+        updateTabs();
         renderCourses();
+    }
+
+    private void updateTabs() {
+        if (showWhite) {
+            btnTabWhite.setBackgroundColor(Color.parseColor("#2563EB")); // Active Blue
+            btnTabWhite.setTextColor(Color.WHITE);
+            btnTabBlack.setBackgroundColor(Color.parseColor("#18181E")); // Inactive
+            btnTabBlack.setTextColor(Color.parseColor("#9CA3AF"));
+        } else {
+            btnTabBlack.setBackgroundColor(Color.parseColor("#2563EB")); // Active Blue
+            btnTabBlack.setTextColor(Color.WHITE);
+            btnTabWhite.setBackgroundColor(Color.parseColor("#18181E")); // Inactive
+            btnTabWhite.setTextColor(Color.parseColor("#9CA3AF"));
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         tvHubStreak.setText("🔥 " + progressManager.getStreak() + "d");
-        tvHubStats.setText("Mastered Chapters: " + progressManager.getTotalMasteredChapters() + " • Moves Trained: " + progressManager.getTotalMovesTrained());
         renderCourses();
     }
 
@@ -47,9 +89,14 @@ public class HubActivity extends Activity {
             final int courseIdx = cIdx;
             final OpeningModel.Course course = courses.get(courseIdx);
 
+            boolean isWhiteCourse = "white".equalsIgnoreCase(course.color);
+            if (isWhiteCourse != showWhite) {
+                continue; // Filter by chosen tab!
+            }
+
             // Level / Category Header
             TextView tvLevel = new TextView(this);
-            tvLevel.setText(course.level.toUpperCase() + "  (" + course.color.toUpperCase() + ")");
+            tvLevel.setText(course.level.toUpperCase());
             tvLevel.setTextColor(Color.parseColor("#94A3B8"));
             tvLevel.setTextSize(11f);
             tvLevel.setPadding(4, 12, 4, 4);
@@ -61,9 +108,8 @@ public class HubActivity extends Activity {
             courseCard.setBackgroundColor(Color.parseColor("#121216"));
             courseCard.setPadding(12, 12, 12, 12);
 
-            // Title & Description
             TextView tvName = new TextView(this);
-            tvName.setText((course.color.equalsIgnoreCase("white") ? "⚪ " : "⚫ ") + course.name);
+            tvName.setText((isWhiteCourse ? "⚪ " : "⚫ ") + course.name);
             tvName.setTextColor(Color.WHITE);
             tvName.setTextSize(15f);
             tvName.getPaint().setFakeBoldText(true);
@@ -76,7 +122,7 @@ public class HubActivity extends Activity {
             tvDesc.setPadding(0, 2, 0, 8);
             courseCard.addView(tvDesc);
 
-            // Chapters List inside Course
+            // Chapters List
             for (int chIdx = 0; chIdx < course.chapters.size(); chIdx++) {
                 final int chapterIdx = chIdx;
                 final OpeningModel.Chapter chapter = course.chapters.get(chapterIdx);
@@ -111,7 +157,6 @@ public class HubActivity extends Activity {
 
                 row.addView(textCol);
 
-                // Live Mastery Stars
                 int level = progressManager.getChapterMasteryLevel(chapter.id);
                 StringBuilder stars = new StringBuilder();
                 for (int s = 0; s < 5; s++) stars.append(s < level ? "★" : "☆");
@@ -122,7 +167,6 @@ public class HubActivity extends Activity {
                 tvStars.setTextSize(12f);
                 row.addView(tvStars);
 
-                // Tap Chapter to Start Training
                 row.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

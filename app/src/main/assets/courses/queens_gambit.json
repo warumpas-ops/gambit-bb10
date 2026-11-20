@@ -1,0 +1,85 @@
+{
+  "id": "queens_gambit",
+  "name": "The Queen's Gambit",
+  "color": "White",
+  "level": "Level 1: Classical Mastery",
+  "description": "The gold standard of classical chess. White plays 1. d4 and immediately sacrifices the c4 flank pawn to gain complete, permanent control of the center with pawns on d4 and e4.",
+  "chapters": [
+    {
+      "id": "qgd_main",
+      "title": "Queen's Gambit Declined (2... e6)",
+      "subtitle": "Handling Black's most resilient fortress",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Claim d4",
+          "explanation": "We stake a permanent central claim protected by our Queen.",
+          "arrows": [{ "from": "d2", "to": "d4", "color": "green" }]
+        },
+        {
+          "moveSan": "1... d5",
+          "uci": "d7d5",
+          "isUserMove": false,
+          "title": "Black Responds Symmetrically",
+          "explanation": "Black controls their side of the center.",
+          "arrows": [{ "from": "d7", "to": "d5", "color": "blue" }]
+        },
+        {
+          "moveSan": "2. c4",
+          "uci": "c2c4",
+          "isUserMove": true,
+          "title": "The Queen's Gambit!",
+          "explanation": "We offer our c-pawn! If Black takes (2... dxc4 - Accepted), they give up the center and we easily recover the pawn with e4 + Bxc4.",
+          "arrows": [
+            { "from": "c2", "to": "c4", "color": "green" },
+            { "from": "c4", "to": "d5", "color": "red" }
+          ],
+          "highlightSquares": ["d5"]
+        },
+        {
+          "moveSan": "2... e6",
+          "uci": "e7e6",
+          "isUserMove": false,
+          "title": "Queen's Gambit Declined",
+          "explanation": "Black holds the center firmly with e6.",
+          "arrows": [{ "from": "e7", "to": "e6", "color": "blue" }]
+        },
+        {
+          "moveSan": "3. Nc3",
+          "uci": "b1c3",
+          "isUserMove": true,
+          "title": "Pressure d5",
+          "explanation": "Develop with power! We add a second piece putting direct pressure on Black's d5 center pawn.",
+          "arrows": [
+            { "from": "b1", "to": "c3", "color": "green" },
+            { "from": "c3", "to": "d5", "color": "red" }
+          ],
+          "highlightSquares": ["d5"]
+        },
+        {
+          "moveSan": "3... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Black Defends d5",
+          "explanation": "Black adds their knight to protect d5.",
+          "arrows": [{ "from": "g8", "to": "f6", "color": "blue" }]
+        },
+        {
+          "moveSan": "4. Bg5",
+          "uci": "c1g5",
+          "isUserMove": true,
+          "title": "Pin the Defender!",
+          "explanation": "The killer pin! Our dark-squared bishop pins Black's knight to their queen, destroying their defense of the d5 pawn.",
+          "arrows": [
+            { "from": "c1", "to": "g5", "color": "green" },
+            { "from": "g5", "to": "f6", "color": "red" }
+          ],
+          "highlightSquares": ["f6"]
+        }
+      ]
+    }
+  ]
+}

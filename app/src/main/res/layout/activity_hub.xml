@@ -4,15 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#0A0A0C"
-    android:padding="10dp">
+    android:padding="8dp">
 
-    <!-- Top Header -->
+    <!-- Top Header & Streak -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingBottom="8dp">
+        android:paddingBottom="6dp">
 
         <TextView
             android:layout_width="0dp"
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="♟️ GAMBIT"
             android:textColor="#FFFFFF"
-            android:textSize="19sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -38,16 +38,39 @@
             android:paddingBottom="3dp" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvHubStats"
+    <!-- Side Picker Tabs: [⚪ WHITE] vs [⚫ BLACK] -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select an opening repertoire to begin training"
-        android:textColor="#9CA3AF"
-        android:textSize="12sp"
-        android:paddingBottom="10dp" />
+        android:layout_height="38dp"
+        android:orientation="horizontal"
+        android:background="#121216"
+        android:padding="2dp"
+        android:layout_marginBottom="8dp">
 
-    <!-- List of Organized Openings & Levels -->
+        <Button
+            android:id="@+id/btnTabWhite"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="⚪ PLAY AS WHITE"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="#2563EB" />
+
+        <Button
+            android:id="@+id/btnTabBlack"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="⚫ PLAY AS BLACK"
+            android:textColor="#9CA3AF"
+            android:textSize="11sp"
+            android:background="#18181E"
+            android:layout_marginLeft="2dp" />
+    </LinearLayout>
+
+    <!-- Filtered Courses List -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
