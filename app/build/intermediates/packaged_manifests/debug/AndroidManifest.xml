@@ -12,10 +12,9 @@
         android:allowBackup="true"
         android:debuggable="true"
         android:extractNativeLibs="true"
+        android:icon="@mipmap/ic_launcher"
         android:label="Gambit"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-
-        <!-- Launcher Activity: Course Library & Level Hub -->
         <activity
             android:name="com.gambit.app.HubActivity"
             android:exported="true"
@@ -27,8 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Interactive Board & Drill Activity -->
         <activity
             android:name="com.gambit.app.MainActivity"
             android:exported="false"

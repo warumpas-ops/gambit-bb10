@@ -40,3 +40,4 @@ int id tvTopStreak 0x7f02001a
 int id tvTopTitle 0x7f02001b
 int layout activity_hub 0x7f030000
 int layout activity_main 0x7f030001
+int mipmap ic_launcher 0x7f040000

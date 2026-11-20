@@ -4,8 +4,20 @@
         "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_wr.png"
     },
     {
+        "merged": "com.gambit.app-merged_res-4:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.gambit.app-main-6:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
         "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_bk.png.flat",
         "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_bk.png"
+    },
+    {
+        "merged": "com.gambit.app-merged_res-4:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.gambit.app-main-6:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.gambit.app-merged_res-4:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.gambit.app-main-6:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_wq.png.flat",
@@ -14,6 +26,10 @@
     {
         "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_wk.png.flat",
         "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_wk.png"
+    },
+    {
+        "merged": "com.gambit.app-merged_res-4:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.gambit.app-main-6:/mipmap-mdpi/ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\layout_activity_main.xml.flat",
@@ -30,10 +46,6 @@
     {
         "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_wn.png.flat",
         "source": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-main-6:\\drawable-nodpi\\piece_wn.png"
-    },
-    {
-        "merged": "com.gambit.app-merged_res-4:/layout_activity_hub.xml.flat",
-        "source": "com.gambit.app-main-6:/layout/activity_hub.xml"
     },
     {
         "merged": "C:\\Users\\Growth\\.gradle\\daemon\\8.4\\com.gambit.app-merged_res-4:\\drawable-nodpi_piece_bn.png.flat",

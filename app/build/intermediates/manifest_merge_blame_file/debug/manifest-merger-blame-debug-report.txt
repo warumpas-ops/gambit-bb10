@@ -9,50 +9,48 @@
 9        android:targetSdkVersion="18" />
 10
 11    <application
-11-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:5:5-28:19
+11-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:5:5-27:19
 12        android:allowBackup="true"
 12-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:6:9-35
 13        android:debuggable="true"
 14        android:extractNativeLibs="true"
-15        android:label="Gambit"
-15-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:7:9-31
-16        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-16-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:8:9-67
-17
-18        <!-- Launcher Activity: Course Library & Level Hub -->
-19        <activity
-19-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:11:9-20:20
-20            android:name="com.gambit.app.HubActivity"
-20-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:12:13-40
-21            android:exported="true"
-21-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:15:13-36
-22            android:screenOrientation="portrait"
-22-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:13:13-49
-23            android:windowSoftInputMode="adjustPan" >
-23-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:14:13-52
-24            <intent-filter>
-24-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:16:13-19:29
-25                <action android:name="android.intent.action.MAIN" />
-25-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:17:17-69
-25-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:17:25-66
-26
-27                <category android:name="android.intent.category.LAUNCHER" />
-27-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:18:17-77
-27-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:18:27-74
-28            </intent-filter>
-29        </activity>
-30
-31        <!-- Interactive Board & Drill Activity -->
-32        <activity
-32-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:23:9-27:40
-33            android:name="com.gambit.app.MainActivity"
-33-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:24:13-41
-34            android:exported="false"
-34-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:27:13-37
-35            android:screenOrientation="portrait"
-35-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:25:13-49
-36            android:windowSoftInputMode="adjustPan" />
-36-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:26:13-52
-37    </application>
-38
-39</manifest>
+15        android:icon="@mipmap/ic_launcher"
+15-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:8:9-43
+16        android:label="Gambit"
+16-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:7:9-31
+17        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+17-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:9:9-67
+18        <activity
+18-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:11:9-20:20
+19            android:name="com.gambit.app.HubActivity"
+19-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:12:13-40
+20            android:exported="true"
+20-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:15:13-36
+21            android:screenOrientation="portrait"
+21-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:13:13-49
+22            android:windowSoftInputMode="adjustPan" >
+22-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:14:13-52
+23            <intent-filter>
+23-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:16:13-19:29
+24                <action android:name="android.intent.action.MAIN" />
+24-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:17:17-69
+24-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:17:25-66
+25
+26                <category android:name="android.intent.category.LAUNCHER" />
+26-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:18:17-77
+26-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:18:27-74
+27            </intent-filter>
+28        </activity>
+29        <activity
+29-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:22:9-26:40
+30            android:name="com.gambit.app.MainActivity"
+30-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:23:13-41
+31            android:exported="false"
+31-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:26:13-37
+32            android:screenOrientation="portrait"
+32-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:24:13-49
+33            android:windowSoftInputMode="adjustPan" />
+33-->C:\Users\Growth\.gemini\antigravity\scratch\gambit-bb10\app\src\main\AndroidManifest.xml:25:13-52
+34    </application>
+35
+36</manifest>

@@ -42,3 +42,4 @@ id tvTopStreak
 id tvTopTitle
 layout activity_hub
 layout activity_main
+mipmap ic_launcher

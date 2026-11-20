@@ -5,9 +5,9 @@
     <application
         android:allowBackup="true"
         android:label="Gambit"
+        android:icon="@mipmap/ic_launcher"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
 
-        <!-- Launcher Activity: Course Library & Level Hub -->
         <activity
             android:name=".HubActivity"
             android:screenOrientation="portrait"
@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Interactive Board & Drill Activity -->
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
