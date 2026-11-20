@@ -1,0 +1,17 @@
+R_DEF: Internal format may change without notice
+local
+id btnHint
+id btnModeToggle
+id btnNextChapter
+id btnNextStep
+id btnReset
+id chessBoardView
+id tvChapterSubtitle
+id tvExplanation
+id tvFeedback
+id tvMoveBadge
+id tvOpeningTitle
+id tvStepProgress
+id tvStepTitle
+id tvWarning
+layout activity_main
