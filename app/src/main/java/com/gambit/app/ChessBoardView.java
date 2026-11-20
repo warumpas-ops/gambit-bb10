@@ -1,16 +1,22 @@
 package com.gambit.app;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ChessBoardView extends View {
 
@@ -20,14 +26,14 @@ public class ChessBoardView extends View {
 
     private ChessEngine engine;
     private OnMoveAttemptListener moveListener;
-    private boolean flipped = false; // true if Black is at bottom
+    private boolean flipped = false;
 
     // Exact Chess.com Colors
-    private int lightSquareColor = Color.parseColor("#EBECD0"); // Classic Chess.com Buff/Cream
-    private int darkSquareColor  = Color.parseColor("#739552"); // Classic Chess.com Olive Green
-    private int lastMoveColor    = Color.parseColor("#80F5F682"); // Translucent Chess.com Yellow
-    private int selectedColor    = Color.parseColor("#80F7E752"); // Vibrant Yellow Glow
-    private int highlightColor   = Color.parseColor("#66EF4444"); // Translucent Red Threat
+    private int lightSquareColor = Color.parseColor("#EBECD0");
+    private int darkSquareColor  = Color.parseColor("#739552");
+    private int lastMoveColor    = Color.parseColor("#80F5F682");
+    private int selectedColor    = Color.parseColor("#80F7E752");
+    private int highlightColor   = Color.parseColor("#66EF4444");
 
     private Paint lightSquarePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint darkSquarePaint  = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -41,8 +47,7 @@ public class ChessBoardView extends View {
     private Paint greenArrowPaint  = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint blueArrowPaint   = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint redArrowPaint    = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-    private Paint textPiecePaint   = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private Paint bitmapPaint      = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
 
     private int selectedSq = -1;
     private int lastFromSq = -1;
@@ -53,24 +58,28 @@ public class ChessBoardView extends View {
 
     private float squareSize = 0f;
 
+    // Chess.com Neo Piece Bitmaps
+    private final Map<Character, Bitmap> pieceBitmaps = new HashMap<Character, Bitmap>();
+    private final Rect srcRect = new Rect();
+    private final RectF dstRect = new RectF();
+
     public ChessBoardView(Context context) {
         super(context);
-        init();
+        init(context);
     }
 
     public ChessBoardView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context);
     }
 
-    private void init() {
+    private void init(Context context) {
         lightSquarePaint.setColor(lightSquareColor);
         darkSquarePaint.setColor(darkSquareColor);
         selectedPaint.setColor(selectedColor);
         lastMovePaint.setColor(lastMoveColor);
         highlightPaint.setColor(highlightColor);
 
-        // Chess.com style rank/file coordinates inside squares
         lightCoordPaint.setColor(darkSquareColor);
         lightCoordPaint.setTextSize(14f);
         lightCoordPaint.setFakeBoldText(true);
@@ -79,7 +88,6 @@ public class ChessBoardView extends View {
         darkCoordPaint.setTextSize(14f);
         darkCoordPaint.setFakeBoldText(true);
 
-        // Arrows (Chess.com vibrant vectors)
         greenArrowPaint.setColor(Color.parseColor("#7FA650"));
         greenArrowPaint.setStrokeWidth(10f);
         greenArrowPaint.setStyle(Paint.Style.STROKE);
@@ -95,7 +103,23 @@ public class ChessBoardView extends View {
         redArrowPaint.setStyle(Paint.Style.STROKE);
         redArrowPaint.setStrokeCap(Paint.Cap.ROUND);
 
-        textPiecePaint.setTextAlign(Paint.Align.CENTER);
+        loadPieceBitmaps(context);
+    }
+
+    private void loadPieceBitmaps(Context context) {
+        pieceBitmaps.put(ChessEngine.WHITE_KING,   BitmapFactory.decodeResource(context.getResources(), R.drawable.piece_wk));
+        pieceBitmaps.put(ChessEngine.WHITE_QUEEN,  BitmapFactory.decodeResource(context.getResources(), R.drawable.piece_wq));
+        pieceBitmaps.put(ChessEngine.WHITE_ROOK,   BitmapFactory.decodeResource(context.getResources(), R.drawable.piece_wr));
+        pieceBitmaps.put(ChessEngine.WHITE_BISHOP, BitmapFactory.decodeResource(context.getResources(), R.drawable.piece_wb));
+        pieceBitmaps.put(ChessEngine.WHITE_KNIGHT, BitmapFactory.decodeResource(context.getResources(), R.drawable.piece_wn));
+        pieceBitmaps.put(ChessEngine.WHITE_PAWN,   BitmapFactory.decodeResource(context.getResources(), R.drawable.piece_wp));
+
+        pieceBitmaps.put(ChessEngine.BLACK_KING,   BitmapFactory.decodeResource(context.getResources(), R.drawable.piece_bk));
+        pieceBitmaps.put(ChessEngine.BLACK_QUEEN,  BitmapFactory.decodeResource(context.getResources(), R.drawable.piece_bq));
+        pieceBitmaps.put(ChessEngine.BLACK_ROOK,   BitmapFactory.decodeResource(context.getResources(), R.drawable.piece_br));
+        pieceBitmaps.put(ChessEngine.BLACK_BISHOP, BitmapFactory.decodeResource(context.getResources(), R.drawable.piece_bb));
+        pieceBitmaps.put(ChessEngine.BLACK_KNIGHT, BitmapFactory.decodeResource(context.getResources(), R.drawable.piece_bn));
+        pieceBitmaps.put(ChessEngine.BLACK_PAWN,   BitmapFactory.decodeResource(context.getResources(), R.drawable.piece_bp));
     }
 
     public void setEngine(ChessEngine engine) {
@@ -174,29 +198,24 @@ public class ChessBoardView extends View {
                 boolean isDark = (displayRow + displayCol) % 2 != 0;
                 canvas.drawRect(left, top, right, bottom, isDark ? darkSquarePaint : lightSquarePaint);
 
-                // Highlight last move
                 if (sq == lastFromSq || sq == lastToSq) {
                     canvas.drawRect(left, top, right, bottom, lastMovePaint);
                 }
 
-                // Highlight selected square
                 if (sq == selectedSq) {
                     canvas.drawRect(left, top, right, bottom, selectedPaint);
                 }
 
-                // Custom target / blunder square
                 if (activeHighlights.contains(sq)) {
                     canvas.drawRect(left, top, right, bottom, highlightPaint);
                 }
 
                 // Chess.com Corner Coordinates
-                // Files (a-h) on bottom row
                 if (r == 7) {
                     char fileChar = (char) (flipped ? ('h' - f) : ('a' + f));
                     Paint cp = isDark ? darkCoordPaint : lightCoordPaint;
                     canvas.drawText(String.valueOf(fileChar), right - 13f, bottom - 5f, cp);
                 }
-                // Ranks (1-8) on left column
                 if (f == 0) {
                     char rankChar = (char) (flipped ? ('1' + r) : ('8' - r));
                     Paint cp = isDark ? darkCoordPaint : lightCoordPaint;
@@ -205,11 +224,7 @@ public class ChessBoardView extends View {
             }
         }
 
-        // 2. Draw Chess Pieces
-        textPiecePaint.setTextSize(squareSize * 0.76f);
-        Paint.FontMetrics fm = textPiecePaint.getFontMetrics();
-        float yOffset = ((fm.descent - fm.ascent) / 2) - fm.descent;
-
+        // 2. Draw Official Chess.com Neo Pieces
         for (int r = 0; r < 8; r++) {
             for (int f = 0; f < 8; f++) {
                 int displayRow = flipped ? (7 - r) : r;
@@ -218,14 +233,14 @@ public class ChessBoardView extends View {
 
                 char piece = engine.getPiece(sq);
                 if (piece != ChessEngine.EMPTY) {
-                    float cx = f * squareSize + (squareSize / 2f);
-                    float cy = r * squareSize + (squareSize / 2f) + yOffset;
-                    String glyph = getPieceGlyph(piece);
-
-                    textPiecePaint.setColor(ChessEngine.isWhite(piece) ? Color.WHITE : Color.parseColor("#18181B"));
-                    textPiecePaint.setShadowLayer(5.0f, 0f, 2.0f, Color.parseColor("#99000000"));
-                    canvas.drawText(glyph, cx, cy, textPiecePaint);
-                    textPiecePaint.clearShadowLayer();
+                    Bitmap bmp = pieceBitmaps.get(piece);
+                    if (bmp != null) {
+                        float left = f * squareSize;
+                        float top  = r * squareSize;
+                        dstRect.set(left, top, left + squareSize, top + squareSize);
+                        srcRect.set(0, 0, bmp.getWidth(), bmp.getHeight());
+                        canvas.drawBitmap(bmp, srcRect, dstRect, bitmapPaint);
+                    }
                 }
             }
         }
@@ -283,24 +298,6 @@ public class ChessBoardView extends View {
         Paint fillPaint = new Paint(paint);
         fillPaint.setStyle(Paint.Style.FILL);
         canvas.drawPath(headPath, fillPaint);
-    }
-
-    private String getPieceGlyph(char p) {
-        switch (p) {
-            case ChessEngine.WHITE_KING:   return "♔";
-            case ChessEngine.WHITE_QUEEN:  return "♕";
-            case ChessEngine.WHITE_ROOK:   return "♖";
-            case ChessEngine.WHITE_BISHOP: return "♗";
-            case ChessEngine.WHITE_KNIGHT: return "♘";
-            case ChessEngine.WHITE_PAWN:   return "♙";
-            case ChessEngine.BLACK_KING:   return "♚";
-            case ChessEngine.BLACK_QUEEN:  return "♛";
-            case ChessEngine.BLACK_ROOK:   return "♜";
-            case ChessEngine.BLACK_BISHOP: return "♝";
-            case ChessEngine.BLACK_KNIGHT: return "♞";
-            case ChessEngine.BLACK_PAWN:   return "♟";
-            default: return "";
-        }
     }
 
     @Override

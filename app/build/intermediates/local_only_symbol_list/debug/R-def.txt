@@ -1,5 +1,17 @@
 R_DEF: Internal format may change without notice
 local
+drawable piece_bb
+drawable piece_bk
+drawable piece_bn
+drawable piece_bp
+drawable piece_bq
+drawable piece_br
+drawable piece_wb
+drawable piece_wk
+drawable piece_wn
+drawable piece_wp
+drawable piece_wq
+drawable piece_wr
 id btnHint
 id btnModeToggle
 id btnNextChapter
