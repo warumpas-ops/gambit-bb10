@@ -128,6 +128,19 @@ public class ProgressManager {
         return (int) ((successes * 100.0f) / attempts);
     }
 
+    public boolean isChapterCompleted(String chapterId) {
+        if (chapterId == null) return false;
+        return prefs.getInt("ch_" + chapterId + "_attempts", 0) > 0 ||
+               prefs.getInt("ch_" + chapterId + "_mastery_level", 0) > 0;
+    }
+
+    public boolean isChapterUnlocked(OpeningModel.Course course, int chapterIndex) {
+        if (chapterIndex <= 0) return true; // First variation is always unlocked
+        if (course == null || course.chapters == null || chapterIndex >= course.chapters.size()) return false;
+        OpeningModel.Chapter prevChapter = course.chapters.get(chapterIndex - 1);
+        return isChapterCompleted(prevChapter.id);
+    }
+
     public int getTotalMasteredChapters() {
         return prefs.getInt(KEY_TOTAL_CHAPTERS_MASTERED, 0);
     }

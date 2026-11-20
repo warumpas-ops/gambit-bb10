@@ -92,20 +92,18 @@ public class ChessBoardView extends View {
         darkCoordPaint.setFakeBoldText(true);
         darkCoordPaint.setTypeface(font);
 
-        greenArrowPaint.setColor(Color.parseColor("#7FA650"));
-        greenArrowPaint.setStrokeWidth(10f);
-        greenArrowPaint.setStyle(Paint.Style.STROKE);
-        greenArrowPaint.setStrokeCap(Paint.Cap.ROUND);
+        // Official Chess.com Neo Tactical Arrow Colors (80% opacity fill)
+        greenArrowPaint.setColor(Color.parseColor("#CC81B64C"));
+        greenArrowPaint.setStyle(Paint.Style.FILL);
+        greenArrowPaint.setAntiAlias(true);
 
-        blueArrowPaint.setColor(Color.parseColor("#52B2BF"));
-        blueArrowPaint.setStrokeWidth(10f);
-        blueArrowPaint.setStyle(Paint.Style.STROKE);
-        blueArrowPaint.setStrokeCap(Paint.Cap.ROUND);
+        blueArrowPaint.setColor(Color.parseColor("#CC3692E7"));
+        blueArrowPaint.setStyle(Paint.Style.FILL);
+        blueArrowPaint.setAntiAlias(true);
 
-        redArrowPaint.setColor(Color.parseColor("#E05353"));
-        redArrowPaint.setStrokeWidth(10f);
-        redArrowPaint.setStyle(Paint.Style.STROKE);
-        redArrowPaint.setStrokeCap(Paint.Cap.ROUND);
+        redArrowPaint.setColor(Color.parseColor("#CCE04638"));
+        redArrowPaint.setStyle(Paint.Style.FILL);
+        redArrowPaint.setAntiAlias(true);
 
         loadPieceBitmaps(context);
     }
@@ -273,35 +271,51 @@ public class ChessBoardView extends View {
         float x2 = toF   * squareSize + (squareSize / 2f);
         float y2 = toR   * squareSize + (squareSize / 2f);
 
+        float dx = x2 - x1;
+        float dy = y2 - y1;
+        float dist = (float) Math.hypot(dx, dy);
+        if (dist < 10f) return;
+
+        float ux = dx / dist; // unit vector along arrow
+        float uy = dy / dist;
+        float nx = -uy;       // unit normal vector (perpendicular)
+        float ny = ux;
+
+        float startPad = squareSize * 0.22f; // don't cover origin piece
+        float endPad   = squareSize * 0.14f; // crisp arrowhead pointing at target
+
+        float sx = x1 + ux * startPad;
+        float sy = y1 + uy * startPad;
+
+        float tx = x2 - ux * endPad;
+        float ty = y2 - uy * endPad;
+
+        float len = dist - startPad - endPad;
+        if (len <= 0) return;
+
+        float headLen = Math.min(len * 0.55f, squareSize * 0.36f);
+        float shaftHalf = squareSize * 0.085f;
+        float headHalf  = squareSize * 0.22f;
+
+        float bx = tx - ux * headLen;
+        float by = ty - uy * headLen;
+
+        Path arrowPath = new Path();
+        arrowPath.moveTo(sx + nx * shaftHalf, sy + ny * shaftHalf);
+        arrowPath.lineTo(bx + nx * shaftHalf, by + ny * shaftHalf);
+        arrowPath.lineTo(bx + nx * headHalf, by + ny * headHalf);
+        arrowPath.lineTo(tx, ty);
+        arrowPath.lineTo(bx - nx * headHalf, by - ny * headHalf);
+        arrowPath.lineTo(bx - nx * shaftHalf, by - ny * shaftHalf);
+        arrowPath.lineTo(sx - nx * shaftHalf, sy - ny * shaftHalf);
+        arrowPath.close();
+
         Paint paint = greenArrowPaint;
         if ("blue".equalsIgnoreCase(arrow.color)) paint = blueArrowPaint;
         else if ("red".equalsIgnoreCase(arrow.color)) paint = redArrowPaint;
 
-        canvas.drawLine(x1, y1, x2, y2, paint);
-
-        float angle = (float) Math.atan2(y2 - y1, x2 - x1);
-        float arrowHeadLen = squareSize * 0.32f;
-        float angleOffset = (float) Math.toRadians(25.0);
-
-        Path headPath = new Path();
-        headPath.moveTo(x2, y2);
-        headPath.lineTo(
-                x2 - arrowHeadLen * (float) Math.cos(angle - angleOffset),
-                y2 - arrowHeadLen * (float) Math.sin(angle - angleOffset)
-        );
-        headPath.lineTo(
-                x2 - (arrowHeadLen * 0.7f) * (float) Math.cos(angle),
-                y2 - (arrowHeadLen * 0.7f) * (float) Math.sin(angle)
-        );
-        headPath.lineTo(
-                x2 - arrowHeadLen * (float) Math.cos(angle + angleOffset),
-                y2 - arrowHeadLen * (float) Math.sin(angle + angleOffset)
-        );
-        headPath.close();
-
-        Paint fillPaint = new Paint(paint);
-        fillPaint.setStyle(Paint.Style.FILL);
-        canvas.drawPath(headPath, fillPaint);
+        canvas.drawCircle(sx, sy, shaftHalf, paint); // Smooth rounded base cap
+        canvas.drawPath(arrowPath, paint);
     }
 
     @Override

@@ -232,6 +232,12 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
             tvCompletionTitle.setText("\u2605 " + ch.title.toUpperCase() + " COMPLETE!");
             tvCompletionStats.setText("Mastery: " + stars.toString() + " \u2022 Accuracy: " + rate + "% \u2022 Total Moves: " + progressManager.getTotalMovesTrained());
 
+            if (currentChapterIdx + 1 < c.chapters.size()) {
+                btnNextLine.setText("NEXT VARIATION \u2794");
+            } else {
+                btnNextLine.setText("NEXT OPENING \u2794");
+            }
+
             boardView.setArrows(null);
             boardView.setHighlightSquares(null);
             return;
