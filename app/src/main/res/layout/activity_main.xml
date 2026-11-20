@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingBottom="6dp">
+        android:paddingBottom="4dp">
 
         <TextView
             android:id="@+id/tvOpeningTitle"
@@ -21,40 +21,56 @@
             android:layout_height="wrap_content"
             android:text="The Italian Game"
             android:textColor="#F3F4F6"
-            android:textSize="17sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/tvStreakBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔥 1d"
+            android:textColor="#F97316"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="#1C1917"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:layout_marginRight="6dp" />
 
         <Button
             android:id="@+id/btnModeToggle"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="34dp"
             android:text="[STUDY]"
             android:textColor="#10B981"
-            android:textSize="12sp"
+            android:textSize="11sp"
             android:textStyle="bold"
             android:background="#18181B"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp" />
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp" />
 
         <Button
             android:id="@+id/btnNextChapter"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="34dp"
             android:text="▶ CHAPTERS"
             android:textColor="#9CA3AF"
-            android:textSize="11sp"
+            android:textSize="10sp"
             android:background="#18181B"
-            android:layout_marginLeft="6dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp" />
+            android:layout_marginLeft="4dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp" />
     </LinearLayout>
 
-    <!-- Subtitle / Progress -->
+    <!-- Subtitle / Chapter Mastery & Step Progress -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:paddingBottom="4dp">
 
         <TextView
@@ -62,10 +78,19 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Chapter 1: Fried Liver Attack"
+            android:text="Two Knights Defense"
             android:textColor="#9CA3AF"
             android:textSize="12sp"
             android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/tvMasteryStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="★☆☆☆☆"
+            android:textColor="#FBBF24"
+            android:textSize="12sp"
+            android:layout_marginRight="6dp" />
 
         <TextView
             android:id="@+id/tvStepProgress"
@@ -73,7 +98,7 @@
             android:layout_height="wrap_content"
             android:text="Step 1/9"
             android:textColor="#6B7280"
-            android:textSize="12sp" />
+            android:textSize="11sp" />
     </LinearLayout>
 
     <!-- The 8x8 Chessboard Canvas -->
@@ -132,7 +157,7 @@
                     android:layout_height="wrap_content"
                     android:text="Claim the Center"
                     android:textColor="#FFFFFF"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:textStyle="bold"
                     android:paddingLeft="8dp" />
             </LinearLayout>
@@ -144,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:text="We stake an immediate claim on the critical d5 square, free our Light-squared Bishop, and open the diagonal for our Queen."
                 android:textColor="#D1D5DB"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:lineSpacingExtra="2dp"
                 android:paddingTop="2dp"
                 android:paddingBottom="4dp" />
@@ -171,7 +196,7 @@
                 android:text="✓ EXCELLENT MOVE!"
                 android:textColor="#34D399"
                 android:textStyle="bold"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:paddingTop="4dp"
                 android:visibility="gone" />
 
@@ -186,7 +211,7 @@
                     android:id="@+id/btnReset"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="38dp"
+                    android:layout_height="36dp"
                     android:text="↺ RESET"
                     android:textColor="#9CA3AF"
                     android:textSize="11sp"
@@ -196,7 +221,7 @@
                     android:id="@+id/btnHint"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="38dp"
+                    android:layout_height="36dp"
                     android:text="💡 HINT"
                     android:textColor="#FBBF24"
                     android:textSize="11sp"
@@ -207,7 +232,7 @@
                     android:id="@+id/btnNextStep"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="38dp"
+                    android:layout_height="36dp"
                     android:text="NEXT ❯"
                     android:textColor="#FFFFFF"
                     android:textSize="11sp"

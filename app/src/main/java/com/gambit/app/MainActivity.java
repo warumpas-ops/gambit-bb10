@@ -18,9 +18,12 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
 
     private ChessEngine engine;
     private ChessBoardView boardView;
+    private ProgressManager progressManager;
 
     private TextView tvOpeningTitle;
+    private TextView tvStreakBadge;
     private TextView tvChapterSubtitle;
+    private TextView tvMasteryStars;
     private TextView tvStepProgress;
     private TextView tvMoveBadge;
     private TextView tvStepTitle;
@@ -39,7 +42,8 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
     private int currentChapterIdx = 0;
     private int currentStepIdx = 0;
 
-    private boolean isDrillMode = false; // false = Study Mode (arrows + text), true = Drill Mode (active recall)
+    private boolean isDrillMode = false;
+    private boolean hadMistakeInChapter = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +51,16 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         setContentView(R.layout.activity_main);
 
         engine = new ChessEngine();
+        progressManager = new ProgressManager(this);
+
         boardView = (ChessBoardView) findViewById(R.id.chessBoardView);
         boardView.setEngine(engine);
         boardView.setOnMoveAttemptListener(this);
 
         tvOpeningTitle = (TextView) findViewById(R.id.tvOpeningTitle);
+        tvStreakBadge = (TextView) findViewById(R.id.tvStreakBadge);
         tvChapterSubtitle = (TextView) findViewById(R.id.tvChapterSubtitle);
+        tvMasteryStars = (TextView) findViewById(R.id.tvMasteryStars);
         tvStepProgress = (TextView) findViewById(R.id.tvStepProgress);
         tvMoveBadge = (TextView) findViewById(R.id.tvMoveBadge);
         tvStepTitle = (TextView) findViewById(R.id.tvStepTitle);
@@ -66,7 +74,6 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         btnHint = (Button) findViewById(R.id.btnHint);
         btnNextStep = (Button) findViewById(R.id.btnNextStep);
 
-        // Load all courses from assets
         courses = CourseRepository.loadAllCourses(this);
 
         btnModeToggle.setOnClickListener(new View.OnClickListener() {
@@ -104,19 +111,34 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
             }
         });
 
+        updateStreakDisplay();
         startChapter(0, 0);
+    }
+
+    private void updateStreakDisplay() {
+        int streak = progressManager.getStreak();
+        tvStreakBadge.setText("🔥 " + streak + "d");
+    }
+
+    private void updateMasteryStars(String chapterId) {
+        int level = progressManager.getChapterMasteryLevel(chapterId);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 5; i++) {
+            sb.append(i < level ? "★" : "☆");
+        }
+        tvMasteryStars.setText(sb.toString());
     }
 
     private void toggleMode() {
         isDrillMode = !isDrillMode;
         if (isDrillMode) {
             btnModeToggle.setText("[DRILL]");
-            btnModeToggle.setTextColor(Color.parseColor("#F59E0B")); // Amber
-            Toast.makeText(this, "Drill Mode: Play moves from memory!", Toast.LENGTH_SHORT).show();
+            btnModeToggle.setTextColor(Color.parseColor("#F59E0B"));
+            Toast.makeText(this, "Drill Mode: Recall moves without hints!", Toast.LENGTH_SHORT).show();
         } else {
             btnModeToggle.setText("[STUDY]");
-            btnModeToggle.setTextColor(Color.parseColor("#10B981")); // Emerald
-            Toast.makeText(this, "Study Mode: Interactive guided arrows enabled", Toast.LENGTH_SHORT).show();
+            btnModeToggle.setTextColor(Color.parseColor("#10B981"));
+            Toast.makeText(this, "Study Mode: Guided arrows enabled", Toast.LENGTH_SHORT).show();
         }
         resetCurrentChapter();
     }
@@ -138,9 +160,17 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
     private void resetCurrentChapter() {
         engine.resetToStartingPosition();
         currentStepIdx = 0;
+        hadMistakeInChapter = false;
         boardView.setLastMove(-1, -1);
         boardView.clearSelection();
         tvFeedback.setVisibility(View.GONE);
+
+        if (!courses.isEmpty()) {
+            OpeningModel.Course c = courses.get(currentCourseIdx);
+            OpeningModel.Chapter ch = c.chapters.get(currentChapterIdx);
+            updateMasteryStars(ch.id);
+        }
+
         renderCurrentStep();
     }
 
@@ -153,11 +183,15 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         tvChapterSubtitle.setText(ch.title);
 
         if (currentStepIdx >= ch.steps.size()) {
-            // Chapter Complete!
+            // Chapter Completed!
+            progressManager.recordChapterAttempt(ch.id, !hadMistakeInChapter);
+            updateMasteryStars(ch.id);
+
             tvStepProgress.setText("Completed!");
-            tvMoveBadge.setText("✓ DONE");
-            tvStepTitle.setText("Chapter Mastered!");
-            tvExplanation.setText("You have completed all moves in this line! Tap RESET to drill again, or CHAPTERS to train a new opening variation.");
+            tvMoveBadge.setText("✓ MASTERED");
+            tvStepTitle.setText("Chapter Complete!");
+            int rate = progressManager.getChapterSuccessRate(ch.id);
+            tvExplanation.setText("Great session! Success rate for this line: " + rate + "%. Total moves trained: " + progressManager.getTotalMovesTrained() + ". Tap NEXT to continue your training.");
             tvWarning.setVisibility(View.GONE);
             boardView.setArrows(null);
             boardView.setHighlightSquares(null);
@@ -170,14 +204,12 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         tvStepTitle.setText(step.title);
 
         if (isDrillMode) {
-            // In Drill Mode: Hide arrows, hide direct move answer, ask student to play
             boardView.setArrows(null);
             boardView.setHighlightSquares(null);
             tvMoveBadge.setText("? ? ?");
-            tvExplanation.setText("Your turn! What is the optimal move here to execute the opening plan?");
+            tvExplanation.setText("Your turn! Play the expected repertoire move from memory.");
             tvWarning.setVisibility(View.GONE);
         } else {
-            // In Study Mode: Show guide arrows and full pedagogical breakdown
             tvExplanation.setText(step.explanation);
             if (step.warning != null && !step.warning.isEmpty()) {
                 tvWarning.setText(step.warning);
@@ -217,22 +249,23 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         OpeningModel.MoveStep expected = ch.steps.get(currentStepIdx);
 
         if (uci.equalsIgnoreCase(expected.uci)) {
-            // Correct move!
+            // Correct Move!
             engine.makeMove(fromSq, toSq);
             boardView.setLastMove(fromSq, toSq);
 
+            progressManager.incrementMovesTrained();
+
             tvFeedback.setText("✓ PERFECT MOVE: " + expected.moveSan);
-            tvFeedback.setTextColor(Color.parseColor("#34D399")); // Emerald
+            tvFeedback.setTextColor(Color.parseColor("#34D399"));
             tvFeedback.setVisibility(View.VISIBLE);
 
             currentStepIdx++;
-
-            // If the next step is an automated opponent reply, execute it after brief delay
             checkAndPlayOpponentReply();
         } else {
-            // Incorrect move / blunder!
+            // Mistake / Blunder
+            hadMistakeInChapter = true;
             tvFeedback.setText("✗ Incorrect: Try again! (Press HINT if stuck)");
-            tvFeedback.setTextColor(Color.parseColor("#F87171")); // Coral red
+            tvFeedback.setTextColor(Color.parseColor("#F87171"));
             tvFeedback.setVisibility(View.VISIBLE);
         }
     }
@@ -246,7 +279,6 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         if (currentStepIdx < ch.steps.size()) {
             final OpeningModel.MoveStep nextStep = ch.steps.get(currentStepIdx);
             if (!nextStep.isUserMove) {
-                // Automated opponent reply
                 boardView.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -258,7 +290,7 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
                         currentStepIdx++;
                         renderCurrentStep();
                     }
-                }, 400); // 400ms organic pause
+                }, 400);
             }
         }
     }
@@ -268,7 +300,6 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         OpeningModel.Course c = courses.get(currentCourseIdx);
         OpeningModel.Chapter ch = c.chapters.get(currentChapterIdx);
         if (currentStepIdx >= ch.steps.size()) {
-            // Next chapter
             if (currentChapterIdx + 1 < c.chapters.size()) {
                 startChapter(currentCourseIdx, currentChapterIdx + 1);
             } else {
@@ -294,7 +325,11 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         for (int i = 0; i < courses.size(); i++) {
             OpeningModel.Course c = courses.get(i);
             for (int j = 0; j < c.chapters.size(); j++) {
-                items.add(c.name + " (" + c.color + ") - " + c.chapters.get(j).title);
+                OpeningModel.Chapter ch = c.chapters.get(j);
+                int lvl = progressManager.getChapterMasteryLevel(ch.id);
+                StringBuilder stars = new StringBuilder();
+                for (int s = 0; s < 5; s++) stars.append(s < lvl ? "★" : "☆");
+                items.add(c.name + " (" + c.color + ") - " + ch.title + "  [" + stars + "]");
             }
         }
 
@@ -320,7 +355,6 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         builder.show();
     }
 
-    // Physical BlackBerry QWERTY Keyboard Support
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_SPACE) {

@@ -7,9 +7,11 @@ int id chessBoardView 0x7f010005
 int id tvChapterSubtitle 0x7f010006
 int id tvExplanation 0x7f010007
 int id tvFeedback 0x7f010008
-int id tvMoveBadge 0x7f010009
-int id tvOpeningTitle 0x7f01000a
-int id tvStepProgress 0x7f01000b
-int id tvStepTitle 0x7f01000c
-int id tvWarning 0x7f01000d
+int id tvMasteryStars 0x7f010009
+int id tvMoveBadge 0x7f01000a
+int id tvOpeningTitle 0x7f01000b
+int id tvStepProgress 0x7f01000c
+int id tvStepTitle 0x7f01000d
+int id tvStreakBadge 0x7f01000e
+int id tvWarning 0x7f01000f
 int layout activity_main 0x7f020000

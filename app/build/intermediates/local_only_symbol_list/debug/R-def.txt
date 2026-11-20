@@ -9,9 +9,11 @@ id chessBoardView
 id tvChapterSubtitle
 id tvExplanation
 id tvFeedback
+id tvMasteryStars
 id tvMoveBadge
 id tvOpeningTitle
 id tvStepProgress
 id tvStepTitle
+id tvStreakBadge
 id tvWarning
 layout activity_main
