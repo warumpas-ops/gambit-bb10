@@ -2,6 +2,7 @@
   "id": "caro_kann",
   "name": "The Caro-Kann Defense",
   "color": "Black",
+  "level": "Level 1: Beginner Essentials",
   "description": "The rock-solid counterpunch for Black against 1. e4. Prepare an unshakeable pawn structure, strike in the center, and easily activate all minor pieces.",
   "chapters": [
     {

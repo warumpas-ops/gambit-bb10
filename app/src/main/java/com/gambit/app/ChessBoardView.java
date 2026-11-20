@@ -5,8 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.Rect;
-import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,24 +20,24 @@ public class ChessBoardView extends View {
 
     private ChessEngine engine;
     private OnMoveAttemptListener moveListener;
-    private boolean flipped = false; // true if Black is at the bottom
+    private boolean flipped = false; // true if Black is at bottom
 
-    // High contrast modern OLED colors
-    private int lightSquareColor = Color.parseColor("#E0E0E0"); // Crisp off-white
-    private int darkSquareColor  = Color.parseColor("#4A4D54"); // Slate graphite
-    private int selectedColor    = Color.parseColor("#66F59E0B"); // Translucent amber glow
-    private int lastMoveColor    = Color.parseColor("#553B82F6"); // Translucent blue glow
-    private int highlightColor   = Color.parseColor("#55E11D48"); // Translucent ruby red glow
+    // Exact Chess.com Colors
+    private int lightSquareColor = Color.parseColor("#EBECD0"); // Classic Chess.com Buff/Cream
+    private int darkSquareColor  = Color.parseColor("#739552"); // Classic Chess.com Olive Green
+    private int lastMoveColor    = Color.parseColor("#80F5F682"); // Translucent Chess.com Yellow
+    private int selectedColor    = Color.parseColor("#80F7E752"); // Vibrant Yellow Glow
+    private int highlightColor   = Color.parseColor("#66EF4444"); // Translucent Red Threat
 
-    // Arrow and label paints
     private Paint lightSquarePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint darkSquarePaint  = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint selectedPaint    = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint lastMovePaint    = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint highlightPaint   = new Paint(Paint.ANTI_ALIAS_FLAG);
-    private Paint coordPaint       = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-    // Arrow Paints
+    private Paint lightCoordPaint  = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private Paint darkCoordPaint   = new Paint(Paint.ANTI_ALIAS_FLAG);
+
     private Paint greenArrowPaint  = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint blueArrowPaint   = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint redArrowPaint    = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -72,23 +70,27 @@ public class ChessBoardView extends View {
         lastMovePaint.setColor(lastMoveColor);
         highlightPaint.setColor(highlightColor);
 
-        coordPaint.setColor(Color.parseColor("#8E8E93"));
-        coordPaint.setTextSize(18f);
+        // Chess.com style rank/file coordinates inside squares
+        lightCoordPaint.setColor(darkSquareColor);
+        lightCoordPaint.setTextSize(14f);
+        lightCoordPaint.setFakeBoldText(true);
 
-        // Green arrow: best move
-        greenArrowPaint.setColor(Color.parseColor("#22C55E"));
+        darkCoordPaint.setColor(lightSquareColor);
+        darkCoordPaint.setTextSize(14f);
+        darkCoordPaint.setFakeBoldText(true);
+
+        // Arrows (Chess.com vibrant vectors)
+        greenArrowPaint.setColor(Color.parseColor("#7FA650"));
         greenArrowPaint.setStrokeWidth(10f);
         greenArrowPaint.setStyle(Paint.Style.STROKE);
         greenArrowPaint.setStrokeCap(Paint.Cap.ROUND);
 
-        // Blue arrow: strategic plan
-        blueArrowPaint.setColor(Color.parseColor("#38BDF8"));
+        blueArrowPaint.setColor(Color.parseColor("#52B2BF"));
         blueArrowPaint.setStrokeWidth(10f);
         blueArrowPaint.setStyle(Paint.Style.STROKE);
         blueArrowPaint.setStrokeCap(Paint.Cap.ROUND);
 
-        // Red arrow: threat or blunder
-        redArrowPaint.setColor(Color.parseColor("#EF4444"));
+        redArrowPaint.setColor(Color.parseColor("#E05353"));
         redArrowPaint.setStrokeWidth(10f);
         redArrowPaint.setStyle(Paint.Style.STROKE);
         redArrowPaint.setStrokeCap(Paint.Cap.ROUND);
@@ -104,6 +106,10 @@ public class ChessBoardView extends View {
     public void setFlipped(boolean flipped) {
         this.flipped = flipped;
         invalidate();
+    }
+
+    public boolean isFlipped() {
+        return flipped;
     }
 
     public void setOnMoveAttemptListener(OnMoveAttemptListener listener) {
@@ -140,7 +146,6 @@ public class ChessBoardView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        // Enforce exact square dimensions for the 8x8 chessboard
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int height = MeasureSpec.getSize(heightMeasureSpec);
         int size = Math.min(width, height);
@@ -179,25 +184,28 @@ public class ChessBoardView extends View {
                     canvas.drawRect(left, top, right, bottom, selectedPaint);
                 }
 
-                // Highlight custom strategic/target squares
+                // Custom target / blunder square
                 if (activeHighlights.contains(sq)) {
                     canvas.drawRect(left, top, right, bottom, highlightPaint);
+                }
+
+                // Chess.com Corner Coordinates
+                // Files (a-h) on bottom row
+                if (r == 7) {
+                    char fileChar = (char) (flipped ? ('h' - f) : ('a' + f));
+                    Paint cp = isDark ? darkCoordPaint : lightCoordPaint;
+                    canvas.drawText(String.valueOf(fileChar), right - 13f, bottom - 5f, cp);
+                }
+                // Ranks (1-8) on left column
+                if (f == 0) {
+                    char rankChar = (char) (flipped ? ('1' + r) : ('8' - r));
+                    Paint cp = isDark ? darkCoordPaint : lightCoordPaint;
+                    canvas.drawText(String.valueOf(rankChar), left + 4f, top + 15f, cp);
                 }
             }
         }
 
-        // 2. Draw Coordinates (Ranks on left, Files on bottom)
-        for (int i = 0; i < 8; i++) {
-            char fileChar = (char) (flipped ? ('h' - i) : ('a' + i));
-            char rankChar = (char) (flipped ? ('1' + i) : ('8' - i));
-
-            // Rank label on left edge
-            canvas.drawText(String.valueOf(rankChar), 4f, i * squareSize + 22f, coordPaint);
-            // File label on bottom edge
-            canvas.drawText(String.valueOf(fileChar), (i + 1) * squareSize - 16f, w - 6f, coordPaint);
-        }
-
-        // 3. Draw Pieces
+        // 2. Draw Chess Pieces
         textPiecePaint.setTextSize(squareSize * 0.76f);
         Paint.FontMetrics fm = textPiecePaint.getFontMetrics();
         float yOffset = ((fm.descent - fm.ascent) / 2) - fm.descent;
@@ -214,8 +222,7 @@ public class ChessBoardView extends View {
                     float cy = r * squareSize + (squareSize / 2f) + yOffset;
                     String glyph = getPieceGlyph(piece);
 
-                    // Drop shadow for crisp contrast against any square
-                    textPiecePaint.setColor(ChessEngine.isWhite(piece) ? Color.WHITE : Color.parseColor("#121214"));
+                    textPiecePaint.setColor(ChessEngine.isWhite(piece) ? Color.WHITE : Color.parseColor("#18181B"));
                     textPiecePaint.setShadowLayer(5.0f, 0f, 2.0f, Color.parseColor("#99000000"));
                     canvas.drawText(glyph, cx, cy, textPiecePaint);
                     textPiecePaint.clearShadowLayer();
@@ -223,7 +230,7 @@ public class ChessBoardView extends View {
             }
         }
 
-        // 4. Draw Tactical Arrows
+        // 3. Draw Tactical Arrows
         for (OpeningModel.Arrow arrow : activeArrows) {
             drawArrow(canvas, arrow);
         }
@@ -251,10 +258,8 @@ public class ChessBoardView extends View {
         if ("blue".equalsIgnoreCase(arrow.color)) paint = blueArrowPaint;
         else if ("red".equalsIgnoreCase(arrow.color)) paint = redArrowPaint;
 
-        // Draw arrow shaft
         canvas.drawLine(x1, y1, x2, y2, paint);
 
-        // Draw arrow head
         float angle = (float) Math.atan2(y2 - y1, x2 - x1);
         float arrowHeadLen = squareSize * 0.32f;
         float angleOffset = (float) Math.toRadians(25.0);
@@ -311,7 +316,6 @@ public class ChessBoardView extends View {
             int clickedSq = clickedDisplayRow * 8 + clickedDisplayCol;
 
             if (selectedSq == -1) {
-                // First click: select piece if owned by side to move
                 char piece = engine.getPiece(clickedSq);
                 if (piece != ChessEngine.EMPTY) {
                     boolean pieceIsWhite = ChessEngine.isWhite(piece);
@@ -321,7 +325,6 @@ public class ChessBoardView extends View {
                     }
                 }
             } else {
-                // Second click: attempt move from selectedSq to clickedSq
                 int from = selectedSq;
                 int to = clickedSq;
                 selectedSq = -1;

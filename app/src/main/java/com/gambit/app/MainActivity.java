@@ -1,8 +1,6 @@
 package com.gambit.app;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -76,6 +74,10 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
 
         courses = CourseRepository.loadAllCourses(this);
 
+        // Read chosen course & chapter from intent
+        int initCourseIdx = getIntent().getIntExtra("courseIdx", 0);
+        int initChapterIdx = getIntent().getIntExtra("chapterIdx", 0);
+
         btnModeToggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,10 +85,12 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
             }
         });
 
+        // "LIBRARY" button returns to Hub
+        btnNextChapter.setText("☷ LIBRARY");
         btnNextChapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showChapterSelector();
+                finish(); // Return to Hub
             }
         });
 
@@ -112,7 +116,7 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         });
 
         updateStreakDisplay();
-        startChapter(0, 0);
+        startChapter(initCourseIdx, initChapterIdx);
     }
 
     private void updateStreakDisplay() {
@@ -152,7 +156,12 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         currentStepIdx = 0;
 
         OpeningModel.Chapter ch = c.chapters.get(currentChapterIdx);
-        boardView.setFlipped("black".equalsIgnoreCase(ch.orientation));
+
+        // AUTOMATIC BOARD PERSPECTIVE:
+        // If course is for Black (e.g. Caro-Kann, Sicilian) -> FLIP so Black is at the bottom!
+        // If course is for White (e.g. Italian Game) -> White is at the bottom!
+        boolean playAsBlack = "black".equalsIgnoreCase(c.color) || "black".equalsIgnoreCase(ch.orientation);
+        boardView.setFlipped(playAsBlack);
 
         resetCurrentChapter();
     }
@@ -172,6 +181,9 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         }
 
         renderCurrentStep();
+
+        // If the very first move is an automated opponent move (e.g. when playing Black against 1. e4), play it!
+        checkAndPlayOpponentReply();
     }
 
     private void renderCurrentStep() {
@@ -183,7 +195,6 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         tvChapterSubtitle.setText(ch.title);
 
         if (currentStepIdx >= ch.steps.size()) {
-            // Chapter Completed!
             progressManager.recordChapterAttempt(ch.id, !hadMistakeInChapter);
             updateMasteryStars(ch.id);
 
@@ -191,7 +202,7 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
             tvMoveBadge.setText("✓ MASTERED");
             tvStepTitle.setText("Chapter Complete!");
             int rate = progressManager.getChapterSuccessRate(ch.id);
-            tvExplanation.setText("Great session! Success rate for this line: " + rate + "%. Total moves trained: " + progressManager.getTotalMovesTrained() + ". Tap NEXT to continue your training.");
+            tvExplanation.setText("Great session! Success rate: " + rate + "%. Total moves trained: " + progressManager.getTotalMovesTrained() + ". Tap NEXT for the next line or LIBRARY to choose another opening.");
             tvWarning.setVisibility(View.GONE);
             boardView.setArrows(null);
             boardView.setHighlightSquares(null);
@@ -249,7 +260,6 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         OpeningModel.MoveStep expected = ch.steps.get(currentStepIdx);
 
         if (uci.equalsIgnoreCase(expected.uci)) {
-            // Correct Move!
             engine.makeMove(fromSq, toSq);
             boardView.setLastMove(fromSq, toSq);
 
@@ -262,7 +272,6 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
             currentStepIdx++;
             checkAndPlayOpponentReply();
         } else {
-            // Mistake / Blunder
             hadMistakeInChapter = true;
             tvFeedback.setText("✗ Incorrect: Try again! (Press HINT if stuck)");
             tvFeedback.setTextColor(Color.parseColor("#F87171"));
@@ -290,7 +299,7 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
                         currentStepIdx++;
                         renderCurrentStep();
                     }
-                }, 400);
+                }, 450);
             }
         }
     }
@@ -318,43 +327,6 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         checkAndPlayOpponentReply();
     }
 
-    private void showChapterSelector() {
-        if (courses.isEmpty()) return;
-
-        List<String> items = new ArrayList<String>();
-        for (int i = 0; i < courses.size(); i++) {
-            OpeningModel.Course c = courses.get(i);
-            for (int j = 0; j < c.chapters.size(); j++) {
-                OpeningModel.Chapter ch = c.chapters.get(j);
-                int lvl = progressManager.getChapterMasteryLevel(ch.id);
-                StringBuilder stars = new StringBuilder();
-                for (int s = 0; s < 5; s++) stars.append(s < lvl ? "★" : "☆");
-                items.add(c.name + " (" + c.color + ") - " + ch.title + "  [" + stars + "]");
-            }
-        }
-
-        final CharSequence[] array = items.toArray(new CharSequence[0]);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Select Opening & Chapter");
-        builder.setItems(array, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                int count = 0;
-                for (int i = 0; i < courses.size(); i++) {
-                    OpeningModel.Course c = courses.get(i);
-                    for (int j = 0; j < c.chapters.size(); j++) {
-                        if (count == which) {
-                            startChapter(i, j);
-                            return;
-                        }
-                        count++;
-                    }
-                }
-            }
-        });
-        builder.show();
-    }
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_SPACE) {
@@ -370,7 +342,7 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
             toggleMode();
             return true;
         } else if (keyCode == KeyEvent.KEYCODE_C) {
-            showChapterSelector();
+            finish(); // Return to Library
             return true;
         }
         return super.onKeyDown(keyCode, event);

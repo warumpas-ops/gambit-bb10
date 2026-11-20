@@ -42,6 +42,7 @@ public class CourseRepository {
             c.id = root.optString("id");
             c.name = root.optString("name");
             c.color = root.optString("color");
+            c.level = root.optString("level", "Level 1: Fundamentals");
             c.description = root.optString("description");
 
             JSONArray chapters = root.optJSONArray("chapters");

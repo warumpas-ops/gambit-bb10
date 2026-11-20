@@ -1,0 +1,96 @@
+{
+  "id": "sicilian_defense",
+  "name": "The Sicilian Defense",
+  "color": "Black",
+  "level": "Level 2: Aggressive & Tactical",
+  "description": "The most feared, combative response against 1. e4. Black fights for the center from the flank, aiming for asymmetric, tactical, and unbalanced winning positions.",
+  "chapters": [
+    {
+      "id": "sicilian_open_dragon",
+      "title": "The Dragon Setup (2... d6 & g6)",
+      "subtitle": "Unleashing the dark-squared dragon bishop",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Opens With e4",
+          "explanation": "White takes central space and opens diagonals.",
+          "arrows": [{ "from": "e2", "to": "e4", "color": "blue" }]
+        },
+        {
+          "moveSan": "1... c5",
+          "uci": "c7c5",
+          "isUserMove": true,
+          "title": "The Sicilian Strike",
+          "explanation": "Boom! The Sicilian Defense. We contest the d4 center square using a flank c-pawn, creating an asymmetrical fight from move 1.",
+          "warning": "Never play 1... c6 or 1... e5 if you intend to play Sicilian lines — 1... c5 defines the board!",
+          "arrows": [
+            { "from": "c7", "to": "c5", "color": "green" },
+            { "from": "c5", "to": "d4", "color": "blue" }
+          ],
+          "highlightSquares": ["d4"]
+        },
+        {
+          "moveSan": "2. Nf3",
+          "uci": "g1f3",
+          "isUserMove": false,
+          "title": "White Prepares d4",
+          "explanation": "White prepares to open the center with the d4 pawn thrust.",
+          "arrows": [
+            { "from": "g1", "to": "f3", "color": "blue" },
+            { "from": "f3", "to": "d4", "color": "blue" }
+          ]
+        },
+        {
+          "moveSan": "2... d6",
+          "uci": "d7d6",
+          "isUserMove": true,
+          "title": "Solidify the Center",
+          "explanation": "We guard the critical e5 square to prevent White's pawns from advancing, and prepare our knight for f6.",
+          "arrows": [
+            { "from": "d7", "to": "d6", "color": "green" },
+            { "from": "d6", "to": "e5", "color": "blue" }
+          ]
+        },
+        {
+          "moveSan": "3. d4",
+          "uci": "d2d4",
+          "isUserMove": false,
+          "title": "The Open Sicilian",
+          "explanation": "White strikes the center, looking for rapid open piece play.",
+          "arrows": [{ "from": "d2", "to": "d4", "color": "blue" }]
+        },
+        {
+          "moveSan": "3... cxd4",
+          "uci": "c5d4",
+          "isUserMove": true,
+          "title": "Trade Flank for Center",
+          "explanation": "The fundamental trade of the Sicilian! We capture White's central d-pawn using our flank c-pawn, giving Black long-term central pawn superiority and the semi-open c-file.",
+          "arrows": [{ "from": "c5", "to": "d4", "color": "green" }]
+        },
+        {
+          "moveSan": "4. Nxd4",
+          "uci": "f3d4",
+          "isUserMove": false,
+          "title": "White Recaptures",
+          "explanation": "White places their knight in the center.",
+          "arrows": [{ "from": "f3", "to": "d4", "color": "blue" }]
+        },
+        {
+          "moveSan": "4... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Attack the e4 Pawn",
+          "explanation": "We develop our Knight with tempo, immediately attacking White's e4 pawn and forcing White onto the defensive (5. Nc3).",
+          "arrows": [
+            { "from": "g8", "to": "f6", "color": "green" },
+            { "from": "f6", "to": "e4", "color": "red" }
+          ],
+          "highlightSquares": ["e4"]
+        }
+      ]
+    }
+  ]
+}

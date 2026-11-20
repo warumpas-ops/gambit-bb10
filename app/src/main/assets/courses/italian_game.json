@@ -2,6 +2,7 @@
   "id": "italian_game",
   "name": "The Italian Game",
   "color": "White",
+  "level": "Level 1: Beginner Essentials",
   "description": "The classic, open, aggressive opening for White. Ideal for mastering piece development, controlling the center, and attacking the weak f7 square.",
   "chapters": [
     {

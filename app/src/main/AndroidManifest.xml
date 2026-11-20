@@ -6,8 +6,10 @@
         android:allowBackup="true"
         android:label="Gambit"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+
+        <!-- Launcher Activity: Course Library & Level Hub -->
         <activity
-            android:name=".MainActivity"
+            android:name=".HubActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
             android:exported="true">
@@ -16,6 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Interactive Board & Drill Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="false" />
     </application>
 
 </manifest>

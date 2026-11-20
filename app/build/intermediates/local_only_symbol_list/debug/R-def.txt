@@ -6,9 +6,12 @@ id btnNextChapter
 id btnNextStep
 id btnReset
 id chessBoardView
+id llCoursesContainer
 id tvChapterSubtitle
 id tvExplanation
 id tvFeedback
+id tvHubStats
+id tvHubStreak
 id tvMasteryStars
 id tvMoveBadge
 id tvOpeningTitle
@@ -16,4 +19,5 @@ id tvStepProgress
 id tvStepTitle
 id tvStreakBadge
 id tvWarning
+layout activity_hub
 layout activity_main
