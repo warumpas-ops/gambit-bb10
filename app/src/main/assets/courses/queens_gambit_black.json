@@ -1,0 +1,561 @@
+{
+  "id": "queens_gambit_black",
+  "name": "The Queen's Gambit",
+  "color": "Black",
+  "level": "Level 1: Fundamentals",
+  "description": "Master Black's most resilient defenses against 1. d4. Solve Black's bad bishop with the Tartakower/Capablanca freeing maneuvers and catch White in the Lasker Trap.",
+  "chapters": [
+    {
+      "id": "qg_b_tartakower",
+      "title": "QGD: Tartakower Freeing Maneuver",
+      "subtitle": "Solve the light-squared bishop problem with ...b6 & ...Bb7",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. d4",
+          "uci": "d2d4",
+          "isUserMove": false,
+          "title": "White Opens d4",
+          "explanation": "Queen's pawn.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... d5",
+          "uci": "d7d5",
+          "isUserMove": true,
+          "title": "Claim Symmetrical Center",
+          "explanation": "Stake our claim on the center and prevent White from rolling forward with e4.",
+          "warning": "Solid, principled response to 1. d4.",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "2. c4",
+          "uci": "c2c4",
+          "isUserMove": false,
+          "title": "White Plays c4 Gambit",
+          "explanation": "Challenging d5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... e6",
+          "uci": "e7e6",
+          "isUserMove": true,
+          "title": "Decline the Gambit",
+          "explanation": "Fortify the d5 bastion with e6. Our central pawn chain is unbreakable.",
+          "warning": "Don't play 2... c6 yet if aiming for Tartakower lines.",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d5"
+          ]
+        },
+        {
+          "moveSan": "3. Nc3",
+          "uci": "b1c3",
+          "isUserMove": false,
+          "title": "White Develops Nc3",
+          "explanation": "Piling on d5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Defend d5 Naturally",
+          "explanation": "Develop the kingside knight and guard the critical d5 and e4 squares.",
+          "warning": "Avoid passive defense.",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d5",
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "4. Bg5",
+          "uci": "c1g5",
+          "isUserMove": false,
+          "title": "White Pins Knight",
+          "explanation": "Pinning knight to queen.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c1",
+              "to": "g5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Be7",
+          "uci": "f8e7",
+          "isUserMove": true,
+          "title": "Neutralize the Pin",
+          "explanation": "Interpose with the bishop to break the pin on your queen and prepare castling.",
+          "warning": "Always break this pin before embarking on ambitious pawn breaks.",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "e7",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d8"
+          ]
+        },
+        {
+          "moveSan": "5. e3",
+          "uci": "e2e3",
+          "isUserMove": false,
+          "title": "White Fortifies d4",
+          "explanation": "Closing bishop inside.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... O-O",
+          "uci": "e8g8",
+          "isUserMove": true,
+          "title": "Safeguard King",
+          "explanation": "Castle into absolute safety.",
+          "warning": "King safety first.",
+          "arrows": [
+            {
+              "from": "e8",
+              "to": "g8",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "g8"
+          ]
+        },
+        {
+          "moveSan": "6. Nf3",
+          "uci": "g1f3",
+          "isUserMove": false,
+          "title": "White Develops",
+          "explanation": "Standard knight move.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6... h6",
+          "uci": "h7h6",
+          "isUserMove": true,
+          "title": "Ask White's Bishop the Question",
+          "explanation": "Challenge the bishop! Force White to either trade or retreat to h4.",
+          "warning": "Gives your king an essential luft square on h7.",
+          "arrows": [
+            {
+              "from": "h7",
+              "to": "h6",
+              "color": "green"
+            },
+            {
+              "from": "h6",
+              "to": "g5",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "g5"
+          ]
+        },
+        {
+          "moveSan": "7. Bh4",
+          "uci": "g5h4",
+          "isUserMove": false,
+          "title": "White Retreats",
+          "explanation": "Maintaining the pin line.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g5",
+              "to": "h4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "7... b6!",
+          "uci": "b7b6",
+          "isUserMove": true,
+          "title": "The Tartakower Liberation!",
+          "explanation": "Prepare Bb7! This breathes life into Black's famous 'bad bishop' and achieves lasting equality.",
+          "warning": "The bishop becomes a powerhouse on the long diagonal.",
+          "arrows": [
+            {
+              "from": "b7",
+              "to": "b6",
+              "color": "green"
+            },
+            {
+              "from": "c8",
+              "to": "b7",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": [
+            "b7",
+            "a8-h1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qg_b_albin_lasker",
+      "title": "The Albin Counter-Gambit: Lasker Trap",
+      "subtitle": "Shock White with 2... e5! and win their Queen on move 8!",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. d4",
+          "uci": "d2d4",
+          "isUserMove": false,
+          "title": "White Plays d4",
+          "explanation": "Standard opening.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... d5",
+          "uci": "d7d5",
+          "isUserMove": true,
+          "title": "Black Plays d5",
+          "explanation": "Claim center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. c4",
+          "uci": "c2c4",
+          "isUserMove": false,
+          "title": "Queen's Gambit",
+          "explanation": "White offers c4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... e5!",
+          "uci": "e7e5",
+          "isUserMove": true,
+          "title": "The Albin Counter-Gambit!",
+          "explanation": "Counterattack White's center immediately with 2... e5! Sacrificing a pawn for dynamic initiative.",
+          "warning": "Demands exact tactical play from White.",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "3. dxe5",
+          "uci": "d4e5",
+          "isUserMove": false,
+          "title": "White Takes e5",
+          "explanation": "Accepting the gambit.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d4",
+              "to": "e5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... d4!",
+          "uci": "d5d4",
+          "isUserMove": true,
+          "title": "The Wedge Pawn!",
+          "explanation": "Push d4! This pawn is a thorn in White's side, depriving their knight of the c3 square.",
+          "warning": "Never capture on e5; push to d4!",
+          "arrows": [
+            {
+              "from": "d5",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "c3",
+            "e3"
+          ]
+        },
+        {
+          "moveSan": "4. e3?",
+          "uci": "e2e3",
+          "isUserMove": false,
+          "title": "White Makes the Natural Blunder",
+          "explanation": "Trying to eliminate your pawn.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Bb4+",
+          "uci": "f8b4",
+          "isUserMove": true,
+          "title": "Check the King!",
+          "explanation": "Force White's bishop to block on d2.",
+          "warning": "White falls deeper into the web.",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "b4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e1"
+          ]
+        },
+        {
+          "moveSan": "5. Bd2",
+          "uci": "c1d2",
+          "isUserMove": false,
+          "title": "White Blocks",
+          "explanation": "Thinking they are safe.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c1",
+              "to": "d2",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... dxe3!",
+          "uci": "d4e3",
+          "isUserMove": true,
+          "title": "The Queen Sacrifice Bait!",
+          "explanation": "Take on e3! If White greedily plays 6. Bxb4??, they walk into instant doom!",
+          "warning": "A historic tactical brilliancy by Lasker.",
+          "arrows": [
+            {
+              "from": "d4",
+              "to": "e3",
+              "color": "green"
+            },
+            {
+              "from": "e3",
+              "to": "f2",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "f2"
+          ]
+        },
+        {
+          "moveSan": "6. Bxb4?",
+          "uci": "d2b4",
+          "isUserMove": false,
+          "title": "White Bites the Poison",
+          "explanation": "Grabbing the bishop.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "b4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6... exf2+",
+          "uci": "e3f2",
+          "isUserMove": true,
+          "title": "Strip White's Castling",
+          "explanation": "Check the king! White cannot take with the king because their Queen on d1 hangs!",
+          "warning": "Forced King move to e2.",
+          "arrows": [
+            {
+              "from": "e3",
+              "to": "f2",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e1"
+          ]
+        },
+        {
+          "moveSan": "7. Ke2",
+          "uci": "e1e2",
+          "isUserMove": false,
+          "title": "King Flees",
+          "explanation": "Forced escape.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e1",
+              "to": "e2",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "7... fxg1=N+!",
+          "uci": "f2g1n",
+          "isUserMove": true,
+          "title": "The Knight Underpromotion!",
+          "explanation": "Underpromote to a KNIGHT with check! If you promoted to a Queen, White plays Qxd8+ and trades off.",
+          "warning": "World-famous underpromotion winning White's Queen on the next move!",
+          "arrows": [
+            {
+              "from": "f2",
+              "to": "g1",
+              "color": "green"
+            },
+            {
+              "from": "g1",
+              "to": "e2",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "e2"
+          ]
+        },
+        {
+          "moveSan": "8. Rxg1",
+          "uci": "h1g1",
+          "isUserMove": false,
+          "title": "Rook Takes Knight",
+          "explanation": "Forced capture.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "h1",
+              "to": "g1",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "8... Bg4+",
+          "uci": "c8g4",
+          "isUserMove": true,
+          "title": "Skewer White's Queen!",
+          "explanation": "Bishop pins and skewers White's Queen to the King! White loses their Queen and resigns.",
+          "warning": "Absolute tactical perfection.",
+          "arrows": [
+            {
+              "from": "c8",
+              "to": "g4",
+              "color": "green"
+            },
+            {
+              "from": "g4",
+              "to": "d1",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "d1"
+          ]
+        }
+      ]
+    }
+  ]
+}

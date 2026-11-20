@@ -1,0 +1,426 @@
+{
+  "id": "london_system_black",
+  "name": "The London System",
+  "color": "Black",
+  "level": "Level 2: Tactical & Aggressive",
+  "description": "Black's active, dynamic refutations against the popular London System. Punish White's early bishop sorties with Qb6, c4, and kingside counterplay.",
+  "chapters": [
+    {
+      "id": "lon_b_queen_infil",
+      "title": "Anti-London: Queen Infiltration (Qb6 & c4)",
+      "subtitle": "Punish 2. Bf4 by attacking the abandoned b2 square",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. d4",
+          "uci": "d2d4",
+          "isUserMove": false,
+          "title": "White Starts d4",
+          "explanation": "Queen's pawn.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... d5",
+          "uci": "d7d5",
+          "isUserMove": true,
+          "title": "Stake the Center",
+          "explanation": "Control e4 and c4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Bf4",
+          "uci": "c1f4",
+          "isUserMove": false,
+          "title": "White Plays London Bishop",
+          "explanation": "Bishop outside pawn chain.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c1",
+              "to": "f4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... c5",
+          "uci": "c7c5",
+          "isUserMove": true,
+          "title": "Immediate Flank Challenge",
+          "explanation": "Strike at White's d4 pawn before White can build their pyramid with c3!",
+          "warning": "Always challenge d4 immediately against the London.",
+          "arrows": [
+            {
+              "from": "c7",
+              "to": "c5",
+              "color": "green"
+            },
+            {
+              "from": "c5",
+              "to": "d4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "3. e3",
+          "uci": "e2e3",
+          "isUserMove": false,
+          "title": "White Defends with e3",
+          "explanation": "White closes chain.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Nc6",
+          "uci": "b8c6",
+          "isUserMove": true,
+          "title": "Develop Knight with Pressure",
+          "explanation": "Add pressure against d4.",
+          "warning": "Natural piece coordination.",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "green"
+            },
+            {
+              "from": "c6",
+              "to": "d4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "4. c3",
+          "uci": "c2c3",
+          "isUserMove": false,
+          "title": "White Cements Pyramid",
+          "explanation": "White plays c3.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Qb6!",
+          "uci": "d8b6",
+          "isUserMove": true,
+          "title": "Target the Abandoned b2 Pawn!",
+          "explanation": "White's bishop left b2 completely unguarded! Force White's queen or rook to defend passively.",
+          "warning": "A classic refutation punishing the bishop's absence.",
+          "arrows": [
+            {
+              "from": "d8",
+              "to": "b6",
+              "color": "green"
+            },
+            {
+              "from": "b6",
+              "to": "b2",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "b2"
+          ]
+        },
+        {
+          "moveSan": "5. Qb3",
+          "uci": "d1b3",
+          "isUserMove": false,
+          "title": "White Queen Defends",
+          "explanation": "White offers queen trade.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d1",
+              "to": "b3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... c4!",
+          "uci": "c5c4",
+          "isUserMove": true,
+          "title": "Lock the Queen & Kick it Away!",
+          "explanation": "Advance c4 with tempo! Kick White's queen and seize immense queenside space.",
+          "warning": "Do NOT trade queens on b3; push c4!",
+          "arrows": [
+            {
+              "from": "c5",
+              "to": "c4",
+              "color": "green"
+            },
+            {
+              "from": "c4",
+              "to": "b3",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "b3"
+          ]
+        },
+        {
+          "moveSan": "6. Qc2",
+          "uci": "b3c2",
+          "isUserMove": false,
+          "title": "Queen Retreats to c2",
+          "explanation": "Forced retreat.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b3",
+              "to": "c2",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6... Bf5!",
+          "uci": "c8f5",
+          "isUserMove": true,
+          "title": "Tactical Bishop Deflection!",
+          "explanation": "Develop your bishop with tempo! If White plays 7. Qxf5??, you play Qxb2! trapping the rook on a1!",
+          "warning": "Brilliant tactical resource cementing Black's complete initiative.",
+          "arrows": [
+            {
+              "from": "c8",
+              "to": "f5",
+              "color": "green"
+            },
+            {
+              "from": "f5",
+              "to": "c2",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "c2",
+            "b2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lon_b_kid_setup",
+      "title": "King's Indian Counter vs London",
+      "subtitle": "Fianchetto the dark bishop to disarm the London pyramid",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. d4",
+          "uci": "d2d4",
+          "isUserMove": false,
+          "title": "White Plays d4",
+          "explanation": "Opening pawn.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Flexible Knight Move",
+          "explanation": "Control e4 and d5 flexibly.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Bf4",
+          "uci": "c1f4",
+          "isUserMove": false,
+          "title": "White Plays London",
+          "explanation": "Bishop on f4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c1",
+              "to": "f4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... g6",
+          "uci": "g7g6",
+          "isUserMove": true,
+          "title": "Fianchetto Preparation",
+          "explanation": "Neutralize White's dark-squared bishop by preparing Bg7.",
+          "warning": "The bishop on g7 bites on granite.",
+          "arrows": [
+            {
+              "from": "g7",
+              "to": "g6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "g7"
+          ]
+        },
+        {
+          "moveSan": "3. e3",
+          "uci": "e2e3",
+          "isUserMove": false,
+          "title": "White Plays e3",
+          "explanation": "Closing chain.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Bg7",
+          "uci": "f8g7",
+          "isUserMove": true,
+          "title": "Occupy Long Diagonal",
+          "explanation": "Develop the bishop and control e5.",
+          "warning": "Solid fortress.",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "g7",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e5"
+          ]
+        },
+        {
+          "moveSan": "4. Nf3",
+          "uci": "g1f3",
+          "isUserMove": false,
+          "title": "White Develops",
+          "explanation": "Knight move.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... O-O",
+          "uci": "e8g8",
+          "isUserMove": true,
+          "title": "Castle Safely",
+          "explanation": "King is shielded.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e8",
+              "to": "g8",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "g8"
+          ]
+        },
+        {
+          "moveSan": "5. Be2",
+          "uci": "f1e2",
+          "isUserMove": false,
+          "title": "White Develops Bishop",
+          "explanation": "Quiet move.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "e2",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... d6",
+          "uci": "d7d6",
+          "isUserMove": true,
+          "title": "Prepare e5 Strike",
+          "explanation": "Prepare the e7-e5 central break to blast White's bishop away.",
+          "warning": "Black achieves effortless counterplay.",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d6",
+              "color": "green"
+            },
+            {
+              "from": "d6",
+              "to": "e5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": [
+            "e5"
+          ]
+        }
+      ]
+    }
+  ]
+}

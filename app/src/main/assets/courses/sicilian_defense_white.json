@@ -1,0 +1,376 @@
+{
+  "id": "sicilian_defense_white",
+  "name": "The Sicilian Defense",
+  "color": "White",
+  "level": "Level 2: Tactical & Aggressive",
+  "description": "White's lethal weapons against 1... c5. Master the blistering kingside attack of the Grand Prix (2. Nc3 + 3. f4) and the classical Open Sicilian Yugoslav Attack.",
+  "chapters": [
+    {
+      "id": "sic_w_grand_prix",
+      "title": "Grand Prix Attack: Direct King Hunt",
+      "subtitle": "Sidestep deep theory with an aggressive 3. f4 launch",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "Stake Center",
+          "explanation": "Start with e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... c5",
+          "uci": "c7c5",
+          "isUserMove": false,
+          "title": "Sicilian Defense",
+          "explanation": "Black plays for an asymmetrical fight.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c7",
+              "to": "c5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nc3",
+          "uci": "b1c3",
+          "isUserMove": true,
+          "title": "Closed Sicilian Prep",
+          "explanation": "Control d5 and avoid immediate d4 exchanges.",
+          "warning": "Flexible knight placement.",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d5"
+          ]
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": false,
+          "title": "Black Develops Knight",
+          "explanation": "Fighting for central control.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. f4",
+          "uci": "f2f4",
+          "isUserMove": true,
+          "title": "The Grand Prix Battery",
+          "explanation": "Push the f-pawn to prepare an explosive kingside assault!",
+          "warning": "Target the f7 square and open lines for your rook.",
+          "arrows": [
+            {
+              "from": "f2",
+              "to": "f4",
+              "color": "green"
+            },
+            {
+              "from": "f4",
+              "to": "f5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": [
+            "f5"
+          ]
+        },
+        {
+          "moveSan": "3... g6",
+          "uci": "g7g6",
+          "isUserMove": false,
+          "title": "Black Fianchettos",
+          "explanation": "Preparing Bg7.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g7",
+              "to": "g6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. Nf3",
+          "uci": "g1f3",
+          "isUserMove": true,
+          "title": "Develop Knight",
+          "explanation": "Control e5 and prepare kingside castling.",
+          "warning": "Coordinate pieces harmoniously.",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e5"
+          ]
+        },
+        {
+          "moveSan": "4... Bg7",
+          "uci": "f8g7",
+          "isUserMove": false,
+          "title": "Bishop to g7",
+          "explanation": "Long diagonal pressure.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "g7",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. Bc4",
+          "uci": "f1c4",
+          "isUserMove": true,
+          "title": "Point at f7",
+          "explanation": "Place the bishop on the dangerous a2-g8 diagonal aiming at Black's king.",
+          "warning": "Watch out for Black playing e6 and d5 later; keep control.",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "c4",
+              "color": "green"
+            },
+            {
+              "from": "c4",
+              "to": "f7",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "f7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sic_w_open_yugoslav",
+      "title": "Open Sicilian: Yugoslav Storm vs Dragon",
+      "subtitle": "Castle queenside and launch the h-pawn battering ram",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "King's Pawn",
+          "explanation": "Take center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... c5",
+          "uci": "c7c5",
+          "isUserMove": false,
+          "title": "Sicilian",
+          "explanation": "Asymmetrical reply.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c7",
+              "to": "c5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nf3",
+          "uci": "g1f3",
+          "isUserMove": true,
+          "title": "Knight to f3",
+          "explanation": "Prepare d4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... d6",
+          "uci": "d7d6",
+          "isUserMove": false,
+          "title": "Pawn to d6",
+          "explanation": "Guards e5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Open the Center!",
+          "explanation": "Break open the position to give your pieces maximum mobility.",
+          "warning": "The hallmark of the Open Sicilian.",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "3... cxd4",
+          "uci": "c5d4",
+          "isUserMove": false,
+          "title": "Black Captures",
+          "explanation": "Exchanging flank pawn for center pawn.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c5",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. Nxd4",
+          "uci": "f3d4",
+          "isUserMove": true,
+          "title": "Recapture in the Center",
+          "explanation": "Dominant knight post on d4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f3",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "4... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Black Attacks e4",
+          "explanation": "Developing knight.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. Nc3",
+          "uci": "b1c3",
+          "isUserMove": true,
+          "title": "Defend e4",
+          "explanation": "Solid knight post.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "5... g6",
+          "uci": "g7g6",
+          "isUserMove": false,
+          "title": "Dragon Setup",
+          "explanation": "Black chooses the Dragon.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g7",
+              "to": "g6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6. Be3",
+          "uci": "c1e3",
+          "isUserMove": true,
+          "title": "The Yugoslav Setup (Be3 & f3)",
+          "explanation": "Anchor the center, support Qd2, and prepare opposite-side castling with an all-out kingside pawn storm!",
+          "warning": "White is ready to crush Black's king.",
+          "arrows": [
+            {
+              "from": "c1",
+              "to": "e3",
+              "color": "green"
+            },
+            {
+              "from": "e3",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        }
+      ]
+    }
+  ]
+}

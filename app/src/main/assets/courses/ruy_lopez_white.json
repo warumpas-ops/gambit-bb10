@@ -1,0 +1,428 @@
+{
+  "id": "ruy_lopez_white",
+  "name": "The Ruy Lopez (Spanish Opening)",
+  "color": "White",
+  "level": "Level 3: Strategic & Deep",
+  "description": "The quintessential royal opening. Play 3. Bb5 to pressure Black's e5 defender and build enduring positional superiority.",
+  "chapters": [
+    {
+      "id": "ruy_w_closed",
+      "title": "Closed Ruy Lopez: Mainline Mastery",
+      "subtitle": "Pin the c6 defender and build the classical central bind",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "King's Pawn",
+          "explanation": "Take center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": false,
+          "title": "Black Responds e5",
+          "explanation": "Symmetrical.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nf3",
+          "uci": "g1f3",
+          "isUserMove": true,
+          "title": "Knight to f3",
+          "explanation": "Attack e5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": false,
+          "title": "Knight to c6",
+          "explanation": "Guards e5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Bb5",
+          "uci": "f1b5",
+          "isUserMove": true,
+          "title": "The Spanish Bishop!",
+          "explanation": "Pin and pressure Black's c6 knight which defends e5. The hallmark of the Ruy Lopez.",
+          "warning": "Positional pressure that lasts into the endgame.",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "b5",
+              "color": "green"
+            },
+            {
+              "from": "b5",
+              "to": "c6",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "c6",
+            "e5"
+          ]
+        },
+        {
+          "moveSan": "3... a6",
+          "uci": "a7a6",
+          "isUserMove": false,
+          "title": "Morphy Defense",
+          "explanation": "Black questions the bishop.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "a7",
+              "to": "a6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. Ba4",
+          "uci": "b5a4",
+          "isUserMove": true,
+          "title": "Maintain the Pin",
+          "explanation": "Retreat to a4 while keeping the pin along the diagonal.",
+          "warning": "Don't take on c6 unless playing the Exchange Variation.",
+          "arrows": [
+            {
+              "from": "b5",
+              "to": "a4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "a4"
+          ]
+        },
+        {
+          "moveSan": "4... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Black Attacks e4",
+          "explanation": "Developing knight.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. O-O",
+          "uci": "e1g1",
+          "isUserMove": true,
+          "title": "Castle into Safety",
+          "explanation": "Secure White's king. If Black plays 5... Nxe4, White easily regains the pawn with Re1.",
+          "warning": "White stands strategically superior.",
+          "arrows": [
+            {
+              "from": "e1",
+              "to": "g1",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "g1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruy_w_anti_marshall",
+      "title": "Anti-Marshall System (8. a4)",
+      "subtitle": "Neutralize the Marshall Gambit before it starts",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "Pawn to e4",
+          "explanation": "Center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": false,
+          "title": "Pawn to e5",
+          "explanation": "Symmetrical.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nf3",
+          "uci": "g1f3",
+          "isUserMove": true,
+          "title": "Knight to f3",
+          "explanation": "Attack e5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": false,
+          "title": "Knight to c6",
+          "explanation": "Defend.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Bb5",
+          "uci": "f1b5",
+          "isUserMove": true,
+          "title": "Bishop to b5",
+          "explanation": "Spanish pin.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "b5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... a6",
+          "uci": "a7a6",
+          "isUserMove": false,
+          "title": "Pawn to a6",
+          "explanation": "Morphy.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "a7",
+              "to": "a6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. Ba4",
+          "uci": "b5a4",
+          "isUserMove": true,
+          "title": "Bishop to a4",
+          "explanation": "Keep pin.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b5",
+              "to": "a4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Knight to f6",
+          "explanation": "Develop.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. O-O",
+          "uci": "e1g1",
+          "isUserMove": true,
+          "title": "Castle Kingside",
+          "explanation": "King safe.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e1",
+              "to": "g1",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... Be7",
+          "uci": "f8e7",
+          "isUserMove": false,
+          "title": "Bishop to e7",
+          "explanation": "Develop.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "e7",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6. Re1",
+          "uci": "f1e1",
+          "isUserMove": true,
+          "title": "Rook Defends e4",
+          "explanation": "Guard e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "e1",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6... b5",
+          "uci": "b7b5",
+          "isUserMove": false,
+          "title": "Pawn to b5",
+          "explanation": "Kick bishop.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b7",
+              "to": "b5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "7. Bb3",
+          "uci": "a4b3",
+          "isUserMove": true,
+          "title": "Bishop to b3",
+          "explanation": "Active diagonal.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "a4",
+              "to": "b3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "7... O-O",
+          "uci": "e8g8",
+          "isUserMove": false,
+          "title": "Black Castles",
+          "explanation": "Safe.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e8",
+              "to": "g8",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "8. a4!",
+          "uci": "a2a4",
+          "isUserMove": true,
+          "title": "The Anti-Marshall Strike!",
+          "explanation": "Strike at Black's queenside before they can play 8... d5 Marshall Attack!",
+          "warning": "Disrupts Black's harmony and wins the initiative.",
+          "arrows": [
+            {
+              "from": "a2",
+              "to": "a4",
+              "color": "green"
+            },
+            {
+              "from": "a4",
+              "to": "b5",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "b5"
+          ]
+        }
+      ]
+    }
+  ]
+}

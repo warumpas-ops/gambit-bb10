@@ -1,0 +1,316 @@
+{
+  "id": "vienna_game_white",
+  "name": "The Vienna Game & Gambit",
+  "color": "White",
+  "level": "Level 2: Tactical & Aggressive",
+  "description": "White's deadly dynamic weapon against 1... e5. Play 2. Nc3 followed by 3. f4! to rip open the f-file and launch unstoppable king attacks.",
+  "chapters": [
+    {
+      "id": "vn_w_gambit_main",
+      "title": "Vienna Gambit Mainline vs 2... Nf6",
+      "subtitle": "Play 3. f4! and crush Black with 5. Qf3!",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "King's Pawn",
+          "explanation": "Take center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": false,
+          "title": "Black Responds e5",
+          "explanation": "Symmetrical.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nc3",
+          "uci": "b1c3",
+          "isUserMove": true,
+          "title": "The Vienna Knight",
+          "explanation": "Develop the queen's knight first. This defends e4 and controls d5 while keeping the f-pawn unblocked!",
+          "warning": "Better than 2. Nf3 if you want to play the aggressive f4 thrust.",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d5",
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "2... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Black Develops Knight",
+          "explanation": "Attacking e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. f4!",
+          "uci": "f2f4",
+          "isUserMove": true,
+          "title": "The Vienna Gambit!",
+          "explanation": "Strike in the center on move 3! Offer the f4 pawn to blow open the f-file toward Black's king.",
+          "warning": "Never accept passivity; blast open lines.",
+          "arrows": [
+            {
+              "from": "f2",
+              "to": "f4",
+              "color": "green"
+            },
+            {
+              "from": "f4",
+              "to": "e5",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "e5",
+            "f-file"
+          ]
+        },
+        {
+          "moveSan": "3... d5",
+          "uci": "d7d5",
+          "isUserMove": false,
+          "title": "Black Counterstrikes",
+          "explanation": "The best theoretical response.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. fxe5",
+          "uci": "f4e5",
+          "isUserMove": true,
+          "title": "Capture & Kick Knight",
+          "explanation": "Capture toward the center and drive Black's knight to e4.",
+          "warning": "Keep the initiative.",
+          "arrows": [
+            {
+              "from": "f4",
+              "to": "e5",
+              "color": "green"
+            },
+            {
+              "from": "e5",
+              "to": "f6",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "e5"
+          ]
+        },
+        {
+          "moveSan": "4... Nxe4",
+          "uci": "f6e4",
+          "isUserMove": false,
+          "title": "Knight to e4",
+          "explanation": "Black's knight invades.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f6",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. Qf3!",
+          "uci": "d1f3",
+          "isUserMove": true,
+          "title": "The Steinitz Queen Battery",
+          "explanation": "Attack Black's centralized knight immediately! If 5... Nxc3, recapture with 6. bxc3 maintaining a ferocious center and open f-file.",
+          "warning": "White enjoys a dominant kingside attacking position.",
+          "arrows": [
+            {
+              "from": "d1",
+              "to": "f3",
+              "color": "green"
+            },
+            {
+              "from": "f3",
+              "to": "e4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "e4",
+            "f7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vn_w_frankenstein",
+      "title": "Frankenstein-Dracula Attack vs 2... Nc6",
+      "subtitle": "Play 3. Bc4 and dominate the d5 outpost",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "Pawn to e4",
+          "explanation": "Open center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": false,
+          "title": "Black Plays e5",
+          "explanation": "Mirror move.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nc3",
+          "uci": "b1c3",
+          "isUserMove": true,
+          "title": "Knight to c3",
+          "explanation": "Vienna knight.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": false,
+          "title": "Black Plays Nc6",
+          "explanation": "Symmetrical knight.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Bc4",
+          "uci": "f1c4",
+          "isUserMove": true,
+          "title": "Active Bishop to c4",
+          "explanation": "Target the vulnerable f7 square and dominate the center.",
+          "warning": "Develops with great attacking pressure.",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "c4",
+              "color": "green"
+            },
+            {
+              "from": "c4",
+              "to": "f7",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "f7"
+          ]
+        },
+        {
+          "moveSan": "3... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Black Develops",
+          "explanation": "Guards d5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. d3",
+          "uci": "d2d3",
+          "isUserMove": true,
+          "title": "Solidify Central Base",
+          "explanation": "Reinforce e4 and open diagonal for the dark-squared bishop.",
+          "warning": "White holds a flexible attacking platform.",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        }
+      ]
+    }
+  ]
+}

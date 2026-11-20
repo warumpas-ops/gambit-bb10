@@ -1,0 +1,329 @@
+{
+  "id": "scandinavian_black",
+  "name": "The Scandinavian Defense",
+  "color": "Black",
+  "level": "Level 1: Fundamentals",
+  "description": "Black's direct, uncompromising challenge to 1. e4. Immediately dismantle White's center and transition into a solid Caro-Kann style fortress.",
+  "chapters": [
+    {
+      "id": "sca_b_solid_qa5",
+      "title": "Solid Mainline 3... Qa5 System",
+      "subtitle": "Safe queen retreat and rapid light-squared bishop development",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Starts e4",
+          "explanation": "King's pawn.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... d5",
+          "uci": "d7d5",
+          "isUserMove": true,
+          "title": "The Scandinavian Challenge!",
+          "explanation": "Immediately challenge White's e4 pawn on move 1!",
+          "warning": "Forces an immediate resolution of central tension.",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "2. exd5",
+          "uci": "e4d5",
+          "isUserMove": false,
+          "title": "White Takes d5",
+          "explanation": "Pawn captured.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e4",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Qxd5",
+          "uci": "d8d5",
+          "isUserMove": true,
+          "title": "Centralize the Queen",
+          "explanation": "Recapture with the queen in the center of the board.",
+          "warning": "Be ready for White's 3. Nc3 attack.",
+          "arrows": [
+            {
+              "from": "d8",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d5"
+          ]
+        },
+        {
+          "moveSan": "3. Nc3",
+          "uci": "b1c3",
+          "isUserMove": false,
+          "title": "White Attacks Queen",
+          "explanation": "Developing with tempo.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Qa5",
+          "uci": "d5a5",
+          "isUserMove": true,
+          "title": "The Mainline a5 Haven",
+          "explanation": "Tuck the queen on a5. Here she is safe from further minor piece attacks and pins White's c3 knight.",
+          "warning": "The most reliable retreat square.",
+          "arrows": [
+            {
+              "from": "d5",
+              "to": "a5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "a5"
+          ]
+        },
+        {
+          "moveSan": "4. d4",
+          "uci": "d2d4",
+          "isUserMove": false,
+          "title": "White Takes Center",
+          "explanation": "Pawn to d4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Develop Kingside Knight",
+          "explanation": "Control e4 and prepare rapid kingside development.",
+          "warning": "Coordinate pieces harmoniously.",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "5. Nf3",
+          "uci": "g1f3",
+          "isUserMove": false,
+          "title": "White Develops",
+          "explanation": "Developing move.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... Bf5",
+          "uci": "c8f5",
+          "isUserMove": true,
+          "title": "Bishop Outside the Chain!",
+          "explanation": "Develop the light-squared bishop outside the pawn chain before playing e6! Complete harmony.",
+          "warning": "Black achieves solid equality.",
+          "arrows": [
+            {
+              "from": "c8",
+              "to": "f5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "f5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sca_b_modern_nf6",
+      "title": "Modern 2... Nf6 Scandinavian",
+      "subtitle": "Active piece play avoiding early queen excursions",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Plays e4",
+          "explanation": "Opening.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... d5",
+          "uci": "d7d5",
+          "isUserMove": true,
+          "title": "Pawn to d5",
+          "explanation": "Challenge.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. exd5",
+          "uci": "e4d5",
+          "isUserMove": false,
+          "title": "White Takes d5",
+          "explanation": "Pawn gone.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e4",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Develop Knight to Attack d5",
+          "explanation": "Aim to recapture d5 with the knight to avoid exposing the queen.",
+          "warning": "Dynamic and active.",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d5"
+          ]
+        },
+        {
+          "moveSan": "3. d4",
+          "uci": "d2d4",
+          "isUserMove": false,
+          "title": "White Plays d4",
+          "explanation": "Center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Nxd5",
+          "uci": "f6d5",
+          "isUserMove": true,
+          "title": "Centralize Knight",
+          "explanation": "Recapture d5 with piece power.",
+          "warning": "Excellent central outpost.",
+          "arrows": [
+            {
+              "from": "f6",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d5"
+          ]
+        },
+        {
+          "moveSan": "4. c4",
+          "uci": "c2c4",
+          "isUserMove": false,
+          "title": "White Kicks Knight",
+          "explanation": "Pawn push.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Nb6",
+          "uci": "d5b6",
+          "isUserMove": true,
+          "title": "Retreat to b6 Outpost",
+          "explanation": "Tuck the knight safely on b6 and prepare to pressure White's d4 pawn.",
+          "warning": "Black has active diagonals.",
+          "arrows": [
+            {
+              "from": "d5",
+              "to": "b6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "b6"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "id": "vienna_game_black",
+  "name": "The Vienna Game & Gambit",
+  "color": "Black",
+  "level": "Level 2: Tactical & Aggressive",
+  "description": "Black's complete refutation of White's 2. Nc3 tricks. Counter White's 3. f4 gambit with the powerful 3... d5! central blow.",
+  "chapters": [
+    {
+      "id": "vn_b_gambit_counter",
+      "title": "Vienna Gambit: 3... d5! Central Strike",
+      "subtitle": "Refuse the bait and counterattack White's king",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Starts e4",
+          "explanation": "King's pawn.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": true,
+          "title": "Stake the Center",
+          "explanation": "Classical equality.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nc3",
+          "uci": "b1c3",
+          "isUserMove": false,
+          "title": "White Plays Vienna Nc3",
+          "explanation": "Keeping f-pawn free.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Develop with Central Pressure",
+          "explanation": "Develop the kingside knight and attack e4.",
+          "warning": "The most principled challenge.",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "3. f4",
+          "uci": "f2f4",
+          "isUserMove": false,
+          "title": "White Plays Vienna Gambit",
+          "explanation": "Attacking e5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f2",
+              "to": "f4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... d5!",
+          "uci": "d7d5",
+          "isUserMove": true,
+          "title": "The Central Counter-Blow!",
+          "explanation": "DO NOT take on f4! Strike in the center immediately with 3... d5!",
+          "warning": "Taking on f4 allows White 4. e5 kicking your knight. 3... d5 gives Black full equality.",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "green"
+            },
+            {
+              "from": "d5",
+              "to": "e4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "4. fxe5",
+          "uci": "f4e5",
+          "isUserMove": false,
+          "title": "White Captures",
+          "explanation": "Attacking knight.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f4",
+              "to": "e5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Nxe4",
+          "uci": "f6e4",
+          "isUserMove": true,
+          "title": "Centralize the Knight",
+          "explanation": "Invade White's position on e4! White has no comfortable way to dislodge this knight.",
+          "warning": "Strongest piece on the board.",
+          "arrows": [
+            {
+              "from": "f6",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "5. Qf3",
+          "uci": "d1f3",
+          "isUserMove": false,
+          "title": "White Attacks Knight",
+          "explanation": "White plays Qf3.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d1",
+              "to": "f3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... f5!",
+          "uci": "f7f5",
+          "isUserMove": true,
+          "title": "Anchor the Knight!",
+          "explanation": "Support the knight with the f-pawn. Black has equal space and easy development.",
+          "warning": "Black has completely disarmed White's gambit.",
+          "arrows": [
+            {
+              "from": "f7",
+              "to": "f5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vn_b_symmetrical",
+      "title": "Solid Equalizer vs 3. Bc4",
+      "subtitle": "Safe development with 3... Bc5 and kingside castling",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Opens e4",
+          "explanation": "Standard opening.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": true,
+          "title": "Stake the Center",
+          "explanation": "Equalizing move.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nc3",
+          "uci": "b1c3",
+          "isUserMove": false,
+          "title": "White Plays Nc3",
+          "explanation": "Vienna knight.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": true,
+          "title": "Symmetrical Knight",
+          "explanation": "Defending e5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Bc4",
+          "uci": "f1c4",
+          "isUserMove": false,
+          "title": "White Plays Bc4",
+          "explanation": "Targeting f7.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "c4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Bc5",
+          "uci": "f8c5",
+          "isUserMove": true,
+          "title": "Active Bishop",
+          "explanation": "Control d4 and match White's bishop.",
+          "warning": "Active piece play.",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "c5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "4. d3",
+          "uci": "d2d3",
+          "isUserMove": false,
+          "title": "White Plays d3",
+          "explanation": "Quiet setup.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Develop Knight to f6",
+          "explanation": "Prepare castling and control e4.",
+          "warning": "Black achieves complete equality.",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "id": "scandinavian_white",
+  "name": "The Scandinavian Defense",
+  "color": "White",
+  "level": "Level 1: Fundamentals",
+  "description": "Punish Black's premature 1... d5 Queen sorties. Gain tempos with 3. Nc3 and tear open the board with superior piece development.",
+  "chapters": [
+    {
+      "id": "sca_w_mainline",
+      "title": "Mainline 3. Nc3 Qa5 Punishment",
+      "subtitle": "Chase Black's queen and seize total central control",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "King's Pawn",
+          "explanation": "Take center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... d5",
+          "uci": "d7d5",
+          "isUserMove": false,
+          "title": "Scandinavian Strike",
+          "explanation": "Black strikes 1... d5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. exd5",
+          "uci": "e4d5",
+          "isUserMove": true,
+          "title": "Capture the Pawn",
+          "explanation": "Accept the challenge! Black must waste moves recapturing with their Queen.",
+          "warning": "The cleanest, strongest continuation.",
+          "arrows": [
+            {
+              "from": "e4",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d5"
+          ]
+        },
+        {
+          "moveSan": "2... Qxd5",
+          "uci": "d8d5",
+          "isUserMove": false,
+          "title": "Queen Enters Early",
+          "explanation": "Black exposes their Queen.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d8",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Nc3",
+          "uci": "b1c3",
+          "isUserMove": true,
+          "title": "Develop with Tempo on Queen!",
+          "explanation": "Develop the knight while attacking Black's Queen! Win a free developing tempo.",
+          "warning": "The fundamental principle: attack exposed major pieces with minor pieces.",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "green"
+            },
+            {
+              "from": "c3",
+              "to": "d5",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "d5"
+          ]
+        },
+        {
+          "moveSan": "3... Qa5",
+          "uci": "d5a5",
+          "isUserMove": false,
+          "title": "Queen Retreats to a5",
+          "explanation": "Black's mainline retreat.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d5",
+              "to": "a5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Establish Dominant Center",
+          "explanation": "Push d4 to control e5 and c5. White has two pieces developed and full central domination.",
+          "warning": "White is fundamentally better.",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4",
+            "e5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sca_w_modern_nf6",
+      "title": "Modern 2... Nf6 Punishment (3. d4)",
+      "subtitle": "Maintain the central duo (c4 + d4) against knight recaptures",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "Pawn to e4",
+          "explanation": "Standard opening.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... d5",
+          "uci": "d7d5",
+          "isUserMove": false,
+          "title": "Pawn to d5",
+          "explanation": "Direct challenge.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. exd5",
+          "uci": "e4d5",
+          "isUserMove": true,
+          "title": "Take the Pawn",
+          "explanation": "Capture d5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e4",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Modern Scandinavian",
+          "explanation": "Black avoids early queen sortie.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Claim the Center with d4",
+          "explanation": "Occupy the center and open lines for your pieces.",
+          "warning": "Don't cling greedily to the d5 pawn with 3. c4; play for rapid development.",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "3... Nxd5",
+          "uci": "f6d5",
+          "isUserMove": false,
+          "title": "Black Recaptures",
+          "explanation": "Knight on d5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f6",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. c4!",
+          "uci": "c2c4",
+          "isUserMove": true,
+          "title": "Kick the Knight & Conquer Center",
+          "explanation": "Advance c4 with tempo! Drive the knight away and establish a magnificent broad pawn center.",
+          "warning": "White has a decisive spatial edge.",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c4",
+              "color": "green"
+            },
+            {
+              "from": "c4",
+              "to": "d5",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "d5",
+            "c4",
+            "d4"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,434 @@
+{
+  "id": "kings_indian_black",
+  "name": "The King's Indian Defense",
+  "color": "Black",
+  "level": "Level 3: Strategic & Deep",
+  "description": "Black's most romantic and devastating kingside counter-attacking opening. Close the center and march pawns down the kingside with ...f5 and ...g5 to hunt White's king.",
+  "chapters": [
+    {
+      "id": "kid_b_kingside_storm",
+      "title": "Classical KID: Kingside Checkmating Storm",
+      "subtitle": "Lock the center with ...e5 and blast open White's king with ...f5!",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. d4",
+          "uci": "d2d4",
+          "isUserMove": false,
+          "title": "White Starts d4",
+          "explanation": "Queen's pawn.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "The Hypermodern Knight",
+          "explanation": "Control e4 and d5 without committing central pawns early.",
+          "warning": "Flexible opening move.",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4",
+            "d5"
+          ]
+        },
+        {
+          "moveSan": "2. c4",
+          "uci": "c2c4",
+          "isUserMove": false,
+          "title": "White Takes Space",
+          "explanation": "Pawn to c4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... g6",
+          "uci": "g7g6",
+          "isUserMove": true,
+          "title": "Prepare the Dragon Bishop",
+          "explanation": "Prepare to fianchetto the bishop on the lethal long diagonal.",
+          "warning": "Setting up the King's Indian setup.",
+          "arrows": [
+            {
+              "from": "g7",
+              "to": "g6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "g7"
+          ]
+        },
+        {
+          "moveSan": "3. Nc3",
+          "uci": "b1c3",
+          "isUserMove": false,
+          "title": "White Develops",
+          "explanation": "Preparing e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Bg7",
+          "uci": "f8g7",
+          "isUserMove": true,
+          "title": "Occupy the Bastion",
+          "explanation": "Place the bishop on g7. It guards your king and exerts laser pressure down the diagonal.",
+          "warning": "Chief defender and attacker in the KID.",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "g7",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "a1"
+          ]
+        },
+        {
+          "moveSan": "4. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Takes Center",
+          "explanation": "Full pawn trio.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... d6",
+          "uci": "d7d6",
+          "isUserMove": true,
+          "title": "Stop White's e5 Push",
+          "explanation": "Lock e5 so White cannot roll forward.",
+          "warning": "Prepares our upcoming central strike with e5.",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e5"
+          ]
+        },
+        {
+          "moveSan": "5. Nf3",
+          "uci": "g1f3",
+          "isUserMove": false,
+          "title": "White Develops",
+          "explanation": "Standard flow.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... O-O",
+          "uci": "e8g8",
+          "isUserMove": true,
+          "title": "Castle into the Bastion",
+          "explanation": "Safeguard your king behind your impenetrable dark-square shield.",
+          "warning": "Essential before launching counterplay.",
+          "arrows": [
+            {
+              "from": "e8",
+              "to": "g8",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "g8"
+          ]
+        },
+        {
+          "moveSan": "6. Be2",
+          "uci": "f1e2",
+          "isUserMove": false,
+          "title": "White Bishop e2",
+          "explanation": "Classical setup.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "e2",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6... e5!",
+          "uci": "e7e5",
+          "isUserMove": true,
+          "title": "The Explosive Central Strike!",
+          "explanation": "Strike in the center! Even if White takes on e5, Black easily recaptures with total equality.",
+          "warning": "The signature thematic move of the King's Indian.",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "green"
+            },
+            {
+              "from": "e5",
+              "to": "d4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kid_b_saemisch_counter",
+      "title": "Sämisch Counter: The 6... c5! Sac",
+      "subtitle": "Rip open the center against White's f3 setup",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. d4",
+          "uci": "d2d4",
+          "isUserMove": false,
+          "title": "White Plays d4",
+          "explanation": "Center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Knight to f6",
+          "explanation": "Control.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. c4",
+          "uci": "c2c4",
+          "isUserMove": false,
+          "title": "Pawn to c4",
+          "explanation": "Space.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... g6",
+          "uci": "g7g6",
+          "isUserMove": true,
+          "title": "Fianchetto Prep",
+          "explanation": "g6.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g7",
+              "to": "g6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Nc3",
+          "uci": "b1c3",
+          "isUserMove": false,
+          "title": "Knight to c3",
+          "explanation": "Develop.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Bg7",
+          "uci": "f8g7",
+          "isUserMove": true,
+          "title": "Bishop to g7",
+          "explanation": "Occupied.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "g7",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Plays e4",
+          "explanation": "Center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... d6",
+          "uci": "d7d6",
+          "isUserMove": true,
+          "title": "Pawn to d6",
+          "explanation": "Anchor.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. f3",
+          "uci": "f2f3",
+          "isUserMove": false,
+          "title": "White Sämisch f3",
+          "explanation": "Pawn wall.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f2",
+              "to": "f3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... O-O",
+          "uci": "e8g8",
+          "isUserMove": true,
+          "title": "Castle First",
+          "explanation": "King safe.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e8",
+              "to": "g8",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6. Be3",
+          "uci": "c1e3",
+          "isUserMove": false,
+          "title": "White Bishop e3",
+          "explanation": "Support.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c1",
+              "to": "e3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6... c5!",
+          "uci": "c7c5",
+          "isUserMove": true,
+          "title": "The Sämisch Pawn Sacrifice!",
+          "explanation": "Strike at d4 with c5! Opening the position gives Black terrifying piece activity against White's uncastled King.",
+          "warning": "World-class active counterplay.",
+          "arrows": [
+            {
+              "from": "c7",
+              "to": "c5",
+              "color": "green"
+            },
+            {
+              "from": "c5",
+              "to": "d4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -208,18 +208,18 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
 
             llTopBar.setVisibility(View.VISIBLE);
             tvTopTitle.setText(c.name + " (" + ch.title + ")");
-            tvTopStreak.setText("🔥 " + progressManager.getStreak() + "d");
+            tvTopStreak.setText("\uD83D\uDD25 " + progressManager.getStreak() + "d");
 
             llCoachPill.setVisibility(View.GONE);
             llCompletionCard.setVisibility(View.VISIBLE);
 
             int lvl = progressManager.getChapterMasteryLevel(ch.id);
             StringBuilder stars = new StringBuilder();
-            for (int s = 0; s < 5; s++) stars.append(s < lvl ? "★" : "☆");
+            for (int s = 0; s < 5; s++) stars.append(s < lvl ? "\u2605" : "\u2606");
 
             int rate = progressManager.getChapterSuccessRate(ch.id);
-            tvCompletionTitle.setText("⭐ " + ch.title.toUpperCase() + " COMPLETE!");
-            tvCompletionStats.setText("Mastery: " + stars.toString() + " • Accuracy: " + rate + "% • Total Moves: " + progressManager.getTotalMovesTrained());
+            tvCompletionTitle.setText("\u2605 " + ch.title.toUpperCase() + " COMPLETE!");
+            tvCompletionStats.setText("Mastery: " + stars.toString() + " \u2022 Accuracy: " + rate + "% \u2022 Total Moves: " + progressManager.getTotalMovesTrained());
 
             boardView.setArrows(null);
             boardView.setHighlightSquares(null);
@@ -231,15 +231,15 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         if (isDrillMode) {
             tvCoachBadge.setText("? ? ?");
             tvCoachBadge.setTextColor(Color.parseColor("#F59E0B"));
-            tvCoachPrompt.setText("Your Turn — Play from memory");
-            btnWhyExplain.setText("💡 HINT");
+            tvCoachPrompt.setText("Your Turn \u2014 Play from memory");
+            btnWhyExplain.setText("\uD83D\uDCA1 HINT");
             boardView.setArrows(null);
             boardView.setHighlightSquares(null);
         } else {
             tvCoachBadge.setText(step.moveSan);
             tvCoachBadge.setTextColor(Color.parseColor("#10B981"));
             tvCoachPrompt.setText(step.title);
-            btnWhyExplain.setText("💡 WHY?");
+            btnWhyExplain.setText("\uD83D\uDCA1 WHY?");
             boardView.setArrows(step.arrows);
             boardView.setHighlightSquares(step.highlightSquares);
         }
@@ -288,9 +288,13 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
 
         OpeningModel.MoveStep expected = ch.steps.get(currentStepIdx);
 
-        if (uci.equalsIgnoreCase(expected.uci)) {
+        boolean isMatch = uci.equalsIgnoreCase(expected.uci) ||
+                (expected.uci.length() > 4 && expected.uci.substring(0, 4).equalsIgnoreCase(uci));
+
+        if (isMatch) {
             // Correct Move!
-            engine.makeMove(fromSq, toSq);
+            char promo = expected.uci.length() > 4 ? expected.uci.charAt(4) : 0;
+            engine.makeMove(fromSq, toSq, promo);
             boardView.setLastMove(fromSq, toSq);
 
             progressManager.incrementMovesTrained();
@@ -333,7 +337,16 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         if (currentChapterIdx + 1 < c.chapters.size()) {
             startChapter(currentCourseIdx, currentChapterIdx + 1);
         } else {
-            startChapter((currentCourseIdx + 1) % courses.size(), 0);
+            // Advance to next course of same color (White stays White, Black stays Black)
+            int next = (currentCourseIdx + 1) % courses.size();
+            for (int i = 0; i < courses.size(); i++) {
+                int candidate = (currentCourseIdx + 1 + i) % courses.size();
+                if (courses.get(candidate).color.equalsIgnoreCase(c.color)) {
+                    next = candidate;
+                    break;
+                }
+            }
+            startChapter(next, 0);
         }
     }
 

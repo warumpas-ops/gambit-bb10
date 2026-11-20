@@ -1,0 +1,436 @@
+{
+  "id": "ruy_lopez_black",
+  "name": "The Ruy Lopez (Spanish Opening)",
+  "color": "Black",
+  "level": "Level 3: Strategic & Deep",
+  "description": "Black's legendary counter-weapons against 3. Bb5. Unleash the ferocious Marshall Attack or construct Kramnik's impenetrable Berlin Wall.",
+  "chapters": [
+    {
+      "id": "ruy_b_marshall",
+      "title": "The Legendary Marshall Attack",
+      "subtitle": "Sacrifice a pawn with 8... d5! for a terrifying kingside attack",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Opens e4",
+          "explanation": "Standard opening.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": true,
+          "title": "Stake the Center",
+          "explanation": "Classical equality.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nf3",
+          "uci": "g1f3",
+          "isUserMove": false,
+          "title": "White Attacks e5",
+          "explanation": "Knight to f3.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": true,
+          "title": "Defend e5",
+          "explanation": "Natural development.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Bb5",
+          "uci": "f1b5",
+          "isUserMove": false,
+          "title": "The Ruy Lopez Bishop",
+          "explanation": "Pressuring c6.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "b5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... a6",
+          "uci": "a7a6",
+          "isUserMove": true,
+          "title": "Ask the Bishop the Question",
+          "explanation": "Force White to make a decision with their bishop.",
+          "warning": "The Morphy Defense.",
+          "arrows": [
+            {
+              "from": "a7",
+              "to": "a6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "b5"
+          ]
+        },
+        {
+          "moveSan": "4. Ba4",
+          "uci": "b5a4",
+          "isUserMove": false,
+          "title": "White Retreats",
+          "explanation": "Maintaining pin.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b5",
+              "to": "a4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Develop Knight with Attack",
+          "explanation": "Counterattack White's e4 pawn.",
+          "warning": "Force White to commit.",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "5. O-O",
+          "uci": "e1g1",
+          "isUserMove": false,
+          "title": "White Castles",
+          "explanation": "White castles.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e1",
+              "to": "g1",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... Be7",
+          "uci": "f8e7",
+          "isUserMove": true,
+          "title": "Develop Bishop to Safety",
+          "explanation": "Prepare castling and break any future pins along the e-file.",
+          "warning": "Solid and principled.",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "e7",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e7"
+          ]
+        },
+        {
+          "moveSan": "6. Re1",
+          "uci": "f1e1",
+          "isUserMove": false,
+          "title": "White Guards e4",
+          "explanation": "Rook to e1.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "e1",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6... b5",
+          "uci": "b7b5",
+          "isUserMove": true,
+          "title": "Kick the Spanish Bishop",
+          "explanation": "Drive White's bishop away from the sensitive diagonal.",
+          "warning": "Gains queenside space.",
+          "arrows": [
+            {
+              "from": "b7",
+              "to": "b5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "a4"
+          ]
+        },
+        {
+          "moveSan": "7. Bb3",
+          "uci": "a4b3",
+          "isUserMove": false,
+          "title": "Bishop Retreats",
+          "explanation": "Bishop on b3.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "a4",
+              "to": "b3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "7... O-O",
+          "uci": "e8g8",
+          "isUserMove": true,
+          "title": "Castle into Safety",
+          "explanation": "Complete king safety before launching the Marshall bombshell.",
+          "warning": "Everything is in place.",
+          "arrows": [
+            {
+              "from": "e8",
+              "to": "g8",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "g8"
+          ]
+        },
+        {
+          "moveSan": "8. c3",
+          "uci": "c2c3",
+          "isUserMove": false,
+          "title": "White Prepares d4",
+          "explanation": "Preparing center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "8... d5!",
+          "uci": "d7d5",
+          "isUserMove": true,
+          "title": "THE MARSHALL ATTACK BOMB!",
+          "explanation": "Sacrifice the d5 pawn to rip open the center and launch one of the most ferocious mating attacks in chess history!",
+          "warning": "Frank Marshall kept this secret for years. Black dominates the initiative.",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "green"
+            },
+            {
+              "from": "d5",
+              "to": "e4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "d5",
+            "e4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ruy_b_berlin",
+      "title": "The Berlin Defense: Kramnik's Fortress",
+      "subtitle": "Play 3... Nf6 and construct the uncrackable wall",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Plays e4",
+          "explanation": "King's pawn.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": true,
+          "title": "Black Equalizes",
+          "explanation": "Central claim.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nf3",
+          "uci": "g1f3",
+          "isUserMove": false,
+          "title": "Knight to f3",
+          "explanation": "Attack e5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": true,
+          "title": "Knight to c6",
+          "explanation": "Defend.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Bb5",
+          "uci": "f1b5",
+          "isUserMove": false,
+          "title": "Bishop to b5",
+          "explanation": "Spanish pin.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "b5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "The Berlin Wall!",
+          "explanation": "Counterattack e4 directly without playing a6. This is the legendary Berlin Defense that defeated Kasparov.",
+          "warning": "The most impenetrable fortress in world championship history.",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            },
+            {
+              "from": "f6",
+              "to": "e4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "4. O-O",
+          "uci": "e1g1",
+          "isUserMove": false,
+          "title": "White Castles",
+          "explanation": "Normal move.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e1",
+              "to": "g1",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Nxe4",
+          "uci": "f6e4",
+          "isUserMove": true,
+          "title": "Capture e4 Pawn",
+          "explanation": "Grab White's central pawn! Black forces an endgame where White has zero winning chances.",
+          "warning": "Black establishes an unshakeable wall.",
+          "arrows": [
+            {
+              "from": "f6",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -78,12 +78,13 @@ public class HubActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        tvHubStreak.setText("🔥 " + progressManager.getStreak() + "d");
+        tvHubStreak.setText("\uD83D\uDD25 " + progressManager.getStreak() + "d");
         renderCourses();
     }
 
     private void renderCourses() {
         container.removeAllViews();
+        String lastLevel = "";
 
         for (int cIdx = 0; cIdx < courses.size(); cIdx++) {
             final int courseIdx = cIdx;
@@ -94,22 +95,29 @@ public class HubActivity extends Activity {
                 continue; // Filter by chosen tab!
             }
 
-            // Level / Category Header
-            TextView tvLevel = new TextView(this);
-            tvLevel.setText(course.level.toUpperCase());
-            tvLevel.setTextColor(Color.parseColor("#94A3B8"));
-            tvLevel.setTextSize(11f);
-            tvLevel.setPadding(4, 12, 4, 4);
-            container.addView(tvLevel);
+            // Level / Category Header (grouped without repeating)
+            if (course.level != null && !course.level.equalsIgnoreCase(lastLevel)) {
+                lastLevel = course.level;
+                TextView tvLevel = new TextView(this);
+                tvLevel.setText(course.level.toUpperCase());
+                tvLevel.setTextColor(Color.parseColor("#94A3B8"));
+                tvLevel.setTextSize(11f);
+                tvLevel.setPadding(4, 16, 4, 4);
+                container.addView(tvLevel);
+            }
 
             // Course Box Container
             LinearLayout courseCard = new LinearLayout(this);
             courseCard.setOrientation(LinearLayout.VERTICAL);
             courseCard.setBackgroundColor(Color.parseColor("#121216"));
             courseCard.setPadding(12, 12, 12, 12);
+            LinearLayout.LayoutParams cardLp = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            cardLp.setMargins(0, 4, 0, 8);
+            courseCard.setLayoutParams(cardLp);
 
             TextView tvName = new TextView(this);
-            tvName.setText((isWhiteCourse ? "⚪ " : "⚫ ") + course.name);
+            tvName.setText((isWhiteCourse ? "\u26AA " : "\u26AB ") + course.name);
             tvName.setTextColor(Color.WHITE);
             tvName.setTextSize(15f);
             tvName.getPaint().setFakeBoldText(true);
@@ -159,7 +167,7 @@ public class HubActivity extends Activity {
 
                 int level = progressManager.getChapterMasteryLevel(chapter.id);
                 StringBuilder stars = new StringBuilder();
-                for (int s = 0; s < 5; s++) stars.append(s < level ? "★" : "☆");
+                for (int s = 0; s < 5; s++) stars.append(s < level ? "\u2605" : "\u2606");
 
                 TextView tvStars = new TextView(this);
                 tvStars.setText(stars.toString());

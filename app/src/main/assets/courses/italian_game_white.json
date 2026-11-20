@@ -1,0 +1,525 @@
+{
+  "id": "italian_game_white",
+  "name": "The Italian Game",
+  "color": "White",
+  "level": "Level 1: Fundamentals",
+  "description": "The open, aggressive classical opening for White. Rapid development, central pressure, and targeting the vulnerable f7 square.",
+  "chapters": [
+    {
+      "id": "it_w_giuoco_piano",
+      "title": "Giuoco Piano: Center Steamroller",
+      "subtitle": "Build the ideal c3 + d4 pawn center",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "Stake the Center",
+          "explanation": "Control d5 and open diagonals for your Queen and Bishop.",
+          "warning": "Don't play passive moves like a3 or h3.",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d5",
+            "f5"
+          ]
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": false,
+          "title": "Black Responds",
+          "explanation": "Black contests the center symmetrically.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nf3",
+          "uci": "g1f3",
+          "isUserMove": true,
+          "title": "Develop with Attack",
+          "explanation": "Develop your knight toward the center while immediately threatening Black's e5 pawn.",
+          "warning": "Never block your f-pawn unnecessarily with early queen sorties.",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "green"
+            },
+            {
+              "from": "f3",
+              "to": "e5",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "e5"
+          ]
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": false,
+          "title": "Black Defends e5",
+          "explanation": "Black guards e5 and develops naturally.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Bc4",
+          "uci": "f1c4",
+          "isUserMove": true,
+          "title": "The Italian Bishop",
+          "explanation": "Aim directly at Black's weakest square, f7, which is only protected by their King.",
+          "warning": "Be careful not to trap this bishop later.",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "c4",
+              "color": "green"
+            },
+            {
+              "from": "c4",
+              "to": "f7",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "f7"
+          ]
+        },
+        {
+          "moveSan": "3... Bc5",
+          "uci": "f8c5",
+          "isUserMove": false,
+          "title": "Giuoco Piano Mainline",
+          "explanation": "Black develops their bishop actively before closing the diagonal.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "c5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. c3",
+          "uci": "c2c3",
+          "isUserMove": true,
+          "title": "Prepare the Classical Center",
+          "explanation": "Support the upcoming d2-d4 push to conquer the full center.",
+          "warning": "Don't rush with 4. d4 immediately without preparation.",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c3",
+              "color": "green"
+            },
+            {
+              "from": "c3",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "4... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Black Hits e4",
+          "explanation": "Black develops their knight and attacks your e4 pawn.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            },
+            {
+              "from": "f6",
+              "to": "e4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Central Breakthrough",
+          "explanation": "Strike in the center! Attack Black's bishop and force concessions.",
+          "warning": "Never hesitate here; hesitation gives Black the initiative.",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "green"
+            },
+            {
+              "from": "d4",
+              "to": "c5",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "c5",
+            "e5"
+          ]
+        },
+        {
+          "moveSan": "5... exd4",
+          "uci": "e5d4",
+          "isUserMove": false,
+          "title": "Black Exchanges",
+          "explanation": "Black is forced to capture to relieve pressure.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e5",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6. cxd4",
+          "uci": "c3d4",
+          "isUserMove": true,
+          "title": "Recapture & Expand",
+          "explanation": "Re-establish the dream pawn center (e4 + d4) while attacking the bishop again.",
+          "warning": "Don't recapture with the knight; keep pawns unified.",
+          "arrows": [
+            {
+              "from": "c3",
+              "to": "d4",
+              "color": "green"
+            },
+            {
+              "from": "d4",
+              "to": "c5",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "e4",
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "6... Bb4+",
+          "uci": "c5b4",
+          "isUserMove": false,
+          "title": "Black Checks",
+          "explanation": "Black gives check to gain tempo for escape.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c5",
+              "to": "b4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "7. Bd2",
+          "uci": "c1d2",
+          "isUserMove": true,
+          "title": "Block with the Bishop",
+          "explanation": "Block the check and challenge Black's active piece.",
+          "warning": "7. Nc3 is the sharp Möller Attack, but 7. Bd2 is the cleanest positional refutation.",
+          "arrows": [
+            {
+              "from": "c1",
+              "to": "d2",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "b4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "it_w_fried_liver",
+      "title": "Two Knights: Fried Liver Attack",
+      "subtitle": "Punish 3... Nf6 with 4. Ng5! and 6. Nxf7!",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "Pawn to e4",
+          "explanation": "Establish your central presence.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": false,
+          "title": "Black Plays e5",
+          "explanation": "Symmetrical response.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nf3",
+          "uci": "g1f3",
+          "isUserMove": true,
+          "title": "Knight to f3",
+          "explanation": "Develop and attack e5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": false,
+          "title": "Knight to c6",
+          "explanation": "Guarding e5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Bc4",
+          "uci": "f1c4",
+          "isUserMove": true,
+          "title": "Bishop to c4",
+          "explanation": "Target the vulnerable f7 square.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "c4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Two Knights Defense",
+          "explanation": "Black counters against e4 instead of defending f7.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. Ng5",
+          "uci": "f3g5",
+          "isUserMove": true,
+          "title": "Double Attack on f7",
+          "explanation": "Coordinate Knight and Bishop to create an irresistible threat on f7.",
+          "warning": "Only play this against 3... Nf6, not 3... Bc5!",
+          "arrows": [
+            {
+              "from": "f3",
+              "to": "g5",
+              "color": "green"
+            },
+            {
+              "from": "g5",
+              "to": "f7",
+              "color": "red"
+            },
+            {
+              "from": "c4",
+              "to": "f7",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "f7"
+          ]
+        },
+        {
+          "moveSan": "4... d5",
+          "uci": "d7d5",
+          "isUserMove": false,
+          "title": "The Only Defense",
+          "explanation": "Black must block your bishop diagonal.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. exd5",
+          "uci": "e4d5",
+          "isUserMove": true,
+          "title": "Pawn Takes d5",
+          "explanation": "Eliminate Black's central shield.",
+          "warning": "Never take with the bishop!",
+          "arrows": [
+            {
+              "from": "e4",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... Nxd5",
+          "uci": "f6d5",
+          "isUserMove": false,
+          "title": "Black Blunders into Fried Liver",
+          "explanation": "Black recaptures with the knight, walking directly into your trap!",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f6",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6. Nxf7",
+          "uci": "g5f7",
+          "isUserMove": true,
+          "title": "The Fried Liver Sacrifice!",
+          "explanation": "Sacrifice the Knight to rip open Black's King and fork Queen + Rook!",
+          "warning": "This is a forced winning attack against 5... Nxd5.",
+          "arrows": [
+            {
+              "from": "g5",
+              "to": "f7",
+              "color": "green"
+            },
+            {
+              "from": "f7",
+              "to": "d8",
+              "color": "red"
+            },
+            {
+              "from": "f7",
+              "to": "h8",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "f7"
+          ]
+        },
+        {
+          "moveSan": "6... Kxf7",
+          "uci": "e8f7",
+          "isUserMove": false,
+          "title": "King Takes",
+          "explanation": "Black must capture your knight.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e8",
+              "to": "f7",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "7. Qf3+",
+          "uci": "d1f3",
+          "isUserMove": true,
+          "title": "Queen Forks King & Knight",
+          "explanation": "Check the exposed king while piling up fatal pressure on the pinned d5 knight.",
+          "warning": "Black's king is forced into the center with 7... Ke6.",
+          "arrows": [
+            {
+              "from": "d1",
+              "to": "f3",
+              "color": "green"
+            },
+            {
+              "from": "f3",
+              "to": "f7",
+              "color": "red"
+            },
+            {
+              "from": "f3",
+              "to": "d5",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "f7",
+            "d5"
+          ]
+        }
+      ]
+    }
+  ]
+}

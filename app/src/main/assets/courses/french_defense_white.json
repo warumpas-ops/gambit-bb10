@@ -1,0 +1,383 @@
+{
+  "id": "french_defense_white",
+  "name": "The French Defense",
+  "color": "White",
+  "level": "Level 2: Tactical & Aggressive",
+  "description": "Master White's most suffocating setups against the resilient French. Cramp Black with the Advance Variation (3. e5) and dominate the center.",
+  "chapters": [
+    {
+      "id": "fr_w_advance",
+      "title": "Advance Variation: The Space Wedge",
+      "subtitle": "Lock Black's light-squared bishop with 3. e5",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "King's Pawn Advance",
+          "explanation": "Claim central territory.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e6",
+          "uci": "e7e6",
+          "isUserMove": false,
+          "title": "French Defense",
+          "explanation": "Black prepares to strike d5 while protecting their pawn chain.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Seize the Broad Center",
+          "explanation": "Take full central control with two pawns on e4 and d4.",
+          "warning": "Always occupy the center when given the opportunity.",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4",
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "2... d5",
+          "uci": "d7d5",
+          "isUserMove": false,
+          "title": "Black Strikes d4/e4",
+          "explanation": "Black challenges e4 directly.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. e5",
+          "uci": "e4e5",
+          "isUserMove": true,
+          "title": "The Advance Wedge",
+          "explanation": "Push e5! Gain a space advantage on the kingside and trap Black's light-squared bishop.",
+          "warning": "Be ready for Black to counterattack your d4 base with c5.",
+          "arrows": [
+            {
+              "from": "e4",
+              "to": "e5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e5",
+            "f6"
+          ]
+        },
+        {
+          "moveSan": "3... c5",
+          "uci": "c7c5",
+          "isUserMove": false,
+          "title": "Black Strikes the Base",
+          "explanation": "Black attacks d4 to undermine your pawn chain.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c7",
+              "to": "c5",
+              "color": "blue"
+            },
+            {
+              "from": "c5",
+              "to": "d4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. c3",
+          "uci": "c2c3",
+          "isUserMove": true,
+          "title": "Fortify the Center Chain",
+          "explanation": "Cement d4 with c3. Your pawn chain b2-c3-d4-e5 is rock solid.",
+          "warning": "Never let Black capture on d4 for free.",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "4... Nc6",
+          "uci": "b8c6",
+          "isUserMove": false,
+          "title": "Black Piles Pressure",
+          "explanation": "Adding a second attacker to d4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "blue"
+            },
+            {
+              "from": "c6",
+              "to": "d4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. Nf3",
+          "uci": "g1f3",
+          "isUserMove": true,
+          "title": "Develop & Defend",
+          "explanation": "Defend d4 with your knight and prepare kingside development.",
+          "warning": "Keep your focus on guarding d4.",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "5... Qb6",
+          "uci": "d8b6",
+          "isUserMove": false,
+          "title": "Triple Threat on d4 & b2",
+          "explanation": "Black adds queen pressure on d4 and glances at b2.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d8",
+              "to": "b6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6. a3",
+          "uci": "a2a3",
+          "isUserMove": true,
+          "title": "Prepare b4 Space Expansion",
+          "explanation": "Prevent Bb4+ pins and prepare b4 to kick Black's c5 pawn away.",
+          "warning": "A modern masterclass move safeguarding your pawn chain.",
+          "arrows": [
+            {
+              "from": "a2",
+              "to": "a3",
+              "color": "green"
+            },
+            {
+              "from": "a3",
+              "to": "b4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": [
+            "b4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fr_w_tarrasch",
+      "title": "Tarrasch Variation: Harmonic Flow",
+      "subtitle": "Play 3. Nd2 to avoid pins and keep c3 open",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "Pawn to e4",
+          "explanation": "Open the board.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e6",
+          "uci": "e7e6",
+          "isUserMove": false,
+          "title": "French Setup",
+          "explanation": "Solid stance.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Pawn to d4",
+          "explanation": "Take the full center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... d5",
+          "uci": "d7d5",
+          "isUserMove": false,
+          "title": "Black Counters d5",
+          "explanation": "Attacking e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Nd2",
+          "uci": "b1d2",
+          "isUserMove": true,
+          "title": "The Tarrasch Knight",
+          "explanation": "Develop the knight to d2! This avoids the Bb4 pin and leaves c3 available for a pawn.",
+          "warning": "Don't play 3. Nc3 if you dislike facing the sharp Winawer 3... Bb4.",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "d2",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "c3"
+          ]
+        },
+        {
+          "moveSan": "3... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Black Hits e4",
+          "explanation": "Pressuring your e4 pawn.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. e5",
+          "uci": "e4e5",
+          "isUserMove": true,
+          "title": "Lock the Kingside",
+          "explanation": "Force Black's knight to retreat to d7 and win space.",
+          "warning": "Push forward with tempo.",
+          "arrows": [
+            {
+              "from": "e4",
+              "to": "e5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "f6"
+          ]
+        },
+        {
+          "moveSan": "4... Nfd7",
+          "uci": "f6d7",
+          "isUserMove": false,
+          "title": "Knight Retreats",
+          "explanation": "Black reorganizes.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f6",
+              "to": "d7",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. Bd3",
+          "uci": "f1d3",
+          "isUserMove": true,
+          "title": "Aggressive Bishop Post",
+          "explanation": "Point your bishop toward h7 and prepare kingside castling.",
+          "warning": "White holds a harmonious, lasting advantage.",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "d3",
+              "color": "green"
+            },
+            {
+              "from": "d3",
+              "to": "h7",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "h7"
+          ]
+        }
+      ]
+    }
+  ]
+}

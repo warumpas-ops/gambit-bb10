@@ -1,0 +1,339 @@
+{
+  "id": "caro_kann_white",
+  "name": "The Caro-Kann Defense",
+  "color": "White",
+  "level": "Level 2: Tactical & Aggressive",
+  "description": "Crush Black's Caro-Kann fortress. Tear open the position with the dynamic Panov-Botvinnik Attack or harass Black's bishop in the Advance Variation.",
+  "chapters": [
+    {
+      "id": "ck_w_panov",
+      "title": "Panov-Botvinnik Attack: Dynamic IQP",
+      "subtitle": "Blast open the center with 4. c4!",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "King's Pawn",
+          "explanation": "Take space.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... c6",
+          "uci": "c7c6",
+          "isUserMove": false,
+          "title": "Caro-Kann Defense",
+          "explanation": "Black prepares 2... d5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c7",
+              "to": "c6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Full Pawn Center",
+          "explanation": "Occupy the center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... d5",
+          "uci": "d7d5",
+          "isUserMove": false,
+          "title": "Black Strikes d5",
+          "explanation": "Contesting e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. exd5",
+          "uci": "e4d5",
+          "isUserMove": true,
+          "title": "Open the Position",
+          "explanation": "Exchange on d5 to prepare our flank strike.",
+          "warning": "Removes Black's solid pawn chain.",
+          "arrows": [
+            {
+              "from": "e4",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... cxd5",
+          "uci": "c6d5",
+          "isUserMove": false,
+          "title": "Black Recaptures",
+          "explanation": "Maintaining pawn symmetry.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c6",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. c4!",
+          "uci": "c2c4",
+          "isUserMove": true,
+          "title": "The Panov Pawn Lever",
+          "explanation": "Blast open the c-file and challenge Black's d5 anchor!",
+          "warning": "This transforms the game into a razor-sharp attacking contest.",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c4",
+              "color": "green"
+            },
+            {
+              "from": "c4",
+              "to": "d5",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "d5",
+            "c6"
+          ]
+        },
+        {
+          "moveSan": "4... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Black Develops",
+          "explanation": "Guarding d5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. Nc3",
+          "uci": "b1c3",
+          "isUserMove": true,
+          "title": "Piling Pressure on d5",
+          "explanation": "Develop the knight with direct pressure on d5.",
+          "warning": "Keep active pressure on Black's center.",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "green"
+            },
+            {
+              "from": "c3",
+              "to": "d5",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "d5"
+          ]
+        },
+        {
+          "moveSan": "5... e6",
+          "uci": "e7e6",
+          "isUserMove": false,
+          "title": "Black Fortifies",
+          "explanation": "Closing the bishop inside.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6. Nf3",
+          "uci": "g1f3",
+          "isUserMove": true,
+          "title": "Harmonious Piece Outpost",
+          "explanation": "Develop and maintain central dominance.",
+          "warning": "White holds the initiative and rapid attacking potential.",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ck_w_advance",
+      "title": "Advance Variation: Tal Caveman Attack",
+      "subtitle": "Play 3. e5 and harass Black's bishop with 4. h4!",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "Pawn to e4",
+          "explanation": "Standard opening.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... c6",
+          "uci": "c7c6",
+          "isUserMove": false,
+          "title": "Caro-Kann",
+          "explanation": "Solid preparation.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c7",
+              "to": "c6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Pawn to d4",
+          "explanation": "Take the center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... d5",
+          "uci": "d7d5",
+          "isUserMove": false,
+          "title": "Black Plays d5",
+          "explanation": "Direct challenge.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. e5",
+          "uci": "e4e5",
+          "isUserMove": true,
+          "title": "The Advance Push",
+          "explanation": "Gain space and force Black's bishop out to f5.",
+          "warning": "Locking the center allows White to attack freely on the wings.",
+          "arrows": [
+            {
+              "from": "e4",
+              "to": "e5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e5"
+          ]
+        },
+        {
+          "moveSan": "3... Bf5",
+          "uci": "c8f5",
+          "isUserMove": false,
+          "title": "Bishop to f5",
+          "explanation": "Black develops their light-squared bishop outside the chain.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c8f5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. h4!",
+          "uci": "h2h4",
+          "isUserMove": true,
+          "title": "The Tal Bishop Hunt!",
+          "explanation": "Threaten g4 and h5 to trap and suffocating Black's active bishop!",
+          "warning": "Black must spend a move on 4... h5 or 4... h6 to survive.",
+          "arrows": [
+            {
+              "from": "h2",
+              "to": "h4",
+              "color": "green"
+            },
+            {
+              "from": "h4",
+              "to": "h5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": [
+            "g4",
+            "h5"
+          ]
+        }
+      ]
+    }
+  ]
+}

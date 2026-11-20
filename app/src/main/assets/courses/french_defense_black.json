@@ -1,0 +1,422 @@
+{
+  "id": "french_defense_black",
+  "name": "The French Defense",
+  "color": "Black",
+  "level": "Level 2: Tactical & Aggressive",
+  "description": "Black's premier counter-attacking defense against 1. e4. Master the siege of White's d4 center in the Advance Variation and dynamic queen counterstrikes.",
+  "chapters": [
+    {
+      "id": "fr_b_advance_siege",
+      "title": "Advance Variation: The d4 Siege",
+      "subtitle": "Assault White's foundation with c5, Nc6, and Qb6",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Takes Center",
+          "explanation": "White plays 1. e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e6",
+          "uci": "e7e6",
+          "isUserMove": true,
+          "title": "The French Defense",
+          "explanation": "Prepare 2... d5 to challenge White's center without allowing open e-file tactics.",
+          "warning": "Accept that your c8 bishop is temporarily enclosed.",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d5"
+          ]
+        },
+        {
+          "moveSan": "2. d4",
+          "uci": "d2d4",
+          "isUserMove": false,
+          "title": "White Occupies Center",
+          "explanation": "White takes d4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... d5",
+          "uci": "d7d5",
+          "isUserMove": true,
+          "title": "Strike the Center!",
+          "explanation": "Hit White's e4 pawn directly and establish our immovable foothold.",
+          "warning": "Never exchange early; force White to make a commitment.",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "3. e5",
+          "uci": "e4e5",
+          "isUserMove": false,
+          "title": "White Advances",
+          "explanation": "White chooses 3. e5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e4",
+              "to": "e5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... c5",
+          "uci": "c7c5",
+          "isUserMove": true,
+          "title": "Assault the d4 Base",
+          "explanation": "Immediately chip away at the base of White's pawn chain!",
+          "warning": "Always attack the base of the chain (d4), not the head (e5).",
+          "arrows": [
+            {
+              "from": "c7",
+              "to": "c5",
+              "color": "green"
+            },
+            {
+              "from": "c5",
+              "to": "d4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "4. c3",
+          "uci": "c2c3",
+          "isUserMove": false,
+          "title": "White Cements Chain",
+          "explanation": "White plays c3.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Nc6",
+          "uci": "b8c6",
+          "isUserMove": true,
+          "title": "Add the Second Attacker",
+          "explanation": "Develop the knight and increase pressure on d4.",
+          "warning": "Don't block the c-pawn; it's already on c5 doing heavy work.",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "green"
+            },
+            {
+              "from": "c6",
+              "to": "d4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "5. Nf3",
+          "uci": "g1f3",
+          "isUserMove": false,
+          "title": "White Defends",
+          "explanation": "White develops knight.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... Qb6",
+          "uci": "d8b6",
+          "isUserMove": true,
+          "title": "Triple Battery on d4 & b2",
+          "explanation": "The trademark French move! Pressure d4 to maximum intensity and tie White down.",
+          "warning": "Watch out for White's Bd3 traps (Milner-Barry Gambit).",
+          "arrows": [
+            {
+              "from": "d8",
+              "to": "b6",
+              "color": "green"
+            },
+            {
+              "from": "b6",
+              "to": "d4",
+              "color": "red"
+            },
+            {
+              "from": "b6",
+              "to": "b2",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": [
+            "d4",
+            "b2"
+          ]
+        },
+        {
+          "moveSan": "6. a3",
+          "uci": "a2a3",
+          "isUserMove": false,
+          "title": "White Prepares b4",
+          "explanation": "White wants to expand on the flank.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "a2",
+              "to": "a3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6... Nh6!",
+          "uci": "g8h6",
+          "isUserMove": true,
+          "title": "Knight Outpost Maneuver",
+          "explanation": "Develop the knight to h6 en route to f5 to bring a fourth attacker against d4!",
+          "warning": "Don't fear Bxh6; gxh6 gives Black the open g-file and bishop pair.",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "h6",
+              "color": "green"
+            },
+            {
+              "from": "h6",
+              "to": "f5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": [
+            "f5",
+            "d4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fr_b_rubinstein",
+      "title": "Rubinstein Variation: Effortless Equality",
+      "subtitle": "Release tension with 3... dxe4 and free piece flow",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Plays e4",
+          "explanation": "Opening move.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e6",
+          "uci": "e7e6",
+          "isUserMove": true,
+          "title": "French Setup",
+          "explanation": "Preparing d5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. d4",
+          "uci": "d2d4",
+          "isUserMove": false,
+          "title": "White Plays d4",
+          "explanation": "Center pawns.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... d5",
+          "uci": "d7d5",
+          "isUserMove": true,
+          "title": "Pawn to d5",
+          "explanation": "Striking the center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Nc3",
+          "uci": "b1c3",
+          "isUserMove": false,
+          "title": "White Develops Nc3",
+          "explanation": "Guarding e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... dxe4",
+          "uci": "d5e4",
+          "isUserMove": true,
+          "title": "The Rubinstein Capture",
+          "explanation": "Eliminate central tension and avoid cramped locked positions.",
+          "warning": "Safe, reliable, and played by world champions.",
+          "arrows": [
+            {
+              "from": "d5",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "4. Nxe4",
+          "uci": "c3e4",
+          "isUserMove": false,
+          "title": "White Recaptures",
+          "explanation": "Centralized knight.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c3",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Nd7",
+          "uci": "b8d7",
+          "isUserMove": true,
+          "title": "Prepare Knight Exchange",
+          "explanation": "Develop knight to d7 to prepare Ngf6 without getting doubled pawns.",
+          "warning": "Never play an unprepared Ngf6 allowing Nxf6+ with structure damage.",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "d7",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "f6"
+          ]
+        },
+        {
+          "moveSan": "5. Nf3",
+          "uci": "g1f3",
+          "isUserMove": false,
+          "title": "White Develops",
+          "explanation": "Normal flow.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... Ngf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Challenge the Knight",
+          "explanation": "Offer exchange and achieve complete equality.",
+          "warning": "Black has no weaknesses and easy development.",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        }
+      ]
+    }
+  ]
+}

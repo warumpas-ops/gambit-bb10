@@ -1,0 +1,388 @@
+{
+  "id": "kings_indian_white",
+  "name": "The King's Indian Defense",
+  "color": "White",
+  "level": "Level 3: Strategic & Deep",
+  "description": "White's masterclass strategies against Black's hypermodern KID. Crush Black's queenside in the Classical Mar del Plata or lock down the center with the Sämisch.",
+  "chapters": [
+    {
+      "id": "kid_w_classical",
+      "title": "Classical Mar del Plata: Queenside Steamroller",
+      "subtitle": "Break open Black's queenside with c5 while containing f5",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Queen's Pawn",
+          "explanation": "Claim center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "KID Setup",
+          "explanation": "Controlling e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. c4",
+          "uci": "c2c4",
+          "isUserMove": true,
+          "title": "Pawn to c4",
+          "explanation": "Take space.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... g6",
+          "uci": "g7g6",
+          "isUserMove": false,
+          "title": "Fianchetto Prep",
+          "explanation": "Black prepares Bg7.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g7",
+              "to": "g6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Nc3",
+          "uci": "b1c3",
+          "isUserMove": true,
+          "title": "Knight to c3",
+          "explanation": "Prepare e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Bg7",
+          "uci": "f8g7",
+          "isUserMove": false,
+          "title": "Bishop to g7",
+          "explanation": "Long diagonal.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "g7",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "Full Classical Center",
+          "explanation": "Occupy the entire center with d4, c4, and e4.",
+          "warning": "White enjoys a massive space advantage.",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4",
+            "e4",
+            "c4"
+          ]
+        },
+        {
+          "moveSan": "4... d6",
+          "uci": "d7d6",
+          "isUserMove": false,
+          "title": "Pawn to d6",
+          "explanation": "Stopping e5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. Nf3",
+          "uci": "g1f3",
+          "isUserMove": true,
+          "title": "Develop Kingside Knight",
+          "explanation": "Harmonious development.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... O-O",
+          "uci": "e8g8",
+          "isUserMove": false,
+          "title": "Black Castles",
+          "explanation": "King safe.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e8",
+              "to": "g8",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6. Be2",
+          "uci": "f1e2",
+          "isUserMove": true,
+          "title": "Prepare Castling",
+          "explanation": "Develop the bishop modestly to e2.",
+          "warning": "Avoid putting the bishop on d3 where it can be attacked.",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "e2",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e2"
+          ]
+        },
+        {
+          "moveSan": "6... e5",
+          "uci": "e7e5",
+          "isUserMove": false,
+          "title": "Black Strikes Center",
+          "explanation": "Classical KID move.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "7. O-O",
+          "uci": "e1g1",
+          "isUserMove": true,
+          "title": "Castle into Safety",
+          "explanation": "Secure White's king before closing the center with d5.",
+          "warning": "White has completed ideal development.",
+          "arrows": [
+            {
+              "from": "e1",
+              "to": "g1",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "g1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kid_w_saemisch",
+      "title": "The Sämisch Variation: Iron Wall (5. f3)",
+      "subtitle": "Cement e4 with f3 and launch opposite-side castling",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Pawn to d4",
+          "explanation": "Center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Knight to f6",
+          "explanation": "Control e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. c4",
+          "uci": "c2c4",
+          "isUserMove": true,
+          "title": "Pawn to c4",
+          "explanation": "Space.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... g6",
+          "uci": "g7g6",
+          "isUserMove": false,
+          "title": "Pawn to g6",
+          "explanation": "Prep Bg7.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g7",
+              "to": "g6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Nc3",
+          "uci": "b1c3",
+          "isUserMove": true,
+          "title": "Knight to c3",
+          "explanation": "Prep e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Bg7",
+          "uci": "f8g7",
+          "isUserMove": false,
+          "title": "Bishop to g7",
+          "explanation": "Diagonal.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "g7",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. e4",
+          "uci": "e2e4",
+          "isUserMove": true,
+          "title": "Pawn to e4",
+          "explanation": "Big center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... d6",
+          "uci": "d7d6",
+          "isUserMove": false,
+          "title": "Pawn to d6",
+          "explanation": "Solidify.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. f3!",
+          "uci": "f2f3",
+          "isUserMove": true,
+          "title": "The Sämisch Pawn",
+          "explanation": "Cement e4 with f3! This takes g4 away from Black and supports Be3 and Qd2.",
+          "warning": "Forms an unshakeable central fortress.",
+          "arrows": [
+            {
+              "from": "f2",
+              "to": "f3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4",
+            "g4"
+          ]
+        }
+      ]
+    }
+  ]
+}

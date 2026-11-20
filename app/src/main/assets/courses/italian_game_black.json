@@ -1,0 +1,440 @@
+{
+  "id": "italian_game_black",
+  "name": "The Italian Game",
+  "color": "Black",
+  "level": "Level 1: Fundamentals",
+  "description": "Black's complete defenses against 1. e4 e5 2. Nf3 Nc6 3. Bc4. Neutralize the Fried Liver with 5... Na5! and achieve rock-solid equality in the Giuoco Pianissimo.",
+  "chapters": [
+    {
+      "id": "it_b_two_knights",
+      "title": "Two Knights: The 5... Na5! Refutation",
+      "subtitle": "Punish White's premature 4. Ng5 attack",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Stakes Center",
+          "explanation": "White opens e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": true,
+          "title": "Claim Symmetrical Center",
+          "explanation": "Stake our claim on the center and free our pieces.",
+          "warning": "Avoid passive responses like e6 or c6 if aiming for open classical play.",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4",
+            "f4"
+          ]
+        },
+        {
+          "moveSan": "2. Nf3",
+          "uci": "g1f3",
+          "isUserMove": false,
+          "title": "White Attacks e5",
+          "explanation": "White develops toward the center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": true,
+          "title": "Defend e5",
+          "explanation": "Develop the knight to defend e5 naturally.",
+          "warning": "Don't defend with 2... d6 (Philidor) which blocks the dark-squared bishop.",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e5"
+          ]
+        },
+        {
+          "moveSan": "3. Bc4",
+          "uci": "f1c4",
+          "isUserMove": false,
+          "title": "Italian Bishop",
+          "explanation": "White targets our f7 square.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "c4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Two Knights Counterattack",
+          "explanation": "Counterattack White's e4 pawn immediately!",
+          "warning": "Stay sharp: White can jump to g5 next.",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            },
+            {
+              "from": "f6",
+              "to": "e4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "4. Ng5",
+          "uci": "f3g5",
+          "isUserMove": false,
+          "title": "White Traps f7",
+          "explanation": "White goes for the Fried Liver battery.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f3",
+              "to": "g5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... d5",
+          "uci": "d7d5",
+          "isUserMove": true,
+          "title": "Block the Diagonal!",
+          "explanation": "The only correct move: shut down the bishop's line of sight to f7.",
+          "warning": "Never play 4... Bc5? or 4... h6? which lose instantly.",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d5"
+          ]
+        },
+        {
+          "moveSan": "5. exd5",
+          "uci": "e4d5",
+          "isUserMove": false,
+          "title": "White Takes",
+          "explanation": "White opens the e-file.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e4",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... Na5!",
+          "uci": "c6a5",
+          "isUserMove": true,
+          "title": "The Master Refutation: 5... Na5!",
+          "explanation": "Attack White's dangerous bishop and push White backward!",
+          "warning": "FATAL BLUNDER: Never play 5... Nxd5? which allows 6. Nxf7! Fried Liver!",
+          "arrows": [
+            {
+              "from": "c6",
+              "to": "a5",
+              "color": "green"
+            },
+            {
+              "from": "a5",
+              "to": "c4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "c4"
+          ]
+        },
+        {
+          "moveSan": "6. Bb5+",
+          "uci": "c4b5",
+          "isUserMove": false,
+          "title": "White Checks",
+          "explanation": "White tries to hold the bishop with tempo.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c4",
+              "to": "b5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "6... c6",
+          "uci": "c7c6",
+          "isUserMove": true,
+          "title": "Interpose with Pawn",
+          "explanation": "Sacrifice a flank pawn to win total piece activity and bishop pair.",
+          "warning": "Don't block with Bd7; 6... c6 is the dynamic powerhouse.",
+          "arrows": [
+            {
+              "from": "c7",
+              "to": "c6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "b5"
+          ]
+        },
+        {
+          "moveSan": "7. dxc6",
+          "uci": "d5c6",
+          "isUserMove": false,
+          "title": "White Takes c6",
+          "explanation": "White grabs a pawn.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d5",
+              "to": "c6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "7... bxc6",
+          "uci": "b7c6",
+          "isUserMove": true,
+          "title": "Recapture & Attack Bishop",
+          "explanation": "Recapture with pawn! You now dominate the center and open the b-file.",
+          "warning": "White's bishop must retreat in sorrow.",
+          "arrows": [
+            {
+              "from": "b7",
+              "to": "c6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "b5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "it_b_pianissimo",
+      "title": "Giuoco Pianissimo: Solid Setup",
+      "subtitle": "Safe, symmetrical equality with 3... Bc5",
+      "orientation": "black",
+      "steps": [
+        {
+          "moveSan": "1. e4",
+          "uci": "e2e4",
+          "isUserMove": false,
+          "title": "White Plays e4",
+          "explanation": "White claims the center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... e5",
+          "uci": "e7e5",
+          "isUserMove": true,
+          "title": "Black Equalizes",
+          "explanation": "Stake central equality.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e7",
+              "to": "e5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nf3",
+          "uci": "g1f3",
+          "isUserMove": false,
+          "title": "Knight to f3",
+          "explanation": "Attacking e5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g1",
+              "to": "f3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2... Nc6",
+          "uci": "b8c6",
+          "isUserMove": true,
+          "title": "Defend e5",
+          "explanation": "Solid piece development.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Bc4",
+          "uci": "f1c4",
+          "isUserMove": false,
+          "title": "Bishop to c4",
+          "explanation": "Targeting f7.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "f1",
+              "to": "c4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3... Bc5",
+          "uci": "f8c5",
+          "isUserMove": true,
+          "title": "Quiet Bishop Development",
+          "explanation": "Mirror White's bishop and control the critical d4 square.",
+          "warning": "Always develop the bishop before playing d6.",
+          "arrows": [
+            {
+              "from": "f8",
+              "to": "c5",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        },
+        {
+          "moveSan": "4. d3",
+          "uci": "d2d3",
+          "isUserMove": false,
+          "title": "Quiet Italian (Pianissimo)",
+          "explanation": "White chooses slow maneuvering.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d3",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4... Nf6",
+          "uci": "g8f6",
+          "isUserMove": true,
+          "title": "Develop Knight to f6",
+          "explanation": "Bring the kingside knight into action and prepare castling.",
+          "warning": "Don't neglect king safety.",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "5. O-O",
+          "uci": "e1g1",
+          "isUserMove": false,
+          "title": "White Castles",
+          "explanation": "White safeguards king.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "e1",
+              "to": "g1",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5... d6",
+          "uci": "d7d6",
+          "isUserMove": true,
+          "title": "Anchor Center & Free Bishop",
+          "explanation": "Solidify e5 and open the diagonal for Black's light-squared bishop.",
+          "warning": "Black achieves complete harmony and equal chances.",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d6",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e5"
+          ]
+        }
+      ]
+    }
+  ]
+}

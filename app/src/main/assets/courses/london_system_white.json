@@ -1,0 +1,316 @@
+{
+  "id": "london_system_white",
+  "name": "The London System",
+  "color": "White",
+  "level": "Level 1: Fundamentals",
+  "description": "White's universal, bulletproof opening setup. Build the unbreakable golden pyramid (d4, c3, e3, Bf4, Nf3) and dominate without memorizing sharp theory.",
+  "chapters": [
+    {
+      "id": "lon_w_classical",
+      "title": "The Golden London Pyramid vs 1... d5",
+      "subtitle": "Complete setup with 2. Bf4, 3. e3, and 4. c3",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "The Foundation Stone",
+          "explanation": "Stake central space and claim e5 and c5.",
+          "warning": "Avoid reckless deviations; keep your pawn firmly on d4.",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e5",
+            "c5"
+          ]
+        },
+        {
+          "moveSan": "1... d5",
+          "uci": "d7d5",
+          "isUserMove": false,
+          "title": "Black Responds",
+          "explanation": "Mirroring central stake.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Bf4",
+          "uci": "c1f4",
+          "isUserMove": true,
+          "title": "Develop Bishop Outside Chain",
+          "explanation": "The signature London move! Bring the dark-squared bishop outside the pawn chain before playing e3.",
+          "warning": "CRITICAL: Always play Bf4 BEFORE playing e3!",
+          "arrows": [
+            {
+              "from": "c1",
+              "to": "f4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "f4"
+          ]
+        },
+        {
+          "moveSan": "2... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Black Develops",
+          "explanation": "Guarding e4 and d5.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. e3",
+          "uci": "e2e3",
+          "isUserMove": true,
+          "title": "Solidify Bishop & Center",
+          "explanation": "Lock the e3 pawn. The bishop is already free outside, so your structure has no bad pieces.",
+          "warning": "Opens the diagonal for your light-squared bishop.",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4",
+            "f4"
+          ]
+        },
+        {
+          "moveSan": "3... c5",
+          "uci": "c7c5",
+          "isUserMove": false,
+          "title": "Black Strikes Flank",
+          "explanation": "Testing White's d4 center.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c7",
+              "to": "c5",
+              "color": "blue"
+            },
+            {
+              "from": "c5",
+              "to": "d4",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. c3",
+          "uci": "c2c3",
+          "isUserMove": true,
+          "title": "Complete the Golden Pyramid!",
+          "explanation": "The unbreakable c3-d4-e3 pyramid is completed! Even if Black takes on d4, recapture with c-pawn.",
+          "warning": "Never leave d4 undefended.",
+          "arrows": [
+            {
+              "from": "c2",
+              "to": "c3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "c3",
+            "d4",
+            "e3"
+          ]
+        },
+        {
+          "moveSan": "4... Nc6",
+          "uci": "b8c6",
+          "isUserMove": false,
+          "title": "Black Pressures Center",
+          "explanation": "Adding knight attacker.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "b8",
+              "to": "c6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "5. Nd2",
+          "uci": "b1d2",
+          "isUserMove": true,
+          "title": "Harmonious Knight Post",
+          "explanation": "Develop the knight to d2 to support an eventual e4 push and prevent Ne4 outposts.",
+          "warning": "Leaves the c-file free and maintains pyramid cohesion.",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "d2",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lon_w_jobava",
+      "title": "Jobava London: Aggressive 2. Nc3 Attack",
+      "subtitle": "Sharp modern attack with 1. d4, 2. Nc3, and 3. Bf4",
+      "orientation": "white",
+      "steps": [
+        {
+          "moveSan": "1. d4",
+          "uci": "d2d4",
+          "isUserMove": true,
+          "title": "Pawn to d4",
+          "explanation": "Central foundation.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d2",
+              "to": "d4",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "1... d5",
+          "uci": "d7d5",
+          "isUserMove": false,
+          "title": "Black Plays d5",
+          "explanation": "Symmetrical.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "d7",
+              "to": "d5",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "2. Nc3",
+          "uci": "b1c3",
+          "isUserMove": true,
+          "title": "The Jobava Knight",
+          "explanation": "Develop the knight directly to c3, threatening an immediate e4 central blast!",
+          "warning": "An aggressive modern alternative to classical c3 lines.",
+          "arrows": [
+            {
+              "from": "b1",
+              "to": "c3",
+              "color": "green"
+            },
+            {
+              "from": "c3",
+              "to": "e4",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": [
+            "e4"
+          ]
+        },
+        {
+          "moveSan": "2... Nf6",
+          "uci": "g8f6",
+          "isUserMove": false,
+          "title": "Black Stops e4",
+          "explanation": "Guarding e4.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "g8",
+              "to": "f6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "3. Bf4",
+          "uci": "c1f4",
+          "isUserMove": true,
+          "title": "The Active London Bishop",
+          "explanation": "Place the bishop on f4 with direct sight on c7 and e5.",
+          "warning": "Prepare Nb5 threats if Black is careless.",
+          "arrows": [
+            {
+              "from": "c1",
+              "to": "f4",
+              "color": "green"
+            },
+            {
+              "from": "f4",
+              "to": "c7",
+              "color": "red"
+            }
+          ],
+          "highlightSquares": [
+            "c7"
+          ]
+        },
+        {
+          "moveSan": "3... c6",
+          "uci": "c7c6",
+          "isUserMove": false,
+          "title": "Black Guards c7",
+          "explanation": "Solidifying c7.",
+          "warning": "",
+          "arrows": [
+            {
+              "from": "c7",
+              "to": "c6",
+              "color": "blue"
+            }
+          ],
+          "highlightSquares": []
+        },
+        {
+          "moveSan": "4. e3",
+          "uci": "e2e3",
+          "isUserMove": true,
+          "title": "Support Bishop & Prepare Bd3",
+          "explanation": "Cement the center and prepare active kingside piece play.",
+          "warning": "White holds great attacking prospects.",
+          "arrows": [
+            {
+              "from": "e2",
+              "to": "e3",
+              "color": "green"
+            }
+          ],
+          "highlightSquares": [
+            "d4"
+          ]
+        }
+      ]
+    }
+  ]
+}

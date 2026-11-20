@@ -159,6 +159,10 @@ public class ChessEngine {
      * Handles en passant, castling, and pawn promotion automatically.
      */
     public boolean makeMove(int from, int to) {
+        return makeMove(from, to, (char) 0);
+    }
+
+    public boolean makeMove(int from, int to, char promo) {
         if (from < 0 || from >= 64 || to < 0 || to >= 64) return false;
         char p = board[from];
         if (p == EMPTY) return false;
@@ -211,11 +215,17 @@ public class ChessEngine {
             epSquare = from + 8;
         }
 
-        // Promotion (auto-queen default)
+        // Promotion handling (supports underpromotion e.g. knight f2g1n)
         if (p == WHITE_PAWN && to < 8) {
-            p = WHITE_QUEEN;
+            if (promo == 'n' || promo == 'N') p = WHITE_KNIGHT;
+            else if (promo == 'b' || promo == 'B') p = WHITE_BISHOP;
+            else if (promo == 'r' || promo == 'R') p = WHITE_ROOK;
+            else p = WHITE_QUEEN;
         } else if (p == BLACK_PAWN && to >= 56) {
-            p = BLACK_QUEEN;
+            if (promo == 'n' || promo == 'N') p = BLACK_KNIGHT;
+            else if (promo == 'b' || promo == 'B') p = BLACK_BISHOP;
+            else if (promo == 'r' || promo == 'R') p = BLACK_ROOK;
+            else p = BLACK_QUEEN;
         }
 
         board[from] = EMPTY;
@@ -228,6 +238,7 @@ public class ChessEngine {
         if (uci == null || uci.length() < 4) return false;
         int from = parseSquare(uci.substring(0, 2));
         int to = parseSquare(uci.substring(2, 4));
-        return makeMove(from, to);
+        char promo = uci.length() > 4 ? uci.charAt(4) : 0;
+        return makeMove(from, to, promo);
     }
 }
