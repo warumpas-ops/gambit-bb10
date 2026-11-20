@@ -97,7 +97,7 @@ public class ChessBoardView extends View {
         greenArrowPaint.setStyle(Paint.Style.FILL);
         greenArrowPaint.setAntiAlias(true);
 
-        blueArrowPaint.setColor(Color.parseColor("#CC3692E7"));
+        blueArrowPaint.setColor(Color.parseColor("#CC647C64"));
         blueArrowPaint.setStyle(Paint.Style.FILL);
         blueArrowPaint.setAntiAlias(true);
 

@@ -78,12 +78,12 @@ public class HubActivity extends Activity {
 
     private void updateTabs() {
         if (showWhite) {
-            btnTabWhite.setBackgroundColor(Color.parseColor("#2563EB")); // Active Blue
+            btnTabWhite.setBackgroundColor(Color.parseColor("#647C64")); // Active Sage Green
             btnTabWhite.setTextColor(Color.WHITE);
             btnTabBlack.setBackgroundColor(Color.parseColor("#18181E")); // Inactive
             btnTabBlack.setTextColor(Color.parseColor("#9CA3AF"));
         } else {
-            btnTabBlack.setBackgroundColor(Color.parseColor("#2563EB")); // Active Blue
+            btnTabBlack.setBackgroundColor(Color.parseColor("#647C64")); // Active Sage Green
             btnTabBlack.setTextColor(Color.WHITE);
             btnTabWhite.setBackgroundColor(Color.parseColor("#18181E")); // Inactive
             btnTabWhite.setTextColor(Color.parseColor("#9CA3AF"));
@@ -182,7 +182,7 @@ public class HubActivity extends Activity {
 
             final TextView tvChevron = new TextView(this);
             tvChevron.setText(isExpanded ? "\u25BC" : "\u25B6");
-            tvChevron.setTextColor(Color.parseColor("#60A5FA"));
+            tvChevron.setTextColor(Color.parseColor("#647C64"));
             tvChevron.setTextSize(13f);
             tvChevron.getPaint().setFakeBoldText(true);
             tvChevron.setPadding(8, 0, 4, 0);

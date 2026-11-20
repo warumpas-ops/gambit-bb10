@@ -96,7 +96,7 @@ public class StreakDialog {
         Button btnClose = new Button(context);
         btnClose.setText("KEEP GRINDING");
         btnClose.setTextColor(Color.WHITE);
-        btnClose.setBackgroundColor(Color.parseColor("#2563EB")); // Deep Royal Blue
+        btnClose.setBackgroundColor(Color.parseColor("#647C64")); // Tactical Sage Green
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
