@@ -56,8 +56,24 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
 
     // Phase 1 = Guided Study (arrows + explanations)
     // Phase 2 = Memory Drill (no arrows, play from memory)
+    // Phase 3 = Cumulative Gauntlet (review previous lines from memory)
     private boolean isStudyPhase = true;
+    private boolean isGauntletPhase = false;
+    private int gauntletChapterIdx = -1;
     private boolean hadMistakeInChapter = false;
+
+    // Option C: Sparring Gym Mode
+    private boolean isSparringMode = false;
+    private int sparringScore = 0;
+    private int sparringStreak = 0;
+
+    private OpeningModel.Chapter getActiveChapter() {
+        OpeningModel.Course c = courses.get(currentCourseIdx);
+        if (isGauntletPhase && gauntletChapterIdx >= 0 && gauntletChapterIdx < c.chapters.size()) {
+            return c.chapters.get(gauntletChapterIdx);
+        }
+        return c.chapters.get(currentChapterIdx);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,7 +182,14 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
             }
         });
 
-        startChapter(initCourseIdx, initChapterIdx);
+        isSparringMode = getIntent().getBooleanExtra("isSparringMode", false);
+        if (isSparringMode) {
+            btnModeQuick.setVisibility(View.GONE);
+            startSparringRound();
+        } else {
+            btnModeQuick.setVisibility(View.VISIBLE);
+            startChapter(initCourseIdx, initChapterIdx);
+        }
 
         // Apply Space Grotesk font across MainActivity
         FontHelper.apply(this);
@@ -185,6 +208,7 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
 
         // Always begin a chapter in Study phase
         isStudyPhase = true;
+        isGauntletPhase = false;
         hadMistakeInChapter = false;
         resetCurrentChapterInPhase();
     }
@@ -207,16 +231,29 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         checkAndPlayOpponentReply();
     }
 
-    // Legacy alias: a plain chapter reset always restarts from Study phase
+    // Legacy alias: a plain chapter reset always restarts from Study phase (or restarts sparring round)
     private void resetCurrentChapter() {
+        if (isSparringMode) {
+            startSparringRound();
+            return;
+        }
         isStudyPhase = true;
+        isGauntletPhase = false;
         resetCurrentChapterInPhase();
     }
 
     private void updateModeButton() {
+        if (isSparringMode) {
+            btnModeQuick.setVisibility(View.GONE);
+            return;
+        }
+        btnModeQuick.setVisibility(View.VISIBLE);
         if (isStudyPhase) {
             btnModeQuick.setText("[STUDY]");
             btnModeQuick.setTextColor(Color.parseColor("#10B981"));
+        } else if (isGauntletPhase) {
+            btnModeQuick.setText("[BOSS]");
+            btnModeQuick.setTextColor(Color.parseColor("#EF4444"));
         } else {
             btnModeQuick.setText("[DRILL]");
             btnModeQuick.setTextColor(Color.parseColor("#F59E0B"));
@@ -224,13 +261,13 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
     }
 
     // Called when study phase finishes (all moves played once with arrows).
-    // earlySkip = true when user pressed the mode button to skip ahead.
     private void transitionToDrillPhase(boolean earlySkip) {
         if (courses.isEmpty()) return;
         OpeningModel.Chapter ch = courses.get(currentCourseIdx).chapters.get(currentChapterIdx);
         progressManager.markChapterStudied(ch.id);
 
         isStudyPhase = false;
+        isGauntletPhase = false;
         hadMistakeInChapter = false;
 
         engine.resetToStartingPosition();
@@ -262,19 +299,152 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         }, 1200);
     }
 
+    // Option A: Cumulative Gauntlet Phase (reviews a prior unlocked line from memory)
+    private void transitionToGauntletPhase() {
+        if (courses.isEmpty()) return;
+        OpeningModel.Course c = courses.get(currentCourseIdx);
+        if (currentChapterIdx <= 0) {
+            onDrillComplete();
+            return;
+        }
+
+        // Pick one prior variation from this opening
+        gauntletChapterIdx = (int) (Math.random() * currentChapterIdx);
+        OpeningModel.Chapter reviewCh = c.chapters.get(gauntletChapterIdx);
+
+        isStudyPhase = false;
+        isGauntletPhase = true;
+        hadMistakeInChapter = false;
+
+        engine.resetToStartingPosition();
+        currentStepIdx = 0;
+        boardView.setLastMove(-1, -1);
+        boardView.clearSelection();
+
+        boolean playAsBlack = "black".equalsIgnoreCase(c.color) || "black".equalsIgnoreCase(reviewCh.orientation);
+        boardView.setFlipped(playAsBlack);
+
+        llTopBar.setVisibility(View.GONE);
+        llCompletionCard.setVisibility(View.GONE);
+        llCoachPill.setVisibility(View.VISIBLE);
+        flExplainOverlay.setVisibility(View.GONE);
+
+        updateModeButton();
+
+        tvCoachBadge.setText("🥊 GAUNTLET");
+        tvCoachBadge.setTextColor(Color.parseColor("#EF4444"));
+        tvCoachPrompt.setText("Cumulative Review: Play " + reviewCh.title + " from memory!");
+        boardView.setArrows(null);
+        boardView.setHighlightSquares(null);
+        boardView.invalidate();
+
+        Toast.makeText(this, "🥊 Cumulative Gauntlet: Prove your earlier line!", Toast.LENGTH_SHORT).show();
+
+        boardView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                checkAndPlayOpponentReply();
+            }
+        }, 1300);
+    }
+
+    private void onGauntletComplete() {
+        isGauntletPhase = false;
+        onDrillComplete();
+    }
+
+    // Option C: Sparring Round
+    private void startSparringRound() {
+        if (courses.isEmpty()) return;
+        OpeningModel.Course c = courses.get(currentCourseIdx);
+
+        List<Integer> unlockedList = new ArrayList<Integer>();
+        for (int i = 0; i < c.chapters.size(); i++) {
+            if (progressManager.isChapterUnlocked(c, i)) {
+                unlockedList.add(i);
+            }
+        }
+        if (unlockedList.isEmpty()) {
+            unlockedList.add(0);
+        }
+
+        int pick = unlockedList.get((int) (Math.random() * unlockedList.size()));
+        currentChapterIdx = pick;
+        currentStepIdx = 0;
+        hadMistakeInChapter = false;
+        isStudyPhase = false;
+        isGauntletPhase = false;
+
+        OpeningModel.Chapter ch = c.chapters.get(currentChapterIdx);
+        boolean playAsBlack = "black".equalsIgnoreCase(c.color) || "black".equalsIgnoreCase(ch.orientation);
+        boardView.setFlipped(playAsBlack);
+
+        engine.resetToStartingPosition();
+        boardView.setLastMove(-1, -1);
+        boardView.clearSelection();
+
+        llTopBar.setVisibility(View.VISIBLE);
+        tvTopTitle.setText("⚔️ " + c.name);
+        tvTopStreak.setText("Score: " + sparringScore + " (🔥 " + sparringStreak + ")");
+
+        llCompletionCard.setVisibility(View.GONE);
+        llCoachPill.setVisibility(View.VISIBLE);
+        flExplainOverlay.setVisibility(View.GONE);
+
+        tvCoachBadge.setText("⚔️ #" + (sparringScore + 1));
+        tvCoachBadge.setTextColor(Color.parseColor("#647C64"));
+        tvCoachPrompt.setText("Antidote: " + ch.title + " \u2014 Play from memory!");
+
+        boardView.setArrows(null);
+        boardView.setHighlightSquares(null);
+        boardView.invalidate();
+
+        boardView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                checkAndPlayOpponentReply();
+            }
+        }, 600);
+    }
 
     private void renderCurrentStep() {
         if (courses.isEmpty()) return;
-        OpeningModel.Course c = courses.get(currentCourseIdx);
-        OpeningModel.Chapter ch = c.chapters.get(currentChapterIdx);
+        OpeningModel.Chapter ch = getActiveChapter();
 
         if (currentStepIdx >= ch.steps.size()) {
+            if (isSparringMode) {
+                sparringScore++;
+                if (!hadMistakeInChapter) {
+                    sparringStreak++;
+                } else {
+                    sparringStreak = 0;
+                }
+                tvTopStreak.setText("Score: " + sparringScore + " (🔥 " + sparringStreak + ")");
+                Toast.makeText(this, "\u2b50 Line Cleared! Next challenge...", Toast.LENGTH_SHORT).show();
+
+                boardView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startSparringRound();
+                    }
+                }, 1000);
+                return;
+            }
+
             if (isStudyPhase) {
                 // ── Study phase done → switch to Drill ──────────────────
                 transitionToDrillPhase(false);
+            } else if (isGauntletPhase) {
+                // ── Gauntlet review line done → unlock variation ─────────
+                onGauntletComplete();
             } else {
-                // ── Drill phase done → full completion ───────────────────
-                onDrillComplete();
+                // ── Drill of current chapter done ───────────────────────
+                if (currentChapterIdx > 0) {
+                    // Trigger Option A Cumulative Gauntlet!
+                    transitionToGauntletPhase();
+                } else {
+                    onDrillComplete();
+                }
             }
             return;
         }
@@ -282,10 +452,19 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         OpeningModel.MoveStep step = ch.steps.get(currentStepIdx);
 
         if (!isStudyPhase) {
-            // DRILL phase: no arrows, no move names, no hints
-            tvCoachBadge.setText("DRILL");
-            tvCoachBadge.setTextColor(Color.parseColor("#F59E0B"));
-            tvCoachPrompt.setText("From memory — no hints!");
+            if (isGauntletPhase) {
+                tvCoachBadge.setText("🥊 GAUNTLET");
+                tvCoachBadge.setTextColor(Color.parseColor("#EF4444"));
+                tvCoachPrompt.setText("Line: " + ch.title + " \u2014 From memory!");
+            } else if (isSparringMode) {
+                tvCoachBadge.setText("⚔️ #" + (sparringScore + 1));
+                tvCoachBadge.setTextColor(Color.parseColor("#647C64"));
+                tvCoachPrompt.setText("Antidote: " + ch.title + " \u2014 Play!");
+            } else {
+                tvCoachBadge.setText("DRILL");
+                tvCoachBadge.setTextColor(Color.parseColor("#F59E0B"));
+                tvCoachPrompt.setText("From memory — no hints!");
+            }
             btnWhyExplain.setText("\uD83D\uDCA1 HINT");
             boardView.setArrows(null);
             boardView.setHighlightSquares(null);
@@ -304,14 +483,13 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
 
     private void showWhyDialog() {
         if (courses.isEmpty()) return;
-        OpeningModel.Course c = courses.get(currentCourseIdx);
-        OpeningModel.Chapter ch = c.chapters.get(currentChapterIdx);
+        OpeningModel.Chapter ch = getActiveChapter();
         if (currentStepIdx >= ch.steps.size()) return;
 
         OpeningModel.MoveStep step = ch.steps.get(currentStepIdx);
 
         if (!isStudyPhase) {
-            // In Drill phase: show arrow as hint but mark mistake
+            // In Drill / Gauntlet / Sparring mode: show arrow as hint but mark mistake
             hadMistakeInChapter = true;
             boardView.setArrows(step.arrows);
             boardView.setHighlightSquares(step.highlightSquares);
@@ -338,8 +516,7 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
     @Override
     public void onMoveAttempt(int fromSq, int toSq, String uci) {
         if (courses.isEmpty()) return;
-        OpeningModel.Course c = courses.get(currentCourseIdx);
-        OpeningModel.Chapter ch = c.chapters.get(currentChapterIdx);
+        OpeningModel.Chapter ch = getActiveChapter();
         if (currentStepIdx >= ch.steps.size()) return;
 
         OpeningModel.MoveStep expected = ch.steps.get(currentStepIdx);
@@ -360,7 +537,9 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         } else {
             // Wrong move — always retry, never advance
             hadMistakeInChapter = true;
-            if (!isStudyPhase) {
+            if (isGauntletPhase) {
+                Toast.makeText(this, "\u274C Gauntlet review mistake! Try again.", Toast.LENGTH_SHORT).show();
+            } else if (!isStudyPhase) {
                 Toast.makeText(this, "\u274C Wrong! Try again.", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Incorrect move! Try again.", Toast.LENGTH_SHORT).show();
@@ -389,9 +568,14 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
         for (int s = 0; s < 5; s++) stars.append(s < lvl ? "\u2605" : "\u2606");
 
         int rate = progressManager.getChapterSuccessRate(ch.id);
-        String drillResult = perfectDrill ? "\u2b50 PERFECT DRILL!" : "\u2705 DRILL PASSED";
-        tvCompletionTitle.setText(drillResult + " \u2014 " + ch.title.toUpperCase());
-        tvCompletionStats.setText("Mastery: " + stars.toString() + " \u2022 Accuracy: " + rate + "% \u2022 Moves Trained: " + progressManager.getTotalMovesTrained());
+        if (currentChapterIdx > 0) {
+            tvCompletionTitle.setText("🏆 CUMULATIVE GAUNTLET CLEARED!");
+            tvCompletionStats.setText(ch.title + " & Review passed! \u2022 Mastery: " + stars.toString() + " \u2022 Moves: " + progressManager.getTotalMovesTrained());
+        } else {
+            String drillResult = perfectDrill ? "\u2b50 PERFECT DRILL!" : "\u2705 DRILL PASSED";
+            tvCompletionTitle.setText(drillResult + " \u2014 " + ch.title.toUpperCase());
+            tvCompletionStats.setText("Mastery: " + stars.toString() + " \u2022 Accuracy: " + rate + "% \u2022 Moves: " + progressManager.getTotalMovesTrained());
+        }
 
         // Label next-line button appropriately
         if (currentChapterIdx + 1 < c.chapters.size()) {
@@ -408,8 +592,7 @@ public class MainActivity extends Activity implements ChessBoardView.OnMoveAttem
     private void checkAndPlayOpponentReply() {
         renderCurrentStep();
 
-        OpeningModel.Course c = courses.get(currentCourseIdx);
-        OpeningModel.Chapter ch = c.chapters.get(currentChapterIdx);
+        OpeningModel.Chapter ch = getActiveChapter();
 
         if (currentStepIdx < ch.steps.size()) {
             final OpeningModel.MoveStep nextStep = ch.steps.get(currentStepIdx);

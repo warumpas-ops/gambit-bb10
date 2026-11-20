@@ -204,6 +204,39 @@ public class HubActivity extends Activity {
             tvDesc.setPadding(2, 4, 2, 8);
             contentContainer.addView(tvDesc);
 
+            // Option C: Sparring Gym Button (Arcade practice across all unlocked variations)
+            int unlockedCount = 0;
+            for (int i = 0; i < totalVariations; i++) {
+                if (progressManager.isChapterUnlocked(course, i)) {
+                    unlockedCount++;
+                }
+            }
+            if (unlockedCount < 1) unlockedCount = 1;
+
+            Button btnSpar = new Button(this);
+            btnSpar.setText("⚔️ SPARRING GYM (" + unlockedCount + "/" + totalVariations + " UNLOCKED)");
+            btnSpar.setTextColor(Color.WHITE);
+            btnSpar.setTextSize(11f);
+            btnSpar.setBackgroundColor(Color.parseColor("#647C64"));
+            btnSpar.setPadding(8, 6, 8, 6);
+            LinearLayout.LayoutParams sparLp = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            sparLp.setMargins(0, 2, 0, 8);
+            btnSpar.setLayoutParams(sparLp);
+
+            final int finalCourseIdx = courseIdx;
+            btnSpar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    expandedCourseIds.add(course.id);
+                    Intent intent = new Intent(HubActivity.this, MainActivity.class);
+                    intent.putExtra("courseIdx", finalCourseIdx);
+                    intent.putExtra("isSparringMode", true);
+                    startActivity(intent);
+                }
+            });
+            contentContainer.addView(btnSpar);
+
             // Variations List with Sequential Progression
             for (int chIdx = 0; chIdx < course.chapters.size(); chIdx++) {
                 final int chapterIdx = chIdx;
