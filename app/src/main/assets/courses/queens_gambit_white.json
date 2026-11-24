@@ -201,7 +201,7 @@
         },
         {
           "moveSan": "6. e3",
-          "uci": "e1e3",
+          "uci": "e2e3",
           "isUserMove": true,
           "title": "Solidify Central Bastion",
           "explanation": "Support d4 and open lines for the light-squared bishop. White is in full control.",
